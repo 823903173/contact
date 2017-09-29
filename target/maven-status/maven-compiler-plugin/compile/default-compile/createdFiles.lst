@@ -1,0 +1,5 @@
+com\hmcc\contact\entity\Demo.class
+com\hmcc\contact\web\controller\DemoController.class
+com\hmcc\contact\service\IDemoService.class
+com\hmcc\contact\service\impl\DemoServiceImpl.class
+com\hmcc\contact\mapper\DemoMapper.class
