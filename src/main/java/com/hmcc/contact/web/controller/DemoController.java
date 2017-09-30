@@ -23,7 +23,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/demo")
-public class DemoController {
+public class DemoController extends AbstractController{
     @Autowired
     private IDemoService iDemoService;
 
@@ -40,5 +40,7 @@ public class DemoController {
         demoEntityWrapper.setTestDate(new Date());
         demoEntityWrapper.setState(1);
         return iDemoService.insert(demoEntityWrapper);
+
     }
+
 }

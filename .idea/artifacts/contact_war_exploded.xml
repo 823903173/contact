@@ -13,7 +13,6 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-core:4.3.11.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-expression:4.3.11.RELEASE" />
           <element id="library" level="project" name="Maven: com.zaxxer:HikariCP-java7:2.4.12" />
-          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.21" />
           <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:4.3.11.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-tx:4.3.11.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-web:4.3.11.RELEASE" />
@@ -34,6 +33,9 @@
           <element id="library" level="project" name="Maven: com.github.jsqlparser:jsqlparser:1.1" />
           <element id="library" level="project" name="Maven: org.apache.velocity:velocity-engine-core:2.0" />
           <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.8.10" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.19" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-log4j12:1.7.19" />
+          <element id="library" level="project" name="Maven: log4j:log4j:1.2.17" />
         </element>
       </element>
       <element id="directory" name="META-INF">

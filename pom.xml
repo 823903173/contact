@@ -13,8 +13,6 @@
         <HikariCP.version>2.4.12</HikariCP.version>
     </properties>
 
-<!--撒旦法撒旦发射-->
-    <!--sdfiosajfoisajdfg-->
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -113,6 +111,17 @@
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
             <version>1.8.10</version>
+        </dependency>
+<!--log4j-->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.19</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.19</version>
         </dependency>
 
     </dependencies>
