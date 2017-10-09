@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
+/**-
  * <p>
  * 代码生成器演示
  * </p>
@@ -25,7 +25,6 @@ public class Test {
      */
     public static void main(String[] args) {
         AutoGenerator mpg = new AutoGenerator();
-
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
         gc.setOutputDir("D://");
@@ -34,7 +33,7 @@ public class Test {
         gc.setEnableCache(false);// XML 二级缓存
         gc.setBaseResultMap(true);// XML ResultMap
         gc.setBaseColumnList(false);// XML columList
-        gc.setAuthor("CuiYong");
+        gc.setAuthor("chenhao");
 
         // 自定义文件命名，注意 %s 会自动填充表实体属性！
         // gc.setMapperName("%sDao");
@@ -58,16 +57,16 @@ public class Test {
         });
         dsc.setDriverName("com.mysql.jdbc.Driver");
         dsc.setUsername("root");
-        dsc.setPassword("root");
-        dsc.setUrl("jdbc:mysql://127.0.0.1:3306/hnmcc_tv?characterEncoding=utf8");
+        dsc.setPassword("chenhao");
+        dsc.setUrl("jdbc:mysql://127.0.0.1:3306/contactszc?characterEncoding=utf8");
         mpg.setDataSource(dsc);
 
         // 策略配置
         StrategyConfig strategy = new StrategyConfig();
         // strategy.setCapitalMode(true);// 全局大写命名 ORACLE 注意
-        strategy.setTablePrefix(new String[]{"tv_"});// 此处可以修改为您的表前缀
+        strategy.setTablePrefix(new String[]{"contact_"});// 此处可以修改为您的表前缀
         strategy.setNaming(NamingStrategy.underline_to_camel);// 表名生成策略
-        strategy.setInclude(new String[]{"tv_demo"}); // 需要生成的表
+        strategy.setInclude(new String[]{"contact_management_operations_log"}); // 需要生成的表
         // strategy.setExclude(new String[]{"test"}); // 排除生成的表
         // 自定义实体父类
         // strategy.setSuperEntityClass("com.baomidou.demo.TestEntity");
@@ -91,7 +90,7 @@ public class Test {
 
         // 包配置
         PackageConfig pc = new PackageConfig();
-        pc.setParent("com.xwtec.test");
+        pc.setParent("com.hmcc.contact");
 //        pc.setModuleName("test");
         pc.setEntity("entity");
         pc.setMapper("mapper");

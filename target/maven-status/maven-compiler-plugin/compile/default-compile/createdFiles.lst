@@ -2,4 +2,6 @@ com\hmcc\contact\web\controller\DemoController.class
 com\hmcc\contact\service\IDemoService.class
 com\hmcc\contact\service\impl\DemoServiceImpl.class
 com\hmcc\contact\mapper\DemoMapper.class
+com\hmcc\contact\web\controller\AbstractController.class
+com\hmcc\contact\entity\NewLog.class
 com\hmcc\contact\entity\Demo.class

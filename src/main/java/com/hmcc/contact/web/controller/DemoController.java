@@ -27,14 +27,16 @@ public class DemoController extends AbstractController{
     @Autowired
     private IDemoService iDemoService;
 
-    @GetMapping
+    @GetMapping("lista")
     public List<Demo> list() {
         EntityWrapper<Demo> demoEntityWrapper = new EntityWrapper<>();
         return iDemoService.selectList(demoEntityWrapper);
     }
-    @PostMapping("add")
+//    @PostMapping("add")
+    @RequestMapping("add")
     public boolean add() {
         Demo demoEntityWrapper = new Demo();
+        demoEntityWrapper.setId("6");
         demoEntityWrapper.setAge(12312);
         demoEntityWrapper.setName("张三");
         demoEntityWrapper.setTestDate(new Date());
