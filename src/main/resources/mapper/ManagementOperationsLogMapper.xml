@@ -17,4 +17,8 @@
 	<select id="list" resultMap="BaseResultMap">
 		select * from contactszc
 	</select>
+
+	<select id="queryByAdminId" resultMap="BaseResultMap" resultType="com.hmcc.contact.entity.ManagementOperationsLog">
+		select * from contact_management_operations_log where admin_id = #{adminId}
+	</select>
 </mapper>

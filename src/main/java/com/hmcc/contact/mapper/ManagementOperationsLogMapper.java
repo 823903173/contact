@@ -2,6 +2,9 @@ package com.hmcc.contact.mapper;
 
 import com.hmcc.contact.entity.ManagementOperationsLog;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,6 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
  */
 public interface ManagementOperationsLogMapper extends BaseMapper<ManagementOperationsLog> {
 
+    @Select("queryByAdminId")
+    List<ManagementOperationsLog> queryByAdminId(int adminId);
 }
