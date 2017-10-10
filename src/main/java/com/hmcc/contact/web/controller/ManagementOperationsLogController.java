@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -26,6 +27,10 @@ import java.util.List;
 public class ManagementOperationsLogController extends AbstractController {
 	@Autowired
     private IManagementOperationsLogService iManagementOperationsLogService;
+    private int admin_id;
+    private String operations_log;
+    private Integer operations_result;
+    private String operations_ip;
 
     /*
       测试，并且 没有成功
@@ -45,6 +50,24 @@ public class ManagementOperationsLogController extends AbstractController {
     public List<ManagementOperationsLog> queryByAdminId(int admin_id){
         List<ManagementOperationsLog> managementOperationsLogEntityWrapper = iManagementOperationsLogService.queryByAdminId(admin_id);
         return managementOperationsLogEntityWrapper;
+    }
+
+    /*
+      插入一条日志
+      包涵参数如下
+      url:insertOneLog.do?admin_id = xxx & create_time=xxx & operations_log=xxx & operations_result=xxx & operations_ip=xxx
+      ######################################
+      正在考虑是否使参数标准化。例如使用json
+     */
+    @GetMapping("insertOneLog")
+    public boolean insertOneLog(int admin_id, Date create_time, String operations_log , Integer operations_result, String operations_ip){
+        ManagementOperationsLog managementOperationsLog = new ManagementOperationsLog();
+        managementOperationsLog.setAdminId(admin_id);
+        managementOperationsLog.setCreateTime(create_time);
+        managementOperationsLog.setOperationsLog(operations_log);
+        managementOperationsLog.setOperationsResult(operations_result);
+        managementOperationsLog.setOperationsIp(operations_ip);
+        return iManagementOperationsLogService.insert(managementOperationsLog);
     }
 
 }
