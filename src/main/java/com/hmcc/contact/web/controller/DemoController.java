@@ -32,6 +32,7 @@ public class DemoController extends AbstractController{
         EntityWrapper<Demo> demoEntityWrapper = new EntityWrapper<>();
         return iDemoService.selectList(demoEntityWrapper);
     }
+    
 //    @PostMapping("add")
     @RequestMapping("add")
     public boolean add() {
