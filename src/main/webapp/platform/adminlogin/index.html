@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, user-scalable=0, width=device-width">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="block">
+    <meta name="format-detection" content="telephone=no">
+    <title>移动流量王</title>
+    <link rel="stylesheet" href="css/public.css" type="text/css">
+    <link rel="stylesheet" href="css/code.css" type="text/css">
+
+</head>
+<body>
+    <header class="header-box">
+        <img src="images/98-01.png">
+        <img src="images/98-02.png">
+    </header>
+    <div class="btn-con"><a href="#" class="handle-btn">立即办理</a></div>
+    <div class="tip-tit">温馨提示</div>
+    <div class="rule-con">
+      <dl>
+      	 <dt>流&nbsp;&nbsp;量</dt>
+      	 <dd>套餐含国内流量1G，省内流量11.5G，超出套餐后0.29元/M，每10元100M，60元1个G，循环计费。套餐内流量可结转至次月月底。</dd>
+      </dl>
+      <dl>
+      	 <dt>通&nbsp;&nbsp;话</dt>
+      	 <dd>套餐内含220分钟全国通话，600分钟省内通话；超出套餐后，全国通话0.19元/分钟；全国接听免费。</dd>
+      </dl>
+      <dl>
+      	 <dt>短&nbsp;&nbsp;信</dt>
+      	 <dd>发送国内短信0.1元/条；接收免费（不含梦网信息）。</dd>
+      </dl>
+      <dl>
+      	 <dt>其他说明</dt>
+      	 <dd>1.该套餐客户可以办理流量王专属宽带政策、可以开通各种流量包日/月/季/半年包等流量产品。</dd>
+      	 <dd>2.该套餐不能订购多终端流量共享业务、不能开通副卡，不能参加终端合约、套餐合约等优惠活动。</dd>
+      	 <dd>3.以上资费均不含港澳台地区。</dd>
+      </dl>
+    </div>
+    
+    <!--弹窗-->
+    <!--点击立即订购 提示-->
+    <!--点击立即订购 提示-->
+    <div class="popup-box popup-order-box" id="comfirm">
+        <div class="popup-bg"></div>
+        <div class="popup-container">
+            <div class="popup-head">
+                <img src="images/pop-tit.png">
+                <a href="javascript:;" class="popup-close-btn"></a>
+            </div>
+            <div class="popup-body">
+                <div class="popup-tst-box">
+                    <p>尊敬的<strong id="userphone"></strong>用户:</p>
+                    <p>您的当前套餐:<span id="tcname"></span></p>
+                    <p>将变更为:<span>移动流量王98元档</span></p>
+                </div>
+                <div class="popup-btn-box clearfloat">
+                    <a href="javascript:order()" class="popup-btn-style1 recharge-btn">立即订购</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--订购成功 订购失败 提示-->
+    <!--订购成功 订购失败 提示-->
+    <div class="popup-box popup-again-box" id="show">
+        <div class="popup-bg"></div>
+        <div class="popup-container">
+            <div class="popup-head">
+                <img src="images/pop-tit.png">
+                <a href="javascript:;" class="popup-close-btn"></a>
+            </div>
+            <div class="popup-body">
+                <div class="popup-tst-box">
+                    <p class="test-center bigger"><span id="msg">恭喜您，订购成功</span></p>
+                    <p id="errmsg"></p>
+                </div>
+                <div class="popup-tst-box none">
+                    <p class="test-center bigger">订购套餐失败</p>
+                    <p>失败原因：XXXXXXXXXXXXXXXXX</p>
+                </div>
+                <div class="popup-btn-box clearfloat">
+                    <a href="#" class="popup-btn-style1 close">关闭</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--提示 -->
+
+    <div class="popup-box popup-order-box" id="yzmk">
+        <div class="popup-bg"></div>
+        <div class="popup-container">
+            <div class="popup-head">
+                <img src="images/pop-tit.png">
+                <a href="javascript:;" class="popup-close-btn"></a>
+            </div>
+            <div class="popup-body">
+                <div class="popup-tst-box">
+                    <!-- <p>:</p>-->
+                    <p>尊敬的用户正在为您变更为:<span>移动流量王98元档</span></p>
+                </div>
+                <div class="phone-box">
+                    <p><input type="tel" placeholder="请输入手机号" id="phone">
+                        <a href="#" class="clear-btn"><img src="images/clear-icon.png"></a></p>
+                    <p class="code-box">
+                        <input type="text" placeholder="请输入验证码" id="yzm">
+                        <a href="javascript:getYZM();" class="get-code">获取验证码</a>
+                    </p>
+                </div>
+                <div class="popup-btn-box clearfloat">
+                    <a href="javascript:dxorder()" class="popup-btn-style1 recharge-btn">立即订购</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="../../../h5sso/js/DWSSOLoginRedirect.js"></script>
+    <script type="text/javascript" src="../../../h5sso/js/uuid.js"></script>
+    <script type="text/javascript" src="../../../h5sso/js/WeixinApi.js"></script>
+    <script src="js/index.js" type="text/javascript"></script>
+    <script src="js/layer.js" type="text/javascript"></script>
+    <script src="js/webtrends.load.cmreadlxwap.js"></script>
+    <script src="js/code.js"></script>
+</body>
+</html>

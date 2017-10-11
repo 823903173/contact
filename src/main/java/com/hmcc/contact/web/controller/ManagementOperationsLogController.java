@@ -33,7 +33,8 @@ public class ManagementOperationsLogController extends AbstractController {
     private String operations_ip;
 
     /*
-      测试，并且 没有成功
+      测试，
+      忽略这个 没什么用
       url:getOnesOfDepart.do?depart_id = xxx
      */
     @GetMapping("lista")
@@ -60,14 +61,16 @@ public class ManagementOperationsLogController extends AbstractController {
       正在考虑是否使参数标准化。例如使用json
      */
     @GetMapping("insertOneLog")
-    public boolean insertOneLog(int admin_id, Date create_time, String operations_log , Integer operations_result, String operations_ip){
+    public void insertOneLog(int admin_id, Date create_time, String operations_log , Integer operations_result, String operations_ip){
+//        创建一个对象
         ManagementOperationsLog managementOperationsLog = new ManagementOperationsLog();
+//        把所有参数信息都放入其中
         managementOperationsLog.setAdminId(admin_id);
         managementOperationsLog.setCreateTime(create_time);
         managementOperationsLog.setOperationsLog(operations_log);
         managementOperationsLog.setOperationsResult(operations_result);
         managementOperationsLog.setOperationsIp(operations_ip);
-        return iManagementOperationsLogService.insert(managementOperationsLog);
+        iManagementOperationsLogService.insert(managementOperationsLog);
     }
 
 }

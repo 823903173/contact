@@ -1,7 +1,12 @@
-com\hmcc\contact\web\controller\DemoController.class
 com\hmcc\contact\service\IDemoService.class
 com\hmcc\contact\service\impl\DemoServiceImpl.class
+com\hmcc\contact\entity\AddresslistUser.class
+com\hmcc\contact\service\impl\AddresslistUserServiceImpl.class
+com\hmcc\contact\service\IAddresslistUserService.class
+com\hmcc\contact\mapper\AddresslistUserMapper.class
+com\hmcc\contact\web\controller\DemoController.class
+com\hmcc\contact\web\controller\AddresslistUserController.class
 com\hmcc\contact\mapper\DemoMapper.class
 com\hmcc\contact\web\controller\AbstractController.class
-com\hmcc\contact\entity\NewLog.class
 com\hmcc\contact\entity\Demo.class
+com\hmcc\contact\entity\NewLog.class
