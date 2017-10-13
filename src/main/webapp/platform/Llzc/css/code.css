@@ -1,0 +1,46 @@
+.phone-box p {
+    border: 1px solid #ddd;
+    -webkit-border-radius: .25rem;
+    border-radius: .25rem;
+    padding: .25rem;
+    margin: .75rem 0;
+    position: relative;
+}
+
+.phone-box p input {
+    display: block;
+    width: 100%;
+    font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, sans-serif;
+    line-height: 1.5em;
+    font-size: .7rem;
+    border: none;
+    outline: none;
+}
+
+.phone-box p.code-box {
+    padding-right: 5rem;
+    position: relative;
+}
+
+.get-code {
+    color: #4299f7;
+    font-size: .75rem;
+    position: absolute;
+    width: 4.5rem;
+    border-left: 1px solid #ddd;
+    right: 0;
+    bottom: .2rem;
+    text-align: center;
+}
+
+.clear-btn {
+    position: absolute;
+    width: .5rem;
+    right: .5rem;
+    top: 0;
+    display: none;
+}
+
+.clear-btn img {
+    width: .5rem;
+}
