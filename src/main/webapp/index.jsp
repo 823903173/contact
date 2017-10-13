@@ -2,6 +2,8 @@
 <%
 String path1 = request.getContextPath();
 //response.sendRedirect(path1 + "/login/toImportExcel.do");
+
+    
     response.sendRedirect(path1 + "/ContactUserlogin/toImportExcel.do");
 %>
 
