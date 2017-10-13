@@ -8,6 +8,8 @@ import java.util.Date;
 import com.baomidou.mybatisplus.enums.IdType;
 import com.baomidou.mybatisplus.activerecord.Model;
 import com.baomidou.mybatisplus.annotations.TableName;
+import net.sf.jsqlparser.expression.DateTimeLiteralExpression;
+
 import java.io.Serializable;
 
 /**
@@ -28,7 +30,7 @@ public class ManagementOperationsLog extends Model<ManagementOperationsLog> {
 	@TableField("admin_id")
 	private Integer adminId;
 	@TableField("create_time")
-	private Date createTime;
+	private String createTime;
 	@TableField("operations_log")
 	private String operationsLog;
 	@TableField("operations_result")
@@ -57,11 +59,11 @@ public class ManagementOperationsLog extends Model<ManagementOperationsLog> {
 		this.adminId = adminId;
 	}
 
-	public Date getCreateTime() {
+	public String getCreateTime() {
 		return createTime;
 	}
 
-	public void setCreateTime(Date createTime) {
+	public void setCreateTime(String createTime) {
 		this.createTime = createTime;
 	}
 

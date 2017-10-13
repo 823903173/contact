@@ -43,7 +43,6 @@ public class DemoController extends AbstractController{
         demoEntityWrapper.setTestDate(new Date());
         demoEntityWrapper.setState(1);
         return iDemoService.insert(demoEntityWrapper);
-
     }
 
 }
