@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hmcc.contact.mapper.ContactUserDao" >
+  <resultMap id="BaseResultMap" type="com.hmcc.contact.entity.ContactUser" >
+    <id column="USER_ID" property="userid" jdbcType="VARCHAR" />
+    <result column="USER_NAME" property="username" jdbcType="VARCHAR" />
+    <result column="USER_GENDER" property="usergender" jdbcType="VARCHAR" />
+    <result column="ORG_ID" property="orgid" jdbcType="CHAR" />
+    <result column="USER_DUTY" property="userduty" jdbcType="VARCHAR" />
+    <result column="USER_PHONENUM" property="userphonenum" jdbcType="VARCHAR" />
+    <result column="IS_HIDDEN" property="ishidden" jdbcType="VARCHAR" />
+    <result column="USER_POSITION" property="userposition" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    USER_ID, USER_NAME, USER_GENDER, ORG_ID, USER_DUTY, USER_PHONENUM, IS_HIDDEN, USER_POSITION
+  </sql>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from contact_user
+    where USER_ID = #{userid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insertSelective" parameterType="com.hmcc.contact.entity.ContactUser" >
+    insert into contact_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userid != null" >
+        USER_ID,
+      </if>
+      <if test="username != null" >
+        USER_NAME,
+      </if>
+      <if test="usergender != null" >
+        USER_GENDER,
+      </if>
+      <if test="orgid != null" >
+        ORG_ID,
+      </if>
+      <if test="userduty != null" >
+        USER_DUTY,
+      </if>
+      <if test="userphonenum != null" >
+        USER_PHONENUM,
+      </if>
+      <if test="ishidden != null" >
+        IS_HIDDEN,
+      </if>
+      <if test="userposition != null" >
+        USER_POSITION,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userid != null" >
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="usergender != null" >
+        #{usergender,jdbcType=VARCHAR},
+      </if>
+      <if test="orgid != null" >
+        #{orgid,jdbcType=CHAR},
+      </if>
+      <if test="userduty != null" >
+        #{userduty,jdbcType=VARCHAR},
+      </if>
+      <if test="userphonenum != null" >
+        #{userphonenum,jdbcType=VARCHAR},
+      </if>
+      <if test="ishidden != null" >
+        #{ishidden,jdbcType=VARCHAR},
+      </if>
+      <if test="userposition != null" >
+        #{userposition,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="selectAllSSims" resultMap="BaseResultMap">
+  	SELECT * FROM contact_user WHERE 1=1
+  </select>
+</mapper>
