@@ -1,72 +1,171 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee"
-         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
-         version="3.0">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         id="WebApp_ID" version="2.5">
     <display-name>Archetype Created Web Application</display-name>
+    <!-- 起始欢迎界面 -->
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <!-- 读取spring配置文件 -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath:spring/spring-config.xml</param-value>
     </context-param>
-    <listener>
-        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>
-
-    <servlet>
-        <servlet-name>contact-manage</servlet-name>
-        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <init-param>
-            <param-name>contextConfigLocation</param-name>
-            <param-value>classpath:spring/spring-servlet.xml</param-value>
-        </init-param>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>contact-manage</servlet-name>
-        <!--代表所有以html后缀的我都让springMVC来拦截-->
-        <url-pattern>*.do</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>contact-manage</servlet-name>
-        <!--代表只要url包含rest的我都让springMVC来拦截-->
-        <url-pattern>/rest/*</url-pattern>
-    </servlet-mapping>
+    <!-- 设计路径变量值 -->
+    <context-param>
+        <param-name>webAppRootKey</param-name>
+        <param-value>springmvc.root</param-value>
+    </context-param>
 
 
-    <!-- log4j2-begin -->
-    <listener>
-        <listener-class>org.apache.logging.log4j.web.Log4jServletContextListener</listener-class>
-    </listener>
+    <!-- Spring字符集过滤器 -->
     <filter>
-        <filter-name>log4jServletFilter</filter-name>
-        <filter-class>org.apache.logging.log4j.web.Log4jServletFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>log4jServletFilter</filter-name>
-        <url-pattern>/*</url-pattern>
-        <dispatcher>REQUEST</dispatcher>
-        <dispatcher>FORWARD</dispatcher>
-        <dispatcher>INCLUDE</dispatcher>
-        <dispatcher>ERROR</dispatcher>
-    </filter-mapping>
-    <!-- log4j2-end -->
-    <filter>
-        <filter-name>encodingFilter</filter-name>
+        <filter-name>SpringEncodingFilter</filter-name>
         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
         <init-param>
             <param-name>encoding</param-name>
-            <param-value>utf-8</param-value>
+            <param-value>UTF-8</param-value>
         </init-param>
         <init-param>
             <param-name>forceEncoding</param-name>
             <param-value>true</param-value>
         </init-param>
     </filter>
-
     <filter-mapping>
-        <filter-name>encodingFilter</filter-name>
+        <filter-name>SpringEncodingFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-    <welcome-file-list>
-        <welcome-file>login.html</welcome-file>
-    </welcome-file-list>
+
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+    <!-- springMVC核心配置 -->
+    <servlet>
+        <servlet-name>dispatcherServlet</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <!--spingMVC的配置路径  -->
+            <param-value>classpath:spring/spring-servlet.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <!-- 拦截设置 -->
+    <servlet-mapping>
+        <servlet-name>dispatcherServlet</servlet-name>
+        <!-- <url-pattern>/</url-pattern> -->
+        <url-pattern>*.do</url-pattern>
+    </servlet-mapping>
+
+    <!-- 错误跳转页面 -->
+    <!--<error-page>-->
+        <!--&lt;!&ndash; 路径不正确 &ndash;&gt;-->
+        <!--<error-code>404</error-code>-->
+        <!--<location>/WEB-INF/errorpage/404.jsp</location>-->
+    <!--</error-page>-->
+    <!--<error-page>-->
+        <!--&lt;!&ndash; 没有访问权限，访问被禁止 &ndash;&gt;-->
+        <!--<error-code>405</error-code>-->
+        <!--<location>/WEB-INF/errorpage/405.jsp</location>-->
+    <!--</error-page>-->
+    <!--<error-page>-->
+        <!--&lt;!&ndash; 内部错误 &ndash;&gt;-->
+        <!--<error-code>500</error-code>-->
+        <!--<location>/WEB-INF/errorpage/500.jsp</location>-->
+    <!--</error-page>-->
 </web-app>
+        <!--<?xml version="1.0" encoding="UTF-8"?>-->
+        <!--<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee"-->
+        <!--xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"-->
+        <!--version="3.0">-->
+        <!--<display-name>Archetype Created Web Application</display-name>-->
+        <!--<context-param>-->
+        <!--<param-name>contextConfigLocation</param-name>-->
+        <!--<param-value>classpath:spring/spring-config.xml</param-value>-->
+        <!--</context-param>-->
+        <!--<listener>-->
+        <!--<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>-->
+        <!--</listener>-->
+
+        <!--<servlet>-->
+        <!--<servlet-name>contact-manage</servlet-name>-->
+        <!--<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>-->
+        <!--<init-param>-->
+        <!--<param-name>contextConfigLocation</param-name>-->
+        <!--<param-value>classpath:spring/spring-servlet.xml</param-value>-->
+        <!--</init-param>-->
+        <!--<load-on-startup>1</load-on-startup>-->
+        <!--</servlet>-->
+        <!--<servlet-mapping>-->
+        <!--<servlet-name>contact-manage</servlet-name>-->
+        <!--&lt;!&ndash;代表所有以html后缀的我都让springMVC来拦截&ndash;&gt;-->
+        <!--<url-pattern>*.do</url-pattern>-->
+        <!--</servlet-mapping>-->
+        <!--<servlet-mapping>-->
+        <!--<servlet-name>contact-manage</servlet-name>-->
+        <!--&lt;!&ndash;代表只要url包含rest的我都让springMVC来拦截&ndash;&gt;-->
+        <!--<url-pattern>/rest/*</url-pattern>-->
+        <!--</servlet-mapping>-->
+
+
+        <!--&lt;!&ndash; log4j2-begin &ndash;&gt;-->
+        <!--<listener>-->
+        <!--<listener-class>org.apache.logging.log4j.web.Log4jServletContextListener</listener-class>-->
+        <!--</listener>-->
+        <!--<filter>-->
+        <!--<filter-name>log4jServletFilter</filter-name>-->
+        <!--<filter-class>org.apache.logging.log4j.web.Log4jServletFilter</filter-class>-->
+        <!--</filter>-->
+        <!--<filter-mapping>-->
+        <!--<filter-name>log4jServletFilter</filter-name>-->
+        <!--<url-pattern>/*</url-pattern>-->
+        <!--<dispatcher>REQUEST</dispatcher>-->
+        <!--<dispatcher>FORWARD</dispatcher>-->
+        <!--<dispatcher>INCLUDE</dispatcher>-->
+        <!--<dispatcher>ERROR</dispatcher>-->
+        <!--</filter-mapping>-->
+        <!--&lt;!&ndash; log4j2-end &ndash;&gt;-->
+        <!--&lt;!&ndash; Spring字符集过滤器 &ndash;&gt;-->
+        <!--<filter>-->
+        <!--<filter-name>SpringEncodingFilter</filter-name>-->
+        <!--<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>-->
+        <!--<init-param>-->
+        <!--<param-name>encoding</param-name>-->
+        <!--<param-value>UTF-8</param-value>-->
+        <!--</init-param>-->
+        <!--<init-param>-->
+        <!--<param-name>forceEncoding</param-name>-->
+        <!--<param-value>true</param-value>-->
+        <!--</init-param>-->
+        <!--</filter>-->
+        <!--<filter-mapping>-->
+        <!--<filter-name>SpringEncodingFilter</filter-name>-->
+        <!--<url-pattern>/*</url-pattern>-->
+        <!--</filter-mapping>-->
+
+
+        <!--&lt;!&ndash;<filter>&ndash;&gt;-->
+        <!--&lt;!&ndash;<filter-name>encodingFilter</filter-name>&ndash;&gt;-->
+        <!--&lt;!&ndash;<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>&ndash;&gt;-->
+        <!--&lt;!&ndash;<init-param>&ndash;&gt;-->
+        <!--&lt;!&ndash;<param-name>encoding</param-name>&ndash;&gt;-->
+        <!--&lt;!&ndash;<param-value>utf-8</param-value>&ndash;&gt;-->
+        <!--&lt;!&ndash;</init-param>&ndash;&gt;-->
+        <!--&lt;!&ndash;<init-param>&ndash;&gt;-->
+        <!--&lt;!&ndash;<param-name>forceEncoding</param-name>&ndash;&gt;-->
+        <!--&lt;!&ndash;<param-value>true</param-value>&ndash;&gt;-->
+        <!--&lt;!&ndash;</init-param>&ndash;&gt;-->
+        <!--&lt;!&ndash;</filter>&ndash;&gt;-->
+
+        <!--&lt;!&ndash;<filter-mapping>&ndash;&gt;-->
+        <!--&lt;!&ndash;<filter-name>encodingFilter</filter-name>&ndash;&gt;-->
+        <!--&lt;!&ndash;<url-pattern>/*</url-pattern>&ndash;&gt;-->
+        <!--&lt;!&ndash;</filter-mapping>&ndash;&gt;-->
+        <!--<welcome-file-list>-->
+        <!--<welcome-file>index.jsp</welcome-file>-->
+        <!--</welcome-file-list>-->
+        <!--</web-app>-->
