@@ -12,5 +12,7 @@ import com.baomidou.mybatisplus.service.IService;
  * @since 2017-10-13
  */
 public interface IAddresslistMessageSendService extends IService<AddresslistMessageSend> {
+    boolean queryPhoneNumAndVerifyCode(long phoneNumber,String verifyCode);
+//    AddresslistMessageSend
 	
 }

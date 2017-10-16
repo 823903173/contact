@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hmcc.contact.mapper.SendMapper">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="com.hmcc.contact.entity.Send">
+		<id column="system_Id" property="systemId" />
+		<result column="phone_Number" property="phoneNumber" />
+		<result column="verify_code" property="verifyCode" />
+	</resultMap>
+
+	<select id="queryPhoneNumAndVerifyCode"  resultType="java.lang.Boolean">
+		select count(*) from send where phone_Number=#{phoneNumber} and verify_code = #{verify_code};
+	</select>
+</mapper>

@@ -28,7 +28,7 @@ public class AddresslistMessageSend extends Model<AddresslistMessageSend> {
 	@TableField("phone_num")
 	private Long phoneNum;
 	@TableField("send_time")
-	private Date sendTime;
+	private String sendTime;
 	@TableField("send_text")
 	private String sendText;
 	@TableField("send_status")
@@ -59,11 +59,11 @@ public class AddresslistMessageSend extends Model<AddresslistMessageSend> {
 		this.phoneNum = phoneNum;
 	}
 
-	public Date getSendTime() {
+	public String getSendTime() {
 		return sendTime;
 	}
 
-	public void setSendTime(Date sendTime) {
+	public void setSendTime(String sendTime) {
 		this.sendTime = sendTime;
 	}
 

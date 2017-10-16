@@ -16,5 +16,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class AddresslistMessageSendServiceImpl extends ServiceImpl<AddresslistMessageSendMapper, AddresslistMessageSend> implements IAddresslistMessageSendService {
-	
+    public boolean queryPhoneNumAndVerifyCode(long phoneNumber, String verifyCode) {
+        return baseMapper.queryPhoneNumAndVerifyCode(phoneNumber,verifyCode);
+    }
 }

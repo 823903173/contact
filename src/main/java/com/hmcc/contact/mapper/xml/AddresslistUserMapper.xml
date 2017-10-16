@@ -25,8 +25,8 @@
 	</resultMap>
 
 	<select id="queryOne" parameterType="int" resultType="com.hmcc.contact.entity.AddresslistUser">
-		select * from addresslist_user where id = #{id}
-	</select>
+	select * from addresslist_user where id = #{id}
+</select>
 
 	<select id="queryOnes" resultMap="BaseResultMap">
 		select * from addresslist_user
