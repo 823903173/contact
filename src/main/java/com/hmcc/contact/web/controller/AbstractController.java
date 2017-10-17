@@ -4,7 +4,28 @@ import com.hmcc.contact.util.*;
 import java.util.Date;
 
 /**
- * Created by a8239 on 2017/9/29.
+ * Created by  on 2017/9/29.
+ * ----------Dragon be here!----------/
+ * 　　　┏┓　　　┏┓
+ * 　　┏┛┻━━━┛┻┓
+ * 　　┃　　　　　　　┃
+ * 　　┃　　　━　　　┃
+ * 　　┃　┳┛　┗┳　┃
+ * 　　┃　　　　　　　┃
+ * 　　┃　　　┻　　　┃
+ * 　　┃　　　　　　　┃
+ * 　　┗━┓　　　┏━┛
+ * 　　　　┃　　　┃神兽保佑
+ * 　　　　┃　　　┃代码无BUG！
+ * 　　　　┃　　　┗━━━┓
+ * 　　　　┃　　　　　　　┣┓
+ * 　　　　┃　　　　　　　┏┛
+ * 　　　　┗┓┓┏━┳┓┏┛
+ * 　　　　　┃┫┫　┃┫┫
+ * 　　　　　┗┻┛　┗┻┛
+ * ━━━━━━神兽出没━━━━━━by:coder-chenhao
+ *
+ *
  */
 public abstract class AbstractController {
     //还没想好写啥

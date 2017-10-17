@@ -50,38 +50,16 @@ public class AddresslistMessageSendController {
     @Autowired
     private ISendService iSendService;
 
-    /*验证用户名密码*/
-    @GetMapping("queryPhoneNumAndVerifyCode")
-    public boolean queryPhoneNumAndVerifyCode(long phoneNumber,String verifyCode){
-        return iSendService.queryPhoneNumAndVerifyCode(phoneNumber,verifyCode);
-    }
-
-//    @GetMapping
-//    public int insert(long phoneNumber){
-//        return 0;
+    /*验证用户名密码
+    *
+    * 在sendcontroller已经写过了
+    * 这里不需要了
+    *
+    *
+    * */
+//    @GetMapping("queryPhoneNumAndVerifyCode")
+//    public boolean queryPhoneNumAndVerifyCode(long phoneNumber,String verifyCode){
+//        return iSendService.queryPhoneNumAndVerifyCode(phoneNumber,verifyCode);
 //    }
-
-    /*
-     响应登录，先检查手机号是否在库中
-     */
-    //        此方法不是一个通用方法
-    //        由于查询的数据库不同。仅提供给管理员使用
-//    @GetMapping("loginByCheckPhoneNumber")
-//    public int loginByCheckPhoneNumber(long phoneNumber){
-////        iAssresslistMessageSendService.
-//        return 0;
-//    }
-
-
-
-    /*
-    响应登录，再短信验证
-    */
-//    @GetMapping("loginBySendMessage")
-//    public int loginBySendMessage(long phoneNumber){
-//
-//        return 0;
-//    }
-
 	
 }

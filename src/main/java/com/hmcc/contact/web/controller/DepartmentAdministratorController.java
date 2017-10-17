@@ -60,8 +60,15 @@ public class DepartmentAdministratorController {
     private ISendService iSendService;
 
     /*
+    【前台看这里！！】
      响应登录，先检查手机号是否在库中
+     url:/departmentAdministrator/CheckDepartmentPhoneNumber.do?phoneNumber = xxx
+     返回值：
+     点击获取验证码后，
+     若返回true则可以获得验证码，若false则不可获得验证码
      */
+
+    //        for programmer
     //        此方法不是一个通用方法
     //        由于查询的数据库不同。仅提供给管理员使用
     @GetMapping("CheckDepartmentPhoneNumber")
