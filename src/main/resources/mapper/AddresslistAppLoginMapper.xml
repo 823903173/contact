@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hmcc.contact.mapper.AddresslistAppLoginMapper">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="com.hmcc.contact.entity.AddresslistAppLogin">
+		<id column="system_id" property="systemId" />
+		<result column="phone_num" property="phoneNum" />
+		<result column="login_time" property="loginTime" />
+		<result column="login_result" property="loginResult" />
+		<result column="phone_type" property="phoneType" />
+		<result column="phone_imei" property="phoneImei" />
+		<result column="extended_field_1" property="extendedField1" />
+		<result column="extended_field_2" property="extendedField2" />
+		<result column="extended_field_3" property="extendedField3" />
+		<result column="extended_field_4" property="extendedField4" />
+	</resultMap>
+
+	<select id="CheckUserPhoneNumber"  resultType="java.lang.Boolean">
+		select count(*) from addresslist_app_login where phone_num = #{0} and phone_imei = #{1}
+	</select>
+
+</mapper>

@@ -93,11 +93,12 @@ public class AddresslistUserController {
     }
     /*
     响应登录，先检查手机号是否在库中
+    大于1则表示存在
+
     */
     @GetMapping("loginByPhone")
     public int loginByPhone (String phone_num)
     {
-
          int rs = iAddresslistUserService.loginByPhone(Long.parseLong(phone_num.trim()));
          return rs;
     }

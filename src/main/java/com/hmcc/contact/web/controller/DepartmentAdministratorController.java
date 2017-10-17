@@ -111,9 +111,9 @@ public class DepartmentAdministratorController {
             send.setVerifyCode(hehe);
             iSendService.insert(send);
 
-            System.out.println(addresslistMessageSend+"~~~~~~~~~~~~addresslistMessageSend");
-            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-            System.out.println(send+"~~~~~~~~~~~~~~~~~send");
+//            System.out.println(addresslistMessageSend+"~~~~~~~~~~~~addresslistMessageSend");
+//            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+//            System.out.println(send+"~~~~~~~~~~~~~~~~~send");
 
             return CheckPhoneNum;
         }else {//若不能，则不能产生随机码

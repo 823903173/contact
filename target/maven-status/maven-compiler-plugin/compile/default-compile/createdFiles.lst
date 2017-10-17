@@ -23,6 +23,7 @@ com\hmcc\contact\service\impl\ContactUserServiceImpl.class
 com\hmcc\contact\service\IAddresslistUserService.class
 com\hmcc\contact\mapper\AddresslistUserMapper.class
 com\hmcc\contact\web\controller\AddresslistUserController.class
+com\hmcc\contact\web\controller\FileController.class
 com\hmcc\contact\mapper\DemoMapper.class
 com\hmcc\contact\web\controller\AbstractController.class
 com\hmcc\contact\entity\Demo.class
