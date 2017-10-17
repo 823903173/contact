@@ -19,6 +19,8 @@ public class SendServiceImpl extends ServiceImpl<SendMapper, Send> implements IS
 
     @Override
     public boolean queryPhoneNumAndVerifyCode(long phoneNumber,String verifyCode) {
+        System.out.println(phoneNumber+"      service!!!!    "+verifyCode);
+
         return baseMapper.queryPhoneNumAndVerifyCode(phoneNumber,verifyCode);
     }
 	

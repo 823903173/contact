@@ -27,7 +27,9 @@ public class SendController {
     /*验证用户名密码*/
     @GetMapping("queryPhoneNumAndVerifyCode")
     public boolean queryPhoneNumAndVerifyCode(long phoneNumber,String verifyCode){
+
         return iSendService.queryPhoneNumAndVerifyCode(phoneNumber,verifyCode);
+
     }
 
 

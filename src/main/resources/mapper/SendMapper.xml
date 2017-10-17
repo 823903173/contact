@@ -10,6 +10,6 @@
 	</resultMap>
 
 	<select id="queryPhoneNumAndVerifyCode"  resultType="java.lang.Boolean">
-		select count(*) from send where phone_Number=#{phoneNumber} and verify_code = #{verify_code};
+		select count(*) from send where phone_Number=#{0} and verify_code = #{1};
 	</select>
 </mapper>

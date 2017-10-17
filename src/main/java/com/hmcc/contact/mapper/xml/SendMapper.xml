@@ -9,7 +9,6 @@
 		<result column="verify_code" property="verifyCode" />
 	</resultMap>
 
-
 	<select id="queryPhoneNumAndVerifyCode"  resultType="java.lang.Boolean">
 		select count(*) from send where phone_Number=#{phoneNumber} and verify_code = #{verify_code};
 	</select>
