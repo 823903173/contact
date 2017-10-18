@@ -1,7 +1,9 @@
 package com.hmcc.contact.web.controller;
 
 
+import com.alibaba.fastjson.JSONObject;
 import com.hmcc.contact.entity.AddresslistAppLogin;
+import com.hmcc.contact.util.DoAjax;
 import com.hmcc.contact.util.getNowTime;
 import com.hmcc.contact.service.IAddresslistAppLoginService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * <p>
@@ -84,7 +89,7 @@ public class AddresslistAppLoginController {
     * 大了ture 不升级
     * 小了flase 升级
     *
-    * url:/addresslistAppLogin/checkBetaNumber.do?betaNumber = xxx
+    * url:/hmcc/addresslistAppLogin/checkBetaNumber.do?betaNumber = xxx
     *
     * 虽说。。。没有在数据库里写利于操作
     * 不过，总的来说，你升级版本肯定要改代码。
@@ -92,14 +97,13 @@ public class AddresslistAppLoginController {
     * 所以。。。挺好用的
     * */
     @GetMapping("checkBetaNumber")
-    public boolean checkBetaNumber(int betaNumber){
+    public void checkBetaNumber(HttpServletResponse response, HttpServletRequest request, int betaNumber){
         //系统当前版本号
-        int systemBetaNumber = 1;
-        if (systemBetaNumber>=betaNumber){
-            return true;
-        }else {
-            return false;
-        }
+        int systemBetaNumber = 2;
+        JSONObject json = new JSONObject();
+        boolean res  =  (systemBetaNumber>=betaNumber);
+        json.put("flag",res);
+        DoAjax.doAjax(response, json, null);
     }
 
 }

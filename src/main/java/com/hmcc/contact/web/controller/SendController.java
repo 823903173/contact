@@ -64,8 +64,8 @@ public class SendController {
     @GetMapping("queryPhoneNumAndVerifyCode")
     public void queryPhoneNumAndVerifyCode( HttpServletResponse response, HttpServletRequest request,String phoneNumber,String verifyCode){
 
-//        HttpSession session = request.getSession(true);
-//        session.setAttribute("logined","success");
+        HttpSession session = request.getSession(true);
+        session.setAttribute("logined",phoneNumber);
 //        System.out.println(session.getId()+"      session");
 
         JSONObject json = new JSONObject();
@@ -81,6 +81,7 @@ public class SendController {
         boolean res = iSendService.queryPhoneNumAndVerifyCode(phoneNumberLong,verifyCode);
 
         json.put("flag",res);
+        json.put("session",session);
         DoAjax.doAjax(response, json, null);
 
         //return iSendService.queryPhoneNumAndVerifyCode(phoneNumberjson,verifyCodejson);
