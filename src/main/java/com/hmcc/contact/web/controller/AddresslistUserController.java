@@ -64,23 +64,27 @@ public class AddresslistUserController {
     @GetMapping("search")
     public List<AddresslistUser> searchByNameOrNum (String str_input)
     {
-        String str = "15937128877";
-        //将url参数转为utf8码
-        try
-        {
-            str = URLDecoder.decode(str,"utf-8");
 
-        }
-        catch (Exception ex)
-        {
-            System.out.println(ex);
-        }
         //判断输入是否全为数字
         Pattern pattern = Pattern.compile("[0-9]*");
         if (pattern.matcher(str_input).matches())
         {
             return iAddresslistUserService.searchByPhoneNum(Long.parseLong(str_input));
         }
+
+
+        String str = "15937128877";
+        //将url参数转为utf8码
+        try
+        {
+            str = URLDecoder.decode(str_input,"utf-8");
+
+        }
+        catch (Exception ex)
+        {
+            System.out.println(ex);
+        }
+
         //判断输入是否为汉字
         String reg = "[\\u4e00-\\u9fa5]+";
         if(str.matches(reg))

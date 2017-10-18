@@ -31,6 +31,7 @@ public class AddresslistUserServiceImpl extends ServiceImpl<AddresslistUserMappe
         }
         public List<AddresslistUser> searchByName(String name)
         {
+            System.out.println( baseMapper.searchByName(name));
             return baseMapper.searchByName(name);
         }
         public List<AddresslistUser> searchByPhoneNum(long phoneNum)

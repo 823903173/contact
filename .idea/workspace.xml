@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="845ee5bc-1a58-4d12-a249-51433996f40e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/hmcc/contact/web/controller/AddresslistAppLoginController.java" afterPath="$PROJECT_DIR$/src/main/java/com/hmcc/contact/web/controller/AddresslistAppLoginController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/hmcc/contact/web/controller/SendController.java" afterPath="$PROJECT_DIR$/src/main/java/com/hmcc/contact/web/controller/SendController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/hmcc/contact/service/impl/AddresslistUserServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/hmcc/contact/service/impl/AddresslistUserServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/hmcc/contact/web/controller/AddresslistUserController.java" afterPath="$PROJECT_DIR$/src/main/java/com/hmcc/contact/web/controller/AddresslistUserController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,11 +29,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="AddresslistAppLoginController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AddresslistAppLoginController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/hmcc/contact/web/controller/AddresslistAppLoginController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="100" column="17" lean-forward="true" selection-start-line="100" selection-start-column="17" selection-end-line="100" selection-end-column="17" />
+            <state relative-caret-position="-146">
+              <caret line="86" column="22" lean-forward="false" selection-start-line="86" selection-start-column="22" selection-end-line="86" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AddresslistMessageSendController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/hmcc/contact/web/controller/AddresslistMessageSendController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="448">
+              <caret line="55" column="12" lean-forward="false" selection-start-line="55" selection-start-column="12" selection-end-line="55" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -47,16 +57,6 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AddresslistMessageSendController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/hmcc/contact/web/controller/AddresslistMessageSendController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="55" column="12" lean-forward="false" selection-start-line="55" selection-start-column="12" selection-end-line="55" selection-end-column="12" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -84,50 +84,54 @@
       <file leaf-file-name="FileController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/hmcc/contact/web/controller/FileController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="82" column="94" lean-forward="false" selection-start-line="82" selection-start-column="94" selection-end-line="82" selection-end-column="94" />
+            <state relative-caret-position="405">
+              <caret line="79" column="28" lean-forward="false" selection-start-line="79" selection-start-column="28" selection-end-line="79" selection-end-column="28" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DemoController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/hmcc/contact/web/controller/DemoController.java">
+      <file leaf-file-name="AddresslistUserController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/hmcc/contact/web/controller/AddresslistUserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="37">
-              <caret line="43" column="30" lean-forward="false" selection-start-line="43" selection-start-column="30" selection-end-line="43" selection-end-column="30" />
+            <state relative-caret-position="405">
+              <caret line="74" column="0" lean-forward="true" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CollectNewLogController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/hmcc/contact/web/controller/CollectNewLogController.java">
+      <file leaf-file-name="AddresslistUserMapper.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/AddresslistUserMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="513">
+              <caret line="37" column="112" lean-forward="false" selection-start-line="37" selection-start-column="112" selection-end-line="37" selection-end-column="112" />
               <folding>
-                <element signature="e#0#1520#0" expanded="true" />
+                <marker date="1508288203707" expanded="true" signature="1513:1565" ph="select * fro... addresslist_user" />
+                <marker date="1508288203707" expanded="true" signature="1694:1804" ph="select user_... addresslist_user" />
+                <marker date="1508288203707" expanded="true" signature="1926:2033" ph="select user_... addresslist_user" />
+                <marker date="1508288203707" expanded="true" signature="2159:2270" ph="select user_... addresslist_user" />
+                <marker date="1508288203707" expanded="true" signature="2345:2412" ph="select count... addresslist_user" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AddresslistUserController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/hmcc/contact/web/controller/AddresslistUserController.java">
+      <file leaf-file-name="AddresslistUserMapper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/hmcc/contact/mapper/AddresslistUserMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1966">
-              <caret line="100" column="5" lean-forward="false" selection-start-line="100" selection-start-column="5" selection-end-line="100" selection-end-column="5" />
+            <state relative-caret-position="195">
+              <caret line="16" column="17" lean-forward="false" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AbstractController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/hmcc/contact/web/controller/AbstractController.java">
+      <file leaf-file-name="AddresslistUserServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/hmcc/contact/service/impl/AddresslistUserServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="13" column="14" lean-forward="false" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
+            <state relative-caret-position="340">
+              <caret line="34" column="49" lean-forward="false" selection-start-line="34" selection-start-column="49" selection-end-line="34" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -164,7 +168,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/hmcc/contact/mapper/xml/ContactUserMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/hmcc/contact/mapper/ContactUserDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hmcc/contact/service/ContactUserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hmcc/contact/service/impl/ContactUserServiceImpl.java" />
@@ -203,7 +206,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/hmcc/contact/service/impl/AddresslistAppLoginServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hmcc/contact/mapper/AddresslistAppLoginMapper.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/AddresslistAppLoginMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hmcc/contact/web/controller/AddresslistUserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hmcc/contact/util/json/ReverseOrderResponse.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hmcc/contact/util/DoAjax.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hmcc/contact/entity/Send.java" />
@@ -215,6 +217,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/hmcc/contact/web/controller/ContactUserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hmcc/contact/web/controller/SendController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hmcc/contact/web/controller/AddresslistAppLoginController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hmcc/contact/service/impl/AddresslistUserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hmcc/contact/web/controller/AddresslistUserController.java" />
       </list>
     </option>
   </component>
@@ -421,6 +425,54 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="contact" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="contact" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="contact" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="contact" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mapper" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1216,7 +1268,7 @@
       <workItem from="1508115201894" duration="21258000" />
       <workItem from="1508200701537" duration="20494000" />
       <workItem from="1508288213486" duration="3922000" />
-      <workItem from="1508292582510" duration="12568000" />
+      <workItem from="1508292582510" duration="14626000" />
     </task>
     <task id="LOCAL-00001" summary="ceshi">
       <created>1506655337950</created>
@@ -1309,11 +1361,18 @@
       <option name="project" value="LOCAL" />
       <updated>1508311503598</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="更新ajax部分接口">
+      <created>1508313846223</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1508313846223</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="130520000" />
+    <option name="totallyTimeSpent" value="132578000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1330,7 +1389,7 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3150224" sideWeight="0.502445" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2163677" sideWeight="0.502445" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1348,7 +1407,7 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.119672135" sideWeight="0.4969743" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3150224" sideWeight="0.49755502" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2163677" sideWeight="0.49755502" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295082" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22799511" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1399,27 +1458,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/tools/ExcelUtilContact.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7105">
-          <caret line="29" column="13" lean-forward="false" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/test/Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="146" column="34" lean-forward="false" selection-start-line="146" selection-start-column="34" selection-end-line="146" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hmcc/contact/service/ContactUserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="13" column="17" lean-forward="false" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/hmcc/contact/service/IAddresslistMessageSendService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -1539,19 +1577,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/AddresslistUserMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1269">
-          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
           <folding>
-            <marker date="1508288203707" expanded="true" signature="1513:1565" ph="select * fro... addresslist_user" />
-            <marker date="1508288203707" expanded="true" signature="1694:1804" ph="select user_... addresslist_user" />
-            <marker date="1508288203707" expanded="true" signature="1926:2033" ph="select user_... addresslist_user" />
-            <marker date="1508288203707" expanded="true" signature="2159:2270" ph="select user_... addresslist_user" />
-            <marker date="1508288203707" expanded="true" signature="2345:2412" ph="select count... addresslist_user" />
+            <marker date="1508288203704" expanded="true" signature="940:1032" ph="select count... send" />
           </folding>
         </state>
       </provider>
@@ -1870,22 +1897,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hmcc/contact/web/controller/AddresslistUserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1966">
-          <caret line="100" column="5" lean-forward="false" selection-start-line="100" selection-start-column="5" selection-end-line="100" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hmcc/contact/web/controller/AddresslistMessageSendController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="55" column="12" lean-forward="false" selection-start-line="55" selection-start-column="12" selection-end-line="55" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/hmcc/contact/web/controller/AbstractController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
@@ -1902,18 +1913,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hmcc/contact/web/controller/FileController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="82" column="94" lean-forward="false" selection-start-line="82" selection-start-column="94" selection-end-line="82" selection-end-column="94" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/hmcc/contact/web/controller/ManagementOperationsLogController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-383">
           <caret line="45" column="2" lean-forward="false" selection-start-line="26" selection-start-column="1" selection-end-line="45" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/AddresslistUserMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="37" column="112" lean-forward="false" selection-start-line="37" selection-start-column="112" selection-end-line="37" selection-end-column="112" />
+          <folding>
+            <marker date="1508288203707" expanded="true" signature="1513:1565" ph="select * fro... addresslist_user" />
+            <marker date="1508288203707" expanded="true" signature="1694:1804" ph="select user_... addresslist_user" />
+            <marker date="1508288203707" expanded="true" signature="1926:2033" ph="select user_... addresslist_user" />
+            <marker date="1508288203707" expanded="true" signature="2159:2270" ph="select user_... addresslist_user" />
+            <marker date="1508288203707" expanded="true" signature="2345:2412" ph="select count... addresslist_user" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hmcc/contact/mapper/AddresslistUserMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="16" column="17" lean-forward="false" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hmcc/contact/service/impl/AddresslistUserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="34" column="49" lean-forward="false" selection-start-line="34" selection-start-column="49" selection-end-line="34" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hmcc/contact/service/impl/AddresslistMessageSendServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1928,10 +1969,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hmcc/contact/web/controller/FileController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="79" column="28" lean-forward="false" selection-start-line="79" selection-start-column="28" selection-end-line="79" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/hmcc/contact/web/controller/AddresslistAppLoginController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="100" column="17" lean-forward="true" selection-start-line="100" selection-start-column="17" selection-end-line="100" selection-end-column="17" />
+        <state relative-caret-position="-146">
+          <caret line="86" column="22" lean-forward="false" selection-start-line="86" selection-start-column="22" selection-end-line="86" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hmcc/contact/web/controller/AddresslistMessageSendController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="55" column="12" lean-forward="false" selection-start-line="55" selection-start-column="12" selection-end-line="55" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hmcc/contact/web/controller/AddresslistUserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="74" column="0" lean-forward="true" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
           <folding />
         </state>
       </provider>
