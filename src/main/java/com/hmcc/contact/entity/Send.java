@@ -26,6 +26,8 @@ public class Send extends Model<Send> {
 	private Long phoneNumber;
 	@TableField("verify_code")
 	private String verifyCode;
+	@TableField("text")
+	private String text;
 
 
 	public Integer getSystemId() {
@@ -52,6 +54,14 @@ public class Send extends Model<Send> {
 		this.verifyCode = verifyCode;
 	}
 
+	public String getText() {
+		return text;
+	}
+
+	public void setText(String text) {
+		this.text = text;
+	}
+
 	@Override
 	protected Serializable pkVal() {
 		return this.systemId;
@@ -63,6 +73,7 @@ public class Send extends Model<Send> {
 			", systemId=" + systemId +
 			", phoneNumber=" + phoneNumber +
 			", verifyCode=" + verifyCode +
+			", text=" + text +
 			"}";
 	}
 }

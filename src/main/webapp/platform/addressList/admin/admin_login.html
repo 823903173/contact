@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <link rel="stylesheet" href="css/login.css" type="text/css">
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/login.js" type="text/javascript"></script>
+</head>
+<body>
+    <div class="login-box">
+        <div class="tit-box">
+            <p><span class="tit-left bigger">登录</span><span class="bigger">LOGIN</span></p>
+            <!--<p>输入手机号验证码登录通讯录管理后台</p>-->
+        </div>
+        <div class="phone-box">
+            <p><span class="tit-left">手机号</span><span>PHONE NUMBER</span></p>
+            <p><input type="text" placeholder="请输入手机号" id="phone">
+                <button type="button" class="get-code">获取短信验证码</button></p>
+        </div>
+        <div class="code-box">
+            <p><span class="tit-left">验证码</span><span>MESSAGE CODE</span></p>
+            <p><input type="text" placeholder="请输入验证码" id="yzm"></p>
+        </div>
+        <div class="btn-box">
+            <!--<a href="javascript:getYZM();" class="login-btn">登录</a>-->
+            <button type="button" class="login-btn">登录</button>
+        </div>
+
+    </div>
+</body>
+</html>

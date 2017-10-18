@@ -15,6 +15,6 @@ import org.apache.ibatis.annotations.Select;
 public interface SendMapper extends BaseMapper<Send> {
 
     @Select("queryPhoneNumAndVerifyCode")
-    boolean queryPhoneNumAndVerifyCode(long phoneNumber, String verifyCode  );
+    boolean queryPhoneNumAndVerifyCode(long phoneNumber, String verifyCode   );
 
 }

@@ -1,0 +1,79 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    color: #343436;
+    font-family:"Microsoft YaHei", Tahoma, Arial, Helvetica, "宋体";
+}
+body{
+    background: url(../images/back_left.png) no-repeat;
+    background-color: #fbfcff;
+    font-size: 14px !important;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    position: relative;
+    height: 100%;
+}
+a{
+    font-size: 14px;
+    color: #6d6d6d;
+    text-decoration: none;
+}
+
+img{
+    border: none;
+}
+
+.login-box {
+    width: 400px;
+    position: absolute;
+    text-align: left;
+    right: 170px;
+    top: 100px;
+}
+p{
+    margin-bottom: 10px;
+}
+.tit-left{
+    margin-right: 1rem;
+}
+.bigger{
+    font-size: 22px;
+    font-weight: 600;
+}
+.tit-box{
+    margin-bottom: 80px;
+}
+.phone-box input{
+    border: 1px solid #cccccc;
+    width: 260px;
+    height: 33px;
+    padding-left: 5px;
+}
+.phone-box .get-code{
+    background-color: #5575ef;
+    border: none;
+    color: #ffffff;
+    padding: 8px;
+}
+.phone-box{
+    margin-bottom: 30px;
+}
+.code-box input{
+    border: 1px solid #cccccc;
+    width: 380px;
+    height: 33px;
+    padding-left: 5px;
+}
+.btn-box{
+    margin-top: 100px;
+    text-align: center;
+}
+.login-btn{
+    background-color: #5575ef;
+    border: none;
+    color: #ffffff;
+    padding: 8px 25px;
+
+}

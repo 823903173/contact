@@ -1,12 +1,14 @@
 package com.hmcc.contact.web.controller;
 
 
+import com.alibaba.fastjson.JSONObject;
 import com.hmcc.contact.entity.AddresslistMessageSend;
 import com.hmcc.contact.entity.DepartmentAdministrator;
 import com.hmcc.contact.entity.Send;
 import com.hmcc.contact.service.IAddresslistMessageSendService;
 import com.hmcc.contact.service.IDepartmentAdministratorService;
 import com.hmcc.contact.service.ISendService;
+import com.hmcc.contact.util.DoAjax;
 import com.hmcc.contact.util.getNowTime;
 import com.hmcc.contact.util.randomMessageNumber;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 /**
  *
@@ -72,9 +76,10 @@ public class DepartmentAdministratorController {
     //        此方法不是一个通用方法
     //        由于查询的数据库不同。仅提供给管理员使用
     @GetMapping("CheckDepartmentPhoneNumber")
-    public boolean CheckDepartmentPhoneNumber(long phoneNumber){
+    public void CheckDepartmentPhoneNumber(HttpServletResponse response, HttpServletRequest request, long phoneNumber){
         boolean CheckPhoneNum;
         CheckPhoneNum = iDepartmentAdministratorService.CheckDepartmentPhoneNumber(phoneNumber);
+        JSONObject json = new JSONObject();
 
         if(CheckPhoneNum){
             /*
@@ -108,17 +113,18 @@ public class DepartmentAdministratorController {
             Send send = new Send();
             send.setPhoneNumber(phoneNumber);
             String hehe = "【打死也不要告诉任何人你的验证码！】尊敬的用户您好，您本次登录验证码为："+suijima+"。此验证码有效期为十分钟。";
-            send.setVerifyCode(hehe);
+            send.setText(hehe);
+            send.setVerifyCode(suijima);
             iSendService.insert(send);
 
-//            System.out.println(addresslistMessageSend+"~~~~~~~~~~~~addresslistMessageSend");
-//            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-//            System.out.println(send+"~~~~~~~~~~~~~~~~~send");
-
-            return CheckPhoneNum;
+            json.put("flag",CheckPhoneNum);
+            DoAjax.doAjax(response, json, null);
+//            return CheckPhoneNum;
         }else {//若不能，则不能产生随机码
             System.out.println("查不到");
-            return CheckPhoneNum;
+            json.put("flag",CheckPhoneNum);
+            DoAjax.doAjax(response, json, null);
+//            return CheckPhoneNum;
         }
 
 

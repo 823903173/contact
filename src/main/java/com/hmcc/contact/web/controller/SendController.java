@@ -7,6 +7,7 @@ import com.hmcc.contact.service.ISendService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import com.hmcc.contact.util.DoAjax;
 
 
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * <p>
@@ -60,15 +62,28 @@ public class SendController {
     * url:/send/queryPhoneNumAndVerifyCode.do?phoneNumber = xxx & verifyCode = xxx
     * */
     @GetMapping("queryPhoneNumAndVerifyCode")
-    public boolean queryPhoneNumAndVerifyCode( long phoneNumber, String verifyCode){
-//        HttpServletResponse response, HttpServletRequest request,
-//        JSONObject json = new JSONObject();
+    public void queryPhoneNumAndVerifyCode( HttpServletResponse response, HttpServletRequest request,String phoneNumber,String verifyCode){
+
+//        HttpSession session = request.getSession(true);
+//        session.setAttribute("logined","success");
+//        System.out.println(session.getId()+"      session");
+
+        JSONObject json = new JSONObject();
 //        Send send = new Send();
 //        send.getVerifyCode();
-//        Object a = request.getSession().getAttribute("s");
-//        System.out.println(a);
-//        DoAjax.doAjax(response, json, null);
-        return iSendService.queryPhoneNumAndVerifyCode(phoneNumber,verifyCode);
+//        long phoneNumberjson = Long.parseLong(request.getParameter("phoneNumber"));
+//        String verifyCodejson = request.getParameter("phoneNumber");
+//        System.out.println(phoneNumberjson);
+//        System.out.println(verifyCodejson+"-----------------verifyCodejson");
+//        System.out.println(request+"-----------------request");
+//        System.out.println(response+"------------------response");
+        long phoneNumberLong = Long.parseLong(phoneNumber);
+        boolean res = iSendService.queryPhoneNumAndVerifyCode(phoneNumberLong,verifyCode);
+
+        json.put("flag",res);
+        DoAjax.doAjax(response, json, null);
+
+        //return iSendService.queryPhoneNumAndVerifyCode(phoneNumberjson,verifyCodejson);
     }
 
 
