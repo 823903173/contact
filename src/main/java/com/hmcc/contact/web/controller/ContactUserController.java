@@ -1,5 +1,6 @@
 package com.hmcc.contact.web.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.hmcc.contact.entity.ContactUser;
 import com.hmcc.contact.service.ContactUserService;
 import org.apache.commons.io.FileUtils;
@@ -11,6 +12,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.InputStream;
 import java.util.List;
@@ -25,7 +29,17 @@ public class ContactUserController {
     private ContactUserService contactUserService;
 
     @RequestMapping("/toImportExcel")
-    public ModelAndView toLoginPage(){
+    public ModelAndView toLoginPage(HttpServletResponse response, HttpServletRequest request){
+        
+//        JSONObject json = new JSONObject();
+//        HttpSession session = request.getSession();
+//        if (session.getAttribute("phoneNumber")==null){
+//            System.out.println("aaaaaaaaaaaaa");
+//
+//        }else {
+//            System.out.println(session.getAttribute("phoneNumber"));
+//        }
+
         ModelAndView mv = new ModelAndView("importSimExcelContact");
         return mv;
     }
