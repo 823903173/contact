@@ -1,26 +1,53 @@
 package com.hmcc.contact.web.controller;
 
 
+import com.alibaba.fastjson.JSONObject;
 import com.hmcc.contact.entity.AddresslistUser;
 
 import com.hmcc.contact.service.IAddresslistUserService;
+import com.hmcc.contact.service.ISendService;
+import com.hmcc.contact.util.DoAjax;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.net.URLDecoder;
 import java.util.List;
 import java.util.regex.Pattern;
 
 /**
  * <p>
- * 个人信息表 前端控制器
+ * APP登录日志表 前端控制器
  * </p>
  *
- * @author CuiYong
- * @since 2017-09-27
+ *
+ * *----------Dragon be here!----------/
+ * 　　　┏┓　　　┏┓
+ * 　　┏┛┻━━━┛┻┓
+ * 　　┃　　　　　　　┃
+ * 　　┃　　　━　　　┃
+ * 　　┃　┳┛　┗┳　┃
+ * 　　┃　　　　　　　┃
+ * 　　┃　　　┻　　　┃
+ * 　　┃　　　　　　　┃
+ * 　　┗━┓　　　┏━┛
+ * 　　　　┃　　　┃神兽保佑
+ * 　　　　┃　　　┃代码无BUG！
+ * 　　　　┃　　　┗━━━┓
+ * 　　　　┃　　　　　　　┣┓
+ * 　　　　┃　　　　　　　┏┛
+ * 　　　　┗┓┓┏━┳┓┏┛
+ * 　　　　　┃┫┫　┃┫┫
+ * 　　　　　┗┻┛　┗┻┛
+ * ━━━━━━神兽出没━━━━━━by:coder-chenhao
+ *
+ *
+ * @author chenhao
+ * @since 2017-10-17
  */
 @RestController
 @RequestMapping("/app")
@@ -28,14 +55,16 @@ public class AddresslistUserController {
 
     @Autowired
     private IAddresslistUserService iAddresslistUserService;
-
+    @Autowired
+    private ISendService iSendService;
 
 
     /*
-       响应人员个人信息展示页面
-       根据人员id返回所有信息
-       url= getOneAll.do?id = xxx
-    */
+    * 响应人员个人信息展示页面
+    * 根据人员id返回所有信息
+    * url= getOneAll.do?id = xxx
+    *
+    * */
     @GetMapping("getOneAll")
     public AddresslistUser getOneAll(String id)
     {
@@ -52,9 +81,8 @@ public class AddresslistUserController {
     @GetMapping("getOnesOfDepart")
     public List<AddresslistUser> getOnesOfDepart(String depart_id)
     {
-        List<AddresslistUser> users =  iAddresslistUserService.getOnesByDepart(Integer.parseInt(depart_id.trim()));
+        List<AddresslistUser> users =  iAddresslistUserService.getOnesByDepart(depart_id.trim());
         return  users;
-
     }
 
     /*
@@ -62,18 +90,22 @@ public class AddresslistUserController {
 
      */
     @GetMapping("search")
-    public List<AddresslistUser> searchByNameOrNum (String str_input)
+    public List<AddresslistUser> searchByNameOrNum (HttpServletResponse response, HttpServletRequest request,String str_input)
     {
+        JSONObject json = new JSONObject();
 
         //判断输入是否全为数字
         Pattern pattern = Pattern.compile("[0-9]*");
         if (pattern.matcher(str_input).matches())
         {
-            return iAddresslistUserService.searchByPhoneNum(Long.parseLong(str_input));
+            List<AddresslistUser> res = iAddresslistUserService.searchByPhoneNum(Long.parseLong(str_input));
+            json.put("value",res);
+            DoAjax.doAjax(response, json, null);
+//            return iAddresslistUserService.searchByPhoneNum(Long.parseLong(str_input));
         }
 
 
-        String str = "15937128877";
+        String str = "111111";
         //将url参数转为utf8码
         try
         {
@@ -89,7 +121,11 @@ public class AddresslistUserController {
         String reg = "[\\u4e00-\\u9fa5]+";
         if(str.matches(reg))
         {
-            return iAddresslistUserService.searchByName(str.trim());
+
+            List<AddresslistUser> res = iAddresslistUserService.searchByName(str.trim());
+            json.put("value",res);
+            DoAjax.doAjax(response, json, null);
+//            return iAddresslistUserService.searchByName(str.trim());
         }
 
         return null;
@@ -97,24 +133,34 @@ public class AddresslistUserController {
     }
     /*
     响应登录，先检查手机号是否在库中
-    大于1则表示存在
+    true则表示存在
+    false则表示不存在
 
     */
     @GetMapping("loginByPhone")
-    public int loginByPhone (String phone_num)
+    public void loginByPhone (HttpServletResponse response, HttpServletRequest request,String phone_num)
     {
-         int rs = iAddresslistUserService.loginByPhone(Long.parseLong(phone_num.trim()));
-         return rs;
+        JSONObject json = new JSONObject();
+         boolean res = iAddresslistUserService.loginByPhone(Long.parseLong(phone_num.trim()));
+        json.put("flag",res);
+        DoAjax.doAjax(response, json, null);
+//         return res;
     }
 
     /*
    响应登录，再短信验证
    */
     @GetMapping("loginByMsg")
-    public boolean loginByMsg (String phone_num)
+    public void loginByMsg (HttpServletResponse response, HttpServletRequest request, String phoneNumber,String verifyCode)
     {
+        JSONObject json = new JSONObject();
+        long phoneNumberLong = Long.parseLong(phoneNumber);
+        boolean res = iSendService.queryPhoneNumAndVerifyCode(phoneNumberLong,verifyCode);
 
-        return  true;
+        json.put("flag",res);
+//        json.put("session",session);
+        DoAjax.doAjax(response, json, null);
+//        return  true;
     }
 
     /*

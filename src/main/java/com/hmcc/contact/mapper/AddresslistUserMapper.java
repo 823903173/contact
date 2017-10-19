@@ -17,7 +17,7 @@ import java.util.List;
 public interface AddresslistUserMapper extends BaseMapper<AddresslistUser> {
 
     @Select("queryOnesByDepartId")
-    List<AddresslistUser> queryOnesByDepartId(int departId);
+    List<AddresslistUser> queryOnesByDepartId(String departId);
 
     @Select("queryOne")
     AddresslistUser queryOne(int id);
@@ -29,6 +29,6 @@ public interface AddresslistUserMapper extends BaseMapper<AddresslistUser> {
     List<AddresslistUser> searchByPhoneNum(long phoneNum);
 
     @Select("loginByPhone")
-    int loginByPhone(long phoneNum);
+    boolean loginByPhone(long phoneNum);
 
 }

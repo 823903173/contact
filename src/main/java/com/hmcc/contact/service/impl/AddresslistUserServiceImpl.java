@@ -20,7 +20,7 @@ import java.util.List;
 @Service
 public class AddresslistUserServiceImpl extends ServiceImpl<AddresslistUserMapper, AddresslistUser> implements IAddresslistUserService {
 
-        public List<AddresslistUser> getOnesByDepart(int departId)
+        public List<AddresslistUser> getOnesByDepart(String departId)
         {
             return baseMapper.queryOnesByDepartId(departId);
         }
@@ -38,7 +38,7 @@ public class AddresslistUserServiceImpl extends ServiceImpl<AddresslistUserMappe
         {
             return baseMapper.searchByPhoneNum(phoneNum);
         }
-        public int loginByPhone(long phoneNum)
+        public boolean loginByPhone(long phoneNum)
         {
             return baseMapper.loginByPhone(phoneNum);
         }

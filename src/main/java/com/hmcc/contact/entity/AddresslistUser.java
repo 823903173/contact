@@ -30,7 +30,7 @@ public class AddresslistUser extends Model<AddresslistUser> {
 	@TableField("user_gender")
 	private Integer userGender;
 	@TableField("group_id")
-	private Integer groupId;
+	private String groupId;
 	@TableField("user_job")
 	private String userJob;
 	@TableField("phone_num")
@@ -85,11 +85,11 @@ public class AddresslistUser extends Model<AddresslistUser> {
 		this.userGender = userGender;
 	}
 
-	public Integer getGroupId() {
+	public String getGroupId() {
 		return groupId;
 	}
 
-	public void setGroupId(Integer groupId) {
+	public void setGroupId(String groupId) {
 		this.groupId = groupId;
 	}
 

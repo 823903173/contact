@@ -15,11 +15,11 @@ import java.util.List;
  */
 public interface IAddresslistUserService extends IService<AddresslistUser> {
 
-     List<AddresslistUser> getOnesByDepart(int departId);
+     List<AddresslistUser> getOnesByDepart(String departId);
      AddresslistUser getOneInfo(int id);
      List<AddresslistUser> searchByName(String name);
      List<AddresslistUser> searchByPhoneNum(long phoneNum);
-     int loginByPhone(long phoneNum);
+     boolean loginByPhone(long phoneNum);
 
 
 }

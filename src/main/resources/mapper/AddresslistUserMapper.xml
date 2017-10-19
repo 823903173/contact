@@ -35,11 +35,11 @@
 	</select>
 
 	<select id="searchByName" resultMap="BaseResultMap" resultType="com.hmcc.contact.entity.AddresslistUser">
-		select user_id, user_name, user_gender, user_job, phone_num from addresslist_user where user_name = #{name}
+		select user_id, user_name, user_gender, user_job, phone_num, extended_field_1, group_id from addresslist_user where user_name = #{name}
 	</select>
 
 	<select id="searchByPhoneNum" resultMap="BaseResultMap" resultType="com.hmcc.contact.entity.AddresslistUser">
-		select user_id, user_name, user_gender, user_job, phone_num from addresslist_user where phone_num = #{phoneNum}
+		select user_id, user_name, user_gender, user_job, phone_num, extended_field_1, group_id from addresslist_user where phone_num = #{phoneNum}
 	</select>
 
 	<select id="loginByPhone"  resultType="java.lang.Integer">
