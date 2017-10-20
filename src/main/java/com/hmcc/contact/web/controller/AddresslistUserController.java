@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.net.URLDecoder;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -66,10 +67,23 @@ public class AddresslistUserController {
     *
     * */
     @GetMapping("getOneAll")
-    public AddresslistUser getOneAll(String id)
+    public void getOneAll(HttpServletResponse response, HttpServletRequest request,String id)
     {
-        AddresslistUser user =  iAddresslistUserService.getOneInfo(Integer.parseInt(id));
-        return user;
+        JSONObject json = new JSONObject();
+        if(request.getSession(false)==null){
+            json.put("msg",0);//
+            DoAjax.doAjax(response, json, null);
+            System.out.println("qingdenglu");
+        }else {
+            AddresslistUser res =  iAddresslistUserService.getOneInfo(Integer.parseInt(id));
+            json.put("value",res);
+            json.put("msg",1);//
+            DoAjax.doAjax(response, json, null);
+            System.out.println("chaxunchengg");
+        }
+
+
+//        return user;
 
     }
 
@@ -92,43 +106,59 @@ public class AddresslistUserController {
     @GetMapping("search")
     public List<AddresslistUser> searchByNameOrNum (HttpServletResponse response, HttpServletRequest request,String str_input)
     {
+
         JSONObject json = new JSONObject();
-
-        //判断输入是否全为数字
-        Pattern pattern = Pattern.compile("[0-9]*");
-        if (pattern.matcher(str_input).matches())
-        {
-            List<AddresslistUser> res = iAddresslistUserService.searchByPhoneNum(Long.parseLong(str_input));
-            json.put("value",res);
+        if(request.getSession(false)==null){
+            json.put("msg",0);//
             DoAjax.doAjax(response, json, null);
+            System.out.println("qingdenglu");
+        }else {
+
+
+            //判断输入是否全为数字
+            Pattern pattern = Pattern.compile("[0-9]*");
+            if (pattern.matcher(str_input).matches())
+            {
+                List<AddresslistUser> res = iAddresslistUserService.searchByPhoneNum(Long.parseLong(str_input));
+                json.put("value",res);
+                DoAjax.doAjax(response, json, null);
 //            return iAddresslistUserService.searchByPhoneNum(Long.parseLong(str_input));
-        }
+            }
 
 
-        String str = "111111";
-        //将url参数转为utf8码
-        try
-        {
-            str = URLDecoder.decode(str_input,"utf-8");
+            String str = "111111";
+            //将url参数转为utf8码
+            try
+            {
+                str = URLDecoder.decode(str_input,"utf-8");
 
-        }
-        catch (Exception ex)
-        {
-            System.out.println(ex);
-        }
+            }
+            catch (Exception ex)
+            {
+                System.out.println(ex);
+            }
 
-        //判断输入是否为汉字
-        String reg = "[\\u4e00-\\u9fa5]+";
-        if(str.matches(reg))
-        {
+            //判断输入是否为汉字
+            String reg = "[\\u4e00-\\u9fa5]+";
+            if(str.matches(reg))
+            {
 
-            List<AddresslistUser> res = iAddresslistUserService.searchByName(str.trim());
-            json.put("value",res);
-            DoAjax.doAjax(response, json, null);
+                List<AddresslistUser> res = iAddresslistUserService.searchByName(str.trim());
+                json.put("value",res);
+                DoAjax.doAjax(response, json, null);
 //            return iAddresslistUserService.searchByName(str.trim());
+            }
+
+
+
+
         }
 
         return null;
+
+
+
+
 
     }
     /*
@@ -141,9 +171,16 @@ public class AddresslistUserController {
     public void loginByPhone (HttpServletResponse response, HttpServletRequest request,String phone_num)
     {
         JSONObject json = new JSONObject();
-         boolean res = iAddresslistUserService.loginByPhone(Long.parseLong(phone_num.trim()));
-        json.put("flag",res);
-        DoAjax.doAjax(response, json, null);
+        if(request.getSession(false)==null){
+            json.put("msg",0);//
+            DoAjax.doAjax(response, json, null);
+            System.out.println("qingdenglu");
+        }else {
+            boolean res = iAddresslistUserService.loginByPhone(Long.parseLong(phone_num.trim()));
+            json.put("flag",res);
+            DoAjax.doAjax(response, json, null);
+        }
+
 //         return res;
     }
 
@@ -153,22 +190,50 @@ public class AddresslistUserController {
     @GetMapping("loginByMsg")
     public void loginByMsg (HttpServletResponse response, HttpServletRequest request, String phoneNumber,String verifyCode)
     {
-        JSONObject json = new JSONObject();
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+        //使用request对象的getSession()获取session，如果session不存在则创建一个
+        HttpSession session = request.getSession();
+        //将数据存储到session中
+        session.setAttribute("data", phoneNumber);
+        //获取session的Id
+        String sessionId = session.getId();
+        //判断session是不是新创建的
+        if (session.isNew()) {
+            System.out.println("session创建成功，session的id是："+sessionId);
+            JSONObject json = new JSONObject();
+            long phoneNumberLong = Long.parseLong(phoneNumber);
+            boolean res = iSendService.queryPhoneNumAndVerifyCode(phoneNumberLong,verifyCode);
+
+        json.put("flag",res);
+        DoAjax.doAjax(response, json, null);
+        }else {
+            System.out.println("服务器已经存在该session了，session的id是："+sessionId);
+            boolean res = true;
+            JSONObject json = new JSONObject();
+            json.put("flag",res);
+            DoAjax.doAjax(response, json, null);
+        }
+
+        /*JSONObject json = new JSONObject();
         long phoneNumberLong = Long.parseLong(phoneNumber);
         boolean res = iSendService.queryPhoneNumAndVerifyCode(phoneNumberLong,verifyCode);
 
         json.put("flag",res);
-//        json.put("session",session);
-        DoAjax.doAjax(response, json, null);
+        DoAjax.doAjax(response, json, null);*/
 //        return  true;
     }
 
     /*
     根据手机号验证操作时是否登录或session超时
     */
-    private Boolean VerifyOperation(String phoneNum)
+    private Boolean VerifyOperation(HttpServletResponse response, HttpServletRequest request,String phoneNum)
     {
-
+//        response.setCharacterEncoding("UTF-8");
+//        response.setContentType("text/html;charset=UTF-8");
+//        //使用request对象的getSession()获取session，如果session不存在则创建一个
+////        HttpSession session = request.getSession();
+//        request.getSession();
         return true;
 
     }

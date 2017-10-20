@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -105,6 +106,9 @@ public class OrganizationController {
       * */
     @GetMapping("showIndexPage")
     public void showIndexPage(HttpServletResponse response, HttpServletRequest request,long phoneNumber){
+        HttpSession session = request.getSession();
+
+
         JSONObject json = new JSONObject();
 
         String s = "000";
