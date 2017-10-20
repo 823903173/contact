@@ -51,7 +51,6 @@ ul li{list-style-type: none;}
     padding: .5rem .65rem .5rem .25rem;
     display: table-cell;
     vertical-align: middle;
-    float: left;
     overflow: hidden;
     text-overflow: ellipsis;
     /*max-width: 50px;*/
@@ -60,15 +59,18 @@ ul li{list-style-type: none;}
 
 .checked-span {
     background-color: #35d5bb;
-    background-image: url("../images/green.png");
+    background-image: url("../images/menuback.jpg");
     background-repeat: no-repeat;
-    background-position: right;
+    background-size: 100% 100%;
 }
 
-.unchecked-span{
-    background-image: url("../images/blue.png");
-    background-repeat: no-repeat;
-    background-position: right;
+
+.department-ul{
+    display: none;
+}
+
+.namelist-ul{
+    display: none;
 }
 
 .namelist-ul .headimg{

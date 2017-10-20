@@ -55,6 +55,13 @@ ul li{list-style-type: none;}
 }
 .namelist-ul .name-span{
     color: #333333;
+    font-size: .9rem;
+}
+.namelist-ul .group-span{
+    color: #b3b3b3;
+    font-size: .7rem;
+    margin-left: 1.25rem;
+    padding-right: 15%;
 }
 .namelist-ul .dial-btn img{
     width: 2rem;
@@ -62,7 +69,6 @@ ul li{list-style-type: none;}
 
 .namelist-ul .dial-btn{
     float: right;
-    margin-right: 1rem;
 }
 
 /*弹窗*/

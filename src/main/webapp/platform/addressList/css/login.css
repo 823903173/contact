@@ -47,16 +47,17 @@ a{
 }
 .phonenumber{
     text-align: left;
-    margin-bottom: 1.5rem;
-    width: 90%;
+    width: 85%;
     height: 3.5rem;
     border: none;
     border-radius: 50px;
     background-color: #f0f0f0;
     font-size: 1.2rem;
+    padding-left: 1rem;
+    outline: none;
 }
 .confirmcode{
-    width: 50%;
+    width: 45%;
     margin-left: 5%;
     height: 3.5rem;
     border: none;
@@ -64,6 +65,8 @@ a{
     background-color: #f0f0f0;
     float:left;
     font-size: 1.2rem;
+    padding-left: 1rem;
+    outline: none;
 }
 .getcode-btn{
     width: 35%;
@@ -75,11 +78,17 @@ a{
     margin: 0 5% 0 5%;
     font-size: 1.2rem;
     color: #ffffff;
+    outline: none;
 }
 .confirm-btn{
-    height: 5rem;
-    width: 5rem;
-    margin-top: 3rem;
+    margin-top: 2rem;
+    border: none;
+    background: none;
+    outline: none;
+}
+.confirm-btn img{
+    height: 4.5rem;
+    width: 4.5rem;
 }
 
 .background{
@@ -90,19 +99,19 @@ a{
     position: absolute;
     bottom: 0;
 }
-::-webkit-input-placeholder { /* WebKit browsers */
-    color: #999;
-    padding-left: 1.5rem;
-}
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-    color: #999;
-    padding-left: 1.5rem;
-}
-::-moz-placeholder { /* Mozilla Firefox 19+ */
-    color: #999;
-    padding-left: 1.5rem;
-}
-:-ms-input-placeholder { /* Internet Explorer 10+ */
-    color: #999;
-    padding-left: 1.5rem;
-}
+/*::-webkit-input-placeholder { !* WebKit browsers *!*/
+    /*color: #999;*/
+    /*padding-left: 1.5rem;*/
+/*}*/
+/*:-moz-placeholder { !* Mozilla Firefox 4 to 18 *!*/
+    /*color: #999;*/
+    /*padding-left: 1.5rem;*/
+/*}*/
+/*::-moz-placeholder { !* Mozilla Firefox 19+ *!*/
+    /*color: #999;*/
+    /*padding-left: 1.5rem;*/
+/*}*/
+/*:-ms-input-placeholder { !* Internet Explorer 10+ *!*/
+    /*color: #999;*/
+    /*padding-left: 1.5rem;*/
+/*}*/

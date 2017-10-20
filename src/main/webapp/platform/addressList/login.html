@@ -6,9 +6,12 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="block">
     <meta name="format-detection" content="telephone=no">
-    <title>login</title>
+    <title>登录</title>
     <link rel="stylesheet" href="css/login.css" type="text/css">
+    <link rel="stylesheet" href="js/need/layer.css" type="text/css">
     <script src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/login.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/layer.js"></script>
 </head>
 <body>
 <div class="logo-box">
@@ -16,12 +19,12 @@
     <span class="logo-text">LOGO</span>
 </div>
 <div class="enter-box">
-    <form action="">
-    <input type="text" class="phonenumber" placeholder="手机号码" min="11" max="11" pattern="[0-9]">
-    <input type="text" class="confirmcode" placeholder="短信验证码">
-        <input class="getcode-btn" type="submit" value="发送验证码">
-        <input class="confirm-btn" type="image" src="images/confirm-btn.png" value="">
-    </form>
+    <div>
+    <p><input type="text" class="phonenumber" placeholder="手机号码" id="phone"></p>
+    <p style="margin-top: 1.5rem"><input type="text" class="confirmcode" placeholder="短信验证码" id="yzm">
+        <button class="getcode-btn" type="button">发送验证码</button></p>
+        <div><button class="confirm-btn" type="button"><img src="images/confirm-btn.png"></button></div>
+    </div>
 </div>
 <div class="background"></div>
 </body>

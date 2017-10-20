@@ -4,24 +4,7 @@
 
 window.onload = function () {
     var depart_id = GetdecodeQueryString("depart_id");
-    $.ajax({
-        url: "/getOnesOfDepart.do?depart_id=" + depart_id,
-        type:"get",
-        dataType: "json",
-        data:{"depart_id":depart_id},
-        success: function (data) {
-            var depart=data.depart;
-            var depart_name = depart.depart_name;
-            var depart_child = depart.depart_child;
-            company = user.company;
-            organization = user.organization;
-            department = user.department;
-            $("#name").html(name);
-            $("#company").html(company);
-            $("#organization").html(organization);
-            $("#department").html(department);
-        }
-    });
+    group(depart_id);
     //关闭弹窗
     var pEles = document.querySelectorAll(".popup-close-btn");
     for (var t = 0; t < pEles.length; t++) {
@@ -36,7 +19,60 @@ window.onload = function () {
     }
 };
 
-function person(){
+function group(depart_id){
+    $.ajax({
+        url: "hmcc/organization/getIdByGroupId.do?id=" + depart_id,
+        type:"get",
+        dataType: "json",
+        data:{"id":depart_id},
+        success: function (data) {
+            var msg = data.msg;
+            var current = data.name;
+            var OrganizationValue = data.OrganizationValue;
+            var UserValue = data.UserValue;
+            if(msg==0){
+                window.location.href = "login.html";
+                return;
+            }
+            if(msg==1){
+                if($(".checked-span").length > 0){
+                    $(this).removeClass("checked-span");
+                }
+                var menuitem = '<a><span class="unchecked-span checked-span">'+current+'</span></a>';
+                $(".menu-box").append(menuitem);
+                if(isEnd==true){
+                    $(".department-ul").style.display = "none";
+                    $(".namelist-ul").empty();
+                    for (var i=0;i<UserValue.length;i++){
+                        var itemli = '<li><a href="javascript:getUserinfo(UserValue[i].userName,UserValue[i].phoneNum,UserValue[i].extendedField1);">'+
+                            '<span class="headimg">*</span>'+
+                            '<span class="name-span">+UserValue[i].userName+</span></a>'+
+                            '<a href="javascript:getUserinfo(UserValue[i].userName,UserValue[i].phoneNum,UserValue[i].extendedField1);" class="dial-btn">'+
+                            '<span><img src="images/dial.jpg"/></span></a></li>';
+                        $(".namelist-ul").append(itemli);
+                    }
+                    $(".namelist-ul").show();
+                    return;
+                }
+                if(isEnd==false){
+                    $(".namelist-ul").style.display = "none";
+                    $(".department-ul").empty();
+                    for (var i=0;i<OrganizationValue.length;i++){
+                        var itemli = '<li><a href="javascript:group(OrganizationValue[i].id);">'+OrganizationValue[i].name+'</a></li>';
+                        $(".department-ul").append(itemli);
+                    }
+                    $(".department-ul").show();
+                    return;
+                }
+            }
+
+        }
+    });
+}
+function getUserinfo(name,phone,group){
+    $('.name').html(name);
+    $('.group').html(group);
+    $('.phone').html(phone);
     $('#personalinfo').show();
 }
 

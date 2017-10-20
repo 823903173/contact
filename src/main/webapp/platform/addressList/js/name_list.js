@@ -5,16 +5,18 @@
 $(function(){
     var keywords = GetdecodeQueryString("keywords");
     $.ajax({
-        url: "/search.do",
-        type:"post",
+        url: "/hmcc/app/search.do?str_input="+keywords,
+        type:"get",
         dataType: "json",
-        data:{"keywords":keywords},
+        data:{"str_input":keywords},
         success: function (data) {
-            var user_list =data.user_list;
+            var user_list =data.value;
             $.each(user_list,function(n,user){
-                var item_li = '<li>' +'<a href="javascript:getUserinfo(user.id);">'
-                    +'<span class="headimg">Z</span>' +'<span class="name-span">+</span>'+user.name+'</a>'
-                    + '<a href="javascript:getUserinfo(user.id);" class="dial-btn">'+'<span><img src="images/dial.jpg"/></span>' +
+                var item_li = '<li>' +'<a href="javascript:getUserinfo(user.userName,user.phoneNum,user.extendedField1);">'
+                    +'<span class="headimg">Z</span>' +'<span class="name-span">+</span>'+user.userName
+                    +'<span class="group-span">'+user.extendedField1+'</span></a>'
+                    + '<a href="javascript:getUserinfo(user.userName,user.phoneNum,user.extendedField1);" class="dial-btn">' +
+                    '<span><img src="images/dial.jpg"/></span>' +
                     '</a></li>'
                 $(".namelist-ul").append(item_li);
             });
@@ -45,19 +47,9 @@ function GetdecodeQueryString(name)
     if(r!=null)return unescape(r[2]); return null;
 }
 
-function getUserinfo(id){
-    $.ajax({
-        url: "/getOneAll.do?id=" + id,
-        type:"get",
-        dataType: "json",
-        data:{"id":id},
-        success: function (data) {
-            var user =data.user;
-            $('.name').html(user.name);
-            $('.group').html(user.group);
-            $('.position').html(user.position);
-            $('.phone').html(user.phone);
-            $('#personalinfo').show();
-        }
-    });
+function getUserinfo(name,phone,group){
+    $('.name').html(name);
+    $('.group').html(group);
+    $('.phone').html(phone);
+    $('#personalinfo').show();
 }
