@@ -87,7 +87,7 @@ public class ManagementOperationsLogController extends AbstractController {
       正在考虑是否使参数标准化。例如使用json
      */
     @GetMapping("insertOneLog")
-    public void insertOneLog(int admin_id, String operations_log , Integer operations_result, String operations_ip){
+    public void insertOneLog(Long admin_id, String operations_log , Integer operations_result, String operations_ip){
 //        创建一个对象
         ManagementOperationsLog managementOperationsLog = new ManagementOperationsLog();
 //        把所有参数信息都放入其中

@@ -28,7 +28,7 @@ public class ManagementOperationsLog extends Model<ManagementOperationsLog> {
 	@TableId(value="system_id", type= IdType.AUTO)
 	private Integer systemId;
 	@TableField("admin_id")
-	private Integer adminId;
+	private Long adminId;
 	@TableField("create_time")
 	private String createTime;
 	@TableField("operations_log")
@@ -51,11 +51,11 @@ public class ManagementOperationsLog extends Model<ManagementOperationsLog> {
 		this.systemId = systemId;
 	}
 
-	public Integer getAdminId() {
+	public Long getAdminId() {
 		return adminId;
 	}
 
-	public void setAdminId(Integer adminId) {
+	public void setAdminId(Long adminId) {
 		this.adminId = adminId;
 	}
 

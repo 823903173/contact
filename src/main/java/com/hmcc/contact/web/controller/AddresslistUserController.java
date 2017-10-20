@@ -2,11 +2,14 @@ package com.hmcc.contact.web.controller;
 
 
 import com.alibaba.fastjson.JSONObject;
+import com.hmcc.contact.entity.AddresslistAppLogin;
 import com.hmcc.contact.entity.AddresslistUser;
 
+import com.hmcc.contact.service.IAddresslistAppLoginService;
 import com.hmcc.contact.service.IAddresslistUserService;
 import com.hmcc.contact.service.ISendService;
 import com.hmcc.contact.util.DoAjax;
+import com.hmcc.contact.util.getNowTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -59,6 +62,8 @@ public class AddresslistUserController {
     private IAddresslistUserService iAddresslistUserService;
     @Autowired
     private ISendService iSendService;
+    @Autowired
+    private IAddresslistAppLoginService iAddresslistAppLoginService;
 
 
     /*
@@ -217,6 +222,24 @@ public class AddresslistUserController {
             JSONObject json = new JSONObject();
             long phoneNumberLong = Long.parseLong(phoneNumber);
             boolean res = iSendService.queryPhoneNumAndVerifyCode(phoneNumberLong,verifyCode);
+
+            /*插入app登录日志表*/
+            AddresslistAppLogin addresslistAppLogin = new AddresslistAppLogin();
+            addresslistAppLogin.setPhoneNum(phoneNumberLong);
+            addresslistAppLogin.setLoginTime(getNowTime.getNowTimeByJava());
+            int a = 3;
+            if(res){
+                 a = 1;
+            }else {
+                 a = 0;
+            }
+            addresslistAppLogin.setLoginResult(a);
+            addresslistAppLogin.setPhoneType("我怎么知道?");
+            addresslistAppLogin.setPhoneImei("buzhidao");
+            System.out.println(addresslistAppLogin.toString());
+            iAddresslistAppLoginService.insert(addresslistAppLogin);
+
+
             json.put("flag",res);
             DoAjax.doAjax(response, json, null);
         }else {

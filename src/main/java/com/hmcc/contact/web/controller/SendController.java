@@ -2,12 +2,17 @@ package com.hmcc.contact.web.controller;
 
 
 import com.alibaba.fastjson.JSONObject;
+import com.hmcc.contact.entity.ManagementOperationsLog;
 import com.hmcc.contact.entity.Send;
+import com.hmcc.contact.service.IManagementOperationsLogService;
 import com.hmcc.contact.service.ISendService;
+import com.hmcc.contact.util.getNowTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.hmcc.contact.util.DoAjax;
+
+import com.hmcc.contact.web.controller.SendController;
 
 
 import org.springframework.stereotype.Controller;
@@ -52,6 +57,8 @@ public class SendController {
 
     @Autowired
     private ISendService iSendService;
+    @Autowired
+    private IManagementOperationsLogService iManagementOperationsLogService;
 
     /*验证用户名密码
     * 传入手机号 phoneNumber 和验证码 verifyCode
@@ -91,6 +98,32 @@ public class SendController {
             JSONObject json = new JSONObject();
             long phoneNumberLong = Long.parseLong(phoneNumber);
             boolean res = iSendService.queryPhoneNumAndVerifyCode(phoneNumberLong,verifyCode);
+
+
+
+            int a = 3;
+            if(res){
+                a = 1;
+            }else {
+                a = 0;
+            }
+            ManagementOperationsLog managementOperationsLog = new ManagementOperationsLog();
+//        把所有参数信息都放入其中
+            managementOperationsLog.setAdminId(phoneNumberLong);
+            //调用工具类 湖区当前时间
+            getNowTime nowTime = new getNowTime();
+            String create_time = nowTime.getNowTimeByJava();
+            //把参数都放进去
+            managementOperationsLog.setCreateTime(create_time);
+//            managementOperationsLog.setOperationsLog(operations_log);
+            managementOperationsLog.setOperationsResult(a);
+//            managementOperationsLog.setOperationsIp(operations_ip);
+            iManagementOperationsLogService.insert(managementOperationsLog);
+
+
+
+
+
             json.put("flag",res);
             DoAjax.doAjax(response, json, null);
         }else {
