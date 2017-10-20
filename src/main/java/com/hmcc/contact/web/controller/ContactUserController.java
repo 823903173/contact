@@ -63,7 +63,7 @@ public class ContactUserController {
         ModelAndView mav = new ModelAndView();
         if(!file.isEmpty()){
             //这里将上传得到的文件保存至 d:\\temp\\file 目录
-            FileUtils.copyInputStreamToFile(file.getInputStream(), new File("E:\\temp\\file\\",
+            FileUtils.copyInputStreamToFile(file.getInputStream(), new File("C:\\temp\\file\\",
                     System.currentTimeMillis()+ file.getOriginalFilename()));
             InputStream in = file.getInputStream();
             //数据导入e
