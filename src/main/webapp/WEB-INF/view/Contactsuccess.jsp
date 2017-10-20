@@ -19,31 +19,42 @@
 <div align="center">
     <h1>Excel导入成功！</h1>
 </div>
-
-<table border="1">
+<center>
+<table border="1" >
     <tr>
-        <th>ICCID</th>
-        <th>号码</th>
-        <th>IMSI</th>
-        <th>卡状态</th>
-        <th>套餐</th>
-        <th>品名</th>
-        <th>型号</th>
-        <th>安装企业</th>
+        <th>用户ID</th>
+        <th>用户名</th>
+        <th>性别（1（男）/0（女））</th>
+        <th>组织ID</th>
+        <th>用户职位</th>
+        <th>手机号</th>
+        <th>是否隐藏</th>
+        <th>用户级别</th>
+        <th>用户状态</th>
+        <th>建立时间</th>
+        <th>建立管理员</th>
     </tr>
 
     <c:forEach items="${contactUsers}" var="contactUsers">
         <tr>
-            <td>${contactUsers.userid}</td>
-            <td>${contactUsers.username}</td>
-            <td>${contactUsers.usergender}</td>
-            <td>${contactUsers.orgid}</td>
-            <td>${contactUsers.userduty}</td>
-            <td>${contactUsers.userphonenum}</td>
-            <td>${contactUsers.ishidden}</td>
-            <td>${contactUsers.userposition}</td>
+            <td>${contactUsers.userId}</td>
+            <td>${contactUsers.userName}</td>
+            <td>${contactUsers.userGender}</td>
+            <td>${contactUsers.groupId}</td>
+            <td>${contactUsers.userJob}</td>
+            <td>${contactUsers.phoneNum}</td>
+            <td>${contactUsers.isHidden}</td>
+            <td>${contactUsers.userPosition}</td>
+            <td>${contactUsers.userStatus}</td>
+            <td>${contactUsers.createTime}</td>
+            <td>${contactUsers.createManagerId}</td>
         </tr>
     </c:forEach>
 </table>
+</center>
+<br>
+<br>
+<center>
+<a href="/hmcc/ContactUserlogin/toImportExcel.do" >返回首页</a></center>
 </body>
 </html>

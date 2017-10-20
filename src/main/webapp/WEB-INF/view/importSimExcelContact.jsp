@@ -40,8 +40,23 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="ibox float-e-margins">
+                <div class="ibox-title">尊敬的用户
+<c:forEach items="${contactAdmin}" var="contactAdmin">
+    <tr>
+        <td>${contactAdmin.contactNumber}</td>
+    </tr>
+</c:forEach>您好
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <h5>批量导入sim卡信息 </h5>
+                    <h5>批量导入用户信息 </h5>
                     <div class="ibox-tools">
                         <a class="collapse-link">
                             <i class="fa fa-chevron-up"></i>
@@ -50,7 +65,8 @@
                 </div>
                 <div class="ibox-content">
                     <form id="info" class="form-horizontal" enctype="multipart/form-data" method="post" action="${pageContext.request.contextPath }/ContactUserlogin/insertSimExcel.do">
-
+                        <input name="contactAdminOrgId" value="${contactAdmin.organizationId}" type="hidden"  />
+                        <input name="contactAdminNum" value="${contactAdmin.managementNumber}" type="hidden"  />
                         <!-- sim卡ccid -->
                         <div class="form-group">
                             <label class="col-sm-2 control-label">选择Excel文件</label>
@@ -80,7 +96,7 @@
         <div class="col-sm-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <h5>批量导入sim卡信息 </h5>
+                    <h5>批量删除用户信息 </h5>
                     <div class="ibox-tools">
                         <a class="collapse-link">
                             <i class="fa fa-chevron-up"></i>
@@ -114,9 +130,133 @@
         </div>
     </div>
 </div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>批量导入管理员及组织信息 </h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <form id="admiminfo" class="form-horizontal" enctype="multipart/form-data" method="post" action="${pageContext.request.contextPath }/ContactAdminlogin/insertAdminExcel.do">
+                        <input name="contactAdminOrgId" value="${contactAdmin.organizationId}" type="hidden"  />
+                        <input name="contactAdminNum" value="${contactAdmin.managementNumber}" type="hidden"  />
+                    <!-- sim卡ccid -->
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">选择Excel文件</label>
+                        <div class="col-sm-5">
+                            <input type="file" name="file">
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="Validform_checktip"></div>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+
+                    <div class="form-group">
+                        <div class="col-sm-4 col-sm-offset-2">
+                            <button class="btn btn-primary" type="submit" >增加</button>
+                            <button class="btn btn-white" onclick="window.location.reload()">重置</button>
+                        </div>
+                    </div>
+                </form>
+                    <form id="admimorginfo" class="form-horizontal" enctype="multipart/form-data" method="post" action="${pageContext.request.contextPath }/ContactOrglogin/insertOrgExcel.do">
+                        <input name="contactAdminOrgId" value="${contactAdmin.organizationId}" type="hidden"  />
+                        <input name="contactAdminNum" value="${contactAdmin.managementNumber}" type="hidden"  />
+                        <!-- sim卡ccid -->
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">选择Excel文件</label>
+                            <div class="col-sm-5">
+                                <input type="file" name="file">
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="Validform_checktip"></div>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <div class="col-sm-4 col-sm-offset-2">
+                                <button class="btn btn-primary" type="submit" >增加</button>
+                                <button class="btn btn-white" onclick="window.location.reload()">重置</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>批量删除管理员及组织信息 </h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <form id="deleteadmiminfo" class="form-horizontal" enctype="multipart/form-data" method="post" action="${pageContext.request.contextPath }/ContactAdminlogin/deleteSiminfo.do">
+                        <input name="contactAdminOrgId" value="${contactAdmin.organizationId}" type="hidden"  />
+                        <input name="contactAdminNum" value="${contactAdmin.managementNumber}" type="hidden"  />
+                        <!-- sim卡ccid -->
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">选择Excel文件</label>
+                            <div class="col-sm-5">
+                                <input type="file" name="file">
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="Validform_checktip"></div>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <div class="col-sm-4 col-sm-offset-2">
+                                <button class="btn btn-primary" type="submit" >删除</button>
+                                <button class="btn btn-white" onclick="window.location.reload()">重置</button>
+                            </div>
+                        </div>
+                    </form>
+                    <form id="deleteOrginfo" class="form-horizontal" enctype="multipart/form-data" method="post" action="${pageContext.request.contextPath }/ContactOrglogin/deleteOrginfo.do">
+                        <input name="contactAdminOrgId" value="${contactAdmin.organizationId}" type="hidden"  />
+                        <input name="contactAdminNum" value="${contactAdmin.managementNumber}" type="hidden"  />
+                        <!-- sim卡ccid -->
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">选择Excel文件</label>
+                            <div class="col-sm-5">
+                                <input type="file" name="file">
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="Validform_checktip"></div>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <div class="col-sm-4 col-sm-offset-2">
+                                <button class="btn btn-primary" type="submit" >删除</button>
+                                <button class="btn btn-white" onclick="window.location.reload()">重置</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script src="${pageContext.request.contextPath }/js/bootstrap.min14ed.js?v=3.3.6"></script>
-<script src="${pageContext.request.contextPath }/js/content.mine209.js?v=1.0.0"></script>
+<script src="${pageContext.request.contextPath }/js/contentt.js"></script>
 <script src="${pageContext.request.contextPath }/js/plugins/iCheck/icheck.min.js"></script>
 
 </body>

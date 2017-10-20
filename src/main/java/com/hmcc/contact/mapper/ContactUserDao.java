@@ -10,7 +10,10 @@ import java.util.List;
 public interface ContactUserDao {
     int deleteByPrimaryKey(String userid);
 
+    int deleteByNum(String phoneNum);
+
     int insertSelective(ContactUser record);
 
     List<ContactUser> selectAllSSims();
+
 }

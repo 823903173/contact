@@ -1,102 +1,214 @@
 package com.hmcc.contact.entity;
 
 
+import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * Created by LiZhengTao on 2017/10/12.
  */
 public class ContactUser {
-    private String userid;
+    private Integer userId;
 
-    private String username;
+    private String userName;
 
-    private String usergender;
+    private Integer userGender;
 
-    private String orgid;
+    private String groupId;
 
-    private String userduty;
+    private String userJob;
 
-    private String userphonenum;
+    private Long phoneNum;
 
-    private String ishidden;
+    private Integer isHidden;
 
-    private String userposition;
+    private String userPosition;
 
-    public String getUserid() {
-        return userid;
+    private Integer userStatus;
+
+    private Date createTime;
+
+    private String createManagerId;
+
+    private Date latestReviseTime;
+
+    private String latestReviseManagerId;
+
+    private String showOrder;
+
+    private String extendedField1;
+
+    private String extendedField2;
+
+    private String extendedField3;
+
+    private String extendedField4;
+
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setUserid(String userid) {
-        this.userid = userid;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
-    public String getUsername() {
-        return username;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public String getUsergender() {
-        return usergender;
+    public Integer getUserGender() {
+        return userGender;
     }
 
-    public void setUsergender(String usergender) {
-        this.usergender = usergender;
+    public void setUserGender(Integer userGender) {
+        this.userGender = userGender;
     }
 
-    public String getOrgid() {
-        return orgid;
+    public String getGroupId() {
+        return groupId;
     }
 
-    public void setOrgid(String orgid) {
-        this.orgid = orgid;
+    public void setGroupId(String groupId) {
+        this.groupId = groupId;
     }
 
-    public String getUserduty() {
-        return userduty;
+    public String getUserJob() {
+        return userJob;
     }
 
-    public void setUserduty(String userduty) {
-        this.userduty = userduty;
+    public void setUserJob(String userJob) {
+        this.userJob = userJob;
     }
 
-    public String getUserphonenum() {
-        return userphonenum;
+    public Long getPhoneNum() {
+        return phoneNum;
     }
 
-    public void setUserphonenum(String userphonenum) {
-        this.userphonenum = userphonenum;
+    public void setPhoneNum(Long phoneNum) {
+        this.phoneNum = phoneNum;
     }
 
-    public String getIshidden() {
-        return ishidden;
+    public Integer getIsHidden() {
+        return isHidden;
     }
 
-    public void setIshidden(String ishidden) {
-        this.ishidden = ishidden;
+    public void setIsHidden(Integer isHidden) {
+        this.isHidden = isHidden;
     }
 
-    public String getUserposition() {
-        return userposition;
+    public String getUserPosition() {
+        return userPosition;
     }
 
-    public void setUserposition(String userposition) {
-        this.userposition = userposition;
+    public void setUserPosition(String userPosition) {
+        this.userPosition = userPosition;
+    }
+
+    public Integer getUserStatus() {
+        return userStatus;
+    }
+
+    public void setUserStatus(Integer userStatus) {
+        this.userStatus = userStatus;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public String getCreateManagerId() {
+        return createManagerId;
+    }
+
+    public void setCreateManagerId(String createManagerId) {
+        this.createManagerId = createManagerId;
+    }
+
+    public Date getLatestReviseTime() {
+        return latestReviseTime;
+    }
+
+    public void setLatestReviseTime(Date latestReviseTime) {
+        this.latestReviseTime = latestReviseTime;
+    }
+
+    public String getLatestReviseManagerId() {
+        return latestReviseManagerId;
+    }
+
+    public void setLatestReviseManagerId(String latestReviseManagerId) {
+        this.latestReviseManagerId = latestReviseManagerId;
+    }
+
+    public String getShowOrder() {
+        return showOrder;
+    }
+
+    public void setShowOrder(String showOrder) {
+        this.showOrder = showOrder;
+    }
+
+    public String getExtendedField1() {
+        return extendedField1;
+    }
+
+    public void setExtendedField1(String extendedField1) {
+        this.extendedField1 = extendedField1;
+    }
+
+    public String getExtendedField2() {
+        return extendedField2;
+    }
+
+    public void setExtendedField2(String extendedField2) {
+        this.extendedField2 = extendedField2;
+    }
+
+    public String getExtendedField3() {
+        return extendedField3;
+    }
+
+    public void setExtendedField3(String extendedField3) {
+        this.extendedField3 = extendedField3;
+    }
+
+    public String getExtendedField4() {
+        return extendedField4;
+    }
+
+    public void setExtendedField4(String extendedField4) {
+        this.extendedField4 = extendedField4;
     }
 
     @Override
     public String toString() {
         return "ContactUser{" +
-                "userid='" + userid + '\'' +
-                ", username='" + username + '\'' +
-                ", usergender='" + usergender + '\'' +
-                ", orgid='" + orgid + '\'' +
-                ", userduty='" + userduty + '\'' +
-                ", userphonenum='" + userphonenum + '\'' +
-                ", ishidden='" + ishidden + '\'' +
-                ", userposition='" + userposition + '\'' +
+                "userId=" + userId +
+                ", userName='" + userName + '\'' +
+                ", userGender=" + userGender +
+                ", groupId=" + groupId +
+                ", userJob='" + userJob + '\'' +
+                ", phoneNum=" + phoneNum +
+                ", isHidden=" + isHidden +
+                ", userPosition='" + userPosition + '\'' +
+                ", userStatus=" + userStatus +
+                ", createTime=" + createTime +
+                ", createManagerId='" + createManagerId + '\'' +
+                ", latestReviseTime='" + latestReviseTime + '\'' +
+                ", latestReviseManagerId='" + latestReviseManagerId + '\'' +
+                ", showOrder='" + showOrder + '\'' +
+                ", extendedField1='" + extendedField1 + '\'' +
+                ", extendedField2='" + extendedField2 + '\'' +
+                ", extendedField3='" + extendedField3 + '\'' +
+                ", extendedField4='" + extendedField4 + '\'' +
                 '}';
     }
 }

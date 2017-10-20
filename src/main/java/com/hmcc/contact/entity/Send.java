@@ -30,6 +30,7 @@ public class Send extends Model<Send> {
 	private String text;
 
 
+
 	public Integer getSystemId() {
 		return systemId;
 	}

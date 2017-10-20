@@ -1,5 +1,6 @@
 package com.hmcc.contact.service;
 
+import com.hmcc.contact.entity.ContactAdmin;
 import com.hmcc.contact.entity.ContactUser;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -12,7 +13,8 @@ import java.util.List;
  */
 @Service
 public interface ContactUserService {
-    List<ContactUser> importExcelInfo(InputStream in, MultipartFile file)  throws Exception;
+    List<ContactUser> importExcelInfo(InputStream in, MultipartFile file,String contactAdminOrgId,Integer contactAdminNum)  throws Exception;
     List<ContactUser> DeleteExcelInfo(InputStream in, MultipartFile file)  throws Exception;
+
 }
 

@@ -27,7 +27,7 @@ public class DepartmentAdministrator extends Model<DepartmentAdministrator> {
 	@TableField("management_number")
 	private Integer managementNumber;
 	@TableField("organization_id")
-	private Integer organizationId;
+	private String organizationId;
 	@TableField("contact_number")
 	private Long contactNumber;
 	private Integer state;
@@ -65,11 +65,11 @@ public class DepartmentAdministrator extends Model<DepartmentAdministrator> {
 		this.managementNumber = managementNumber;
 	}
 
-	public Integer getOrganizationId() {
+	public String getOrganizationId() {
 		return organizationId;
 	}
 
-	public void setOrganizationId(Integer organizationId) {
+	public void setOrganizationId(String organizationId) {
 		this.organizationId = organizationId;
 	}
 
