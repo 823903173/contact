@@ -65,33 +65,40 @@ public class OrganizationController {
     * */
     @GetMapping("getIdByGroupId")
     public void getIdByGroupId(HttpServletResponse response, HttpServletRequest request,String id){
+//        JSONObject json = new JSONObject();
         JSONObject json = new JSONObject();
-        List<Organization> res = iOrganizationService.getIdByGroupId(id);
+        if(request.getSession(false)==null){
+            json.put("msg",0);//
+            DoAjax.doAjax(response, json, null);
+            System.out.println("qingdenglu");
+        }else {
+            List<Organization> res = iOrganizationService.getIdByGroupId(id);
         /*查询组织下所有组织
         *
         * 如果是空
         * 查询该组织ID下所有人员信息列表*/
-        if (res.size()==0 || res.isEmpty()){
-            System.out.println("res shi kong");
-            List<AddresslistUser> resOfUser = iAddresslistUserService.getOnesByDepart(id);
-            json.put("isEnd",true);
-            json.put("value",resOfUser);
-            DoAjax.doAjax(response, json, null);
-        }else {
+            if (res.size()==0 || res.isEmpty()){
+                System.out.println("res shi kong");
+                List<AddresslistUser> resOfUser = iAddresslistUserService.getOnesByDepart(id);
+                json.put("msg",1);//
+                json.put("isEnd",true);
+                json.put("OrganizationValue",null);
+                json.put("UserValue",resOfUser);
+                DoAjax.doAjax(response, json, null);
+            }else {
 //          * 如果是不空
 //          * 返回下级所有组织结构
-            System.out.println("RES BUSHI KONG");
-            json.put("isEnd",false);
-            json.put("value",res);
-            DoAjax.doAjax(response, json, null);
-        }
+                System.out.println("RES BUSHI KONG");
+                json.put("msg",1);//
+                json.put("isEnd",false);
+                json.put("OrganizationValue",res);
+                json.put("UserValue",null);
+                DoAjax.doAjax(response, json, null);
+            }
 //        System.out.println(res);
+        }
+
     }
-
-
-
-
-
     /*首页展示
      * 传入 手机号码
      * 返回 所在级别的上两层组织结构
@@ -106,28 +113,37 @@ public class OrganizationController {
       * */
     @GetMapping("showIndexPage")
     public void showIndexPage(HttpServletResponse response, HttpServletRequest request,long phoneNumber){
-        HttpSession session = request.getSession();
-
-
+//        HttpSession session = request.getSession();
         JSONObject json = new JSONObject();
-
-        String s = "000";
-        List<AddresslistUser> list =iAddresslistUserService.searchByPhoneNum(phoneNumber);
-
-        s = list.get(0).getGroupId();
-        if (s.substring(0,s.length()-6)!=null){
-            List<AddresslistUser> fatherList = iAddresslistUserService.getOnesByDepart(s.substring(0,s.length()-3));
-            json.put("list",list);
-            json.put("fatherList",fatherList);
+        if(request.getSession(false)==null){
+            json.put("msg",0);//
             DoAjax.doAjax(response, json, null);
+            System.out.println("qingdenglu");
         }else {
-            List<AddresslistUser> fatherList = iAddresslistUserService.getOnesByDepart(s.substring(0,s.length()-3));
-            List<AddresslistUser> fatherFatherList = iAddresslistUserService.getOnesByDepart(s.substring(0,s.length()-6));
-            json.put("list",list);
-            json.put("fatherList",fatherList);
-            json.put("fatherFatherList",fatherFatherList);
-            DoAjax.doAjax(response, json, null);
+            String s = "000";
+            List<AddresslistUser> list =iAddresslistUserService.searchByPhoneNum(phoneNumber);
+            s = list.get(0).getGroupId();
+            if (s.substring(0,s.length()-6).length()==0){
+                System.out.println("            a"+s.substring(0,s.length()-6));
+                List<AddresslistUser> fatherList = iAddresslistUserService.getOnesByDepart(s.substring(0,s.length()-3));
+                json.put("msg",1);//
+                json.put("list",list);
+                json.put("fartherList",fatherList);
+                json.put("grandFatherList",null);
+                DoAjax.doAjax(response, json, null);
+            }else {
+                System.out.println("            b"+s.substring(0,s.length()-6));
+                List<AddresslistUser> fatherList = iAddresslistUserService.getOnesByDepart(s.substring(0,s.length()-3));
+                List<AddresslistUser> grandFatherList = iAddresslistUserService.getOnesByDepart(s.substring(0,s.length()-6));
+                json.put("msg",1);//
+                json.put("list",list);
+                json.put("fartherList",fatherList);
+                json.put("grandFatherList",grandFatherList);
+                DoAjax.doAjax(response, json, null);
+            }
         }
+
+
 
     }
 

@@ -19,6 +19,7 @@
 		<result column="ext3" property="ext3" />
 		<result column="ext4" property="ext4" />
 	</resultMap>
+	
 
 	<select id="getIdByGroupId" resultMap="BaseResultMap" resultType="com.hmcc.contact.entity.Organization">
 		SELECT * FROM Organization WHERE id like CONCAT(#{id}, '___')

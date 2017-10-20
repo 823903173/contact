@@ -71,11 +71,11 @@ public class AddresslistUserController {
     public void getOneAll(HttpServletResponse response, HttpServletRequest request,String id)
     {
         JSONObject json = new JSONObject();
-        if(request.getSession(false)==null){
-            json.put("msg",0);//
-            DoAjax.doAjax(response, json, null);
-            System.out.println("qingdenglu");
-        }else {
+            if(request.getSession(false)==null){
+                json.put("msg",0);//
+                DoAjax.doAjax(response, json, null);
+                System.out.println("qingdenglu");
+            }else {
             AddresslistUser res =  iAddresslistUserService.getOneInfo(Integer.parseInt(id));
             json.put("value",res);
             json.put("msg",1);//
@@ -104,6 +104,7 @@ public class AddresslistUserController {
         }else {
             List<AddresslistUser> res =  iAddresslistUserService.getOnesByDepart(depart_id.trim());
             json.put("value",res);
+            json.put("msg",1);//
             DoAjax.doAjax(response, json, null);
         }
 
@@ -124,14 +125,13 @@ public class AddresslistUserController {
             DoAjax.doAjax(response, json, null);
             System.out.println("qingdenglu");
         }else {
-
-
             //判断输入是否全为数字
             Pattern pattern = Pattern.compile("[0-9]*");
             if (pattern.matcher(str_input).matches())
             {
                 List<AddresslistUser> res = iAddresslistUserService.searchByPhoneNum(Long.parseLong(str_input));
                 json.put("value",res);
+                json.put("msg",1);//
                 DoAjax.doAjax(response, json, null);
 //            return iAddresslistUserService.searchByPhoneNum(Long.parseLong(str_input));
             }
@@ -156,6 +156,7 @@ public class AddresslistUserController {
 
                 List<AddresslistUser> res = iAddresslistUserService.searchByName(str.trim());
                 json.put("value",res);
+                json.put("msg",1);//
                 DoAjax.doAjax(response, json, null);
 //            return iAddresslistUserService.searchByName(str.trim());
             }
@@ -189,6 +190,7 @@ public class AddresslistUserController {
         }else {
             boolean res = iAddresslistUserService.loginByPhone(Long.parseLong(phone_num.trim()));
             json.put("flag",res);
+            json.put("msg",1);//
             DoAjax.doAjax(response, json, null);
         }
 
@@ -215,9 +217,8 @@ public class AddresslistUserController {
             JSONObject json = new JSONObject();
             long phoneNumberLong = Long.parseLong(phoneNumber);
             boolean res = iSendService.queryPhoneNumAndVerifyCode(phoneNumberLong,verifyCode);
-
-        json.put("flag",res);
-        DoAjax.doAjax(response, json, null);
+            json.put("flag",res);
+            DoAjax.doAjax(response, json, null);
         }else {
             System.out.println("服务器已经存在该session了，session的id是："+sessionId);
             boolean res = true;

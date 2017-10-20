@@ -31,7 +31,7 @@
 	</select>
 
 	<select id="queryOnesByDepartId" resultMap="BaseResultMap" resultType="com.hmcc.contact.entity.AddresslistUser">
-		select user_id, user_name, user_gender, user_job, phone_num from addresslist_user where group_id = #{departId}
+		select user_id, user_name, user_gender, user_job, phone_num, group_id,extended_field_1 from addresslist_user where group_id = #{departId}
 	</select>
 
 	<select id="searchByName" resultMap="BaseResultMap" resultType="com.hmcc.contact.entity.AddresslistUser">
