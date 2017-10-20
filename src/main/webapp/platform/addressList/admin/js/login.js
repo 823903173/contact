@@ -28,7 +28,7 @@ $(function(){
                 var flag=data.flag;
                 if (flag == true){
                     // alert("登录成功！")
-                    location.href = "http://localhost:8082/hmcc/ContactUserlogin/toImportExcel.do"
+                    location.href = "http://localhost:8082/hmcc/ContactUserlogin/toImportExcel.do?phoneNum="+phone
                 }else{
                     $('#yzm').closest('p').after('<span style="color: red" id="tips">登录失败</span>');
                 }

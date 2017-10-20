@@ -183,16 +183,16 @@ public class AddresslistUserController {
     public void loginByPhone (HttpServletResponse response, HttpServletRequest request,String phone_num)
     {
         JSONObject json = new JSONObject();
-        if(request.getSession(false)==null){
-            json.put("msg",0);//
-            DoAjax.doAjax(response, json, null);
-            System.out.println("qingdenglu");
-        }else {
+//        if(request.getSession(false)==null){
+//            json.put("msg",0);//
+//            DoAjax.doAjax(response, json, null);
+//            System.out.println("qingdenglu");
+//        }else {
             boolean res = iAddresslistUserService.loginByPhone(Long.parseLong(phone_num.trim()));
             json.put("flag",res);
-            json.put("msg",1);//
+//            json.put("msg",1);//
             DoAjax.doAjax(response, json, null);
-        }
+//        }
 
 //         return res;
     }

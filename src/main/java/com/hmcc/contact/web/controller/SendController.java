@@ -64,11 +64,11 @@ public class SendController {
     @GetMapping("queryPhoneNumAndVerifyCode")
     public void queryPhoneNumAndVerifyCode( HttpServletResponse response, HttpServletRequest request,String phoneNumber,String verifyCode){
 
-        HttpSession session = request.getSession(true);
-        session.setAttribute("logined",phoneNumber);
+//        HttpSession session = request.getSession(true);
+//        session.setAttribute("logined",phoneNumber);
 //        System.out.println(session.getId()+"      session");
 
-        JSONObject json = new JSONObject();
+//        JSONObject json = new JSONObject();
 //        Send send = new Send();
 //        send.getVerifyCode();
 //        long phoneNumberjson = Long.parseLong(request.getParameter("phoneNumber"));
@@ -77,12 +77,37 @@ public class SendController {
 //        System.out.println(verifyCodejson+"-----------------verifyCodejson");
 //        System.out.println(request+"-----------------request");
 //        System.out.println(response+"------------------response");
-        long phoneNumberLong = Long.parseLong(phoneNumber);
-        boolean res = iSendService.queryPhoneNumAndVerifyCode(phoneNumberLong,verifyCode);
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+        //使用request对象的getSession()获取session，如果session不存在则创建一个
+        HttpSession session = request.getSession();
+        //将数据存储到session中
+        session.setAttribute("data", phoneNumber);
+        //获取session的Id
+        String sessionId = session.getId();
+        //判断session是不是新创建的
+        if (session.isNew()) {
+            System.out.println("session创建成功，session的id是：" + sessionId);
+            JSONObject json = new JSONObject();
+            long phoneNumberLong = Long.parseLong(phoneNumber);
+            boolean res = iSendService.queryPhoneNumAndVerifyCode(phoneNumberLong,verifyCode);
+            json.put("flag",res);
+            DoAjax.doAjax(response, json, null);
+        }else {
+            System.out.println("服务器已经存在该session了，session的id是："+sessionId);
+            boolean res = true;
+            JSONObject json = new JSONObject();
+            json.put("flag",res);
+            DoAjax.doAjax(response, json, null);
+        }
 
-        json.put("flag",res);
-        json.put("session",session);
-        DoAjax.doAjax(response, json, null);
+
+//        long phoneNumberLong = Long.parseLong(phoneNumber);
+
+
+
+//        json.put("session",session);
+
 
         //return iSendService.queryPhoneNumAndVerifyCode(phoneNumberjson,verifyCodejson);
     }

@@ -1,19 +1,20 @@
 package com.hmcc.contact.web.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.hmcc.contact.entity.ContactAdmin;
 import com.hmcc.contact.entity.ContactUser;
 import com.hmcc.contact.mapper.ContactAdminDao;
 import com.hmcc.contact.service.ContactUserService;
+import com.hmcc.contact.util.DoAjax;
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.InputStream;
 import java.util.List;
@@ -29,9 +30,27 @@ public class ContactUserController {
     @Autowired
     private ContactAdminDao contactAdminDao;
 
+//    @GetMapping("chenhaotolizhengtao")
+//    public void chenhaotolizhengtao(HttpServletResponse response, HttpServletRequest request){
+////        ModelAndView modelAndView = new ModelAndView();
+//        JSONObject json = new JSONObject();
+//        if(request.getSession(false)==null){
+//            json.put("msg",0);//
+//            DoAjax.doAjax(response, json, null);
+//            System.out.println("qingdenglu");
+//        }else {
+//            toLoginPage();
+//            json.put("msg",1);//
+//            DoAjax.doAjax(response, json, null);
+//            System.out.println("chaxunchengg");
+//        }
+//
+//    }
+
     @RequestMapping("/toImportExcel")
-    public ModelAndView toLoginPage(){
-        String phoneNum = "13503860966";
+    public ModelAndView toLoginPage(String phoneNum){
+
+//        String phoneNum = "13503860966";
         ContactAdmin contactAdmin = contactAdminDao.getAdmin(Long.valueOf(phoneNum));
 //        System.out.println(contactAdmin.toString()+"           ");
         ModelAndView mv = new ModelAndView("importSimExcelContact");
