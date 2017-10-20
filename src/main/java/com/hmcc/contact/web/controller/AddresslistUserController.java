@@ -93,10 +93,20 @@ public class AddresslistUserController {
    url:getOnesOfDepart.do?depart_id = xxx
    */
     @GetMapping("getOnesOfDepart")
-    public List<AddresslistUser> getOnesOfDepart(String depart_id)
+    public void getOnesOfDepart(HttpServletResponse response, HttpServletRequest request,String depart_id)
     {
-        List<AddresslistUser> users =  iAddresslistUserService.getOnesByDepart(depart_id.trim());
-        return  users;
+        JSONObject json = new JSONObject();
+        if(request.getSession(false)==null){
+            json.put("msg",0);//
+            DoAjax.doAjax(response, json, null);
+            System.out.println("qingdenglu");
+        }else {
+            List<AddresslistUser> res =  iAddresslistUserService.getOnesByDepart(depart_id.trim());
+            json.put("value",res);
+            DoAjax.doAjax(response, json, null);
+        }
+
+//        return  users;
     }
 
     /*
