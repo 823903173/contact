@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hmcc.contact.mapper.ContactOrgDao" >
+  <resultMap id="BaseResultMap" type="com.hmcc.contact.entity.ContactOrg" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="parent_id" property="parentId" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR"/>
+    <result column="level" property="level" jdbcType="INTEGER"/>
+    <result column="status" property="status" jdbcType="INTEGER"/>
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+    <result column="manager_id" property="managerId" jdbcType="INTEGER"/>
+    <result column="last_modify_time" property="lastModifiyTime" jdbcType="TIMESTAMP"/>
+    <result column="last_modify_manager_id" property="lastModifiyManagerId" jdbcType="INTEGER"/>
+    <result column="ext1" property="extend2" jdbcType="VARCHAR"/>
+    <result column="ext2" property="extend3" jdbcType="VARCHAR" />
+    <result column="ext3" property="extend4" jdbcType="VARCHAR"/>
+    <result column="ext4" property="extend4" jdbcType="VARCHAR"/>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, parent_id, name, level, status, create_time, manager_id, last_modify_time, last_modify_manager_id,
+    ext1, ext2, ext3, ext4
+  </sql>
+  <delete id="deleteOrgByPrimaryKey" parameterType="java.lang.String" >
+    delete from organization
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteOrgByParentId" parameterType="java.lang.String" >
+    delete from organization
+    where parent_id = #{parent_id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insertOrgs" parameterType="com.hmcc.contact.entity.ContactOrg" >
+    insert into organization
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="parentId != null" >
+        parent_id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="level != null" >
+        level,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="managerId != null" >
+        manager_id,
+      </if>
+      <if test="lastModifiyTime != null" >
+        last_modify_time,
+      </if>
+      <if test="lastModifiyManagerId != null" >
+        last_modify_manager_id,
+      </if>
+      <if test="extend1 != null" >
+        ext1,
+      </if>
+      <if test="extend2 != null" >
+        ext2,
+      </if>
+      <if test="extend3 != null" >
+        ext3,
+      </if>
+      <if test="extend4 != null" >
+        ext4,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null" >
+        #{parentId,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=BIGINT},
+      </if>
+      <if test="level != null" >
+        #{level,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=INTEGER},
+      </if>
+      <if test="managerId != null" >
+        #{managerId,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastModifiyTime != null" >
+        #{lastModifiyTime,jdbcType=INTEGER},
+      </if>
+      <if test="lastModifiyManagerId != null" >
+        #{lastModifiyManagerId,jdbcType=VARCHAR},
+      </if>
+      <if test="extend1 != null" >
+        #{extend1,jdbcType=VARCHAR},
+      </if>
+      <if test="extend2 != null" >
+        #{extend2,jdbcType=VARCHAR},
+      </if>
+      <if test="extend3 != null" >
+        #{extend3,jdbcType=VARCHAR},
+      </if>
+      <if test="extend4 != null" >
+        #{extend4,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="selectAllOrgs" resultMap="BaseResultMap">
+  	SELECT * FROM organization WHERE 1=1
+  </select>
+</mapper>

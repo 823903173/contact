@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hmcc.contact.mapper.AddresslistUserMapper">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="com.hmcc.contact.entity.AddresslistUser">
+		<id column="user_id" property="userId" />
+		<result column="user_name" property="userName" />
+		<result column="user_gender" property="userGender" />
+		<result column="group_id" property="groupId" />
+		<result column="user_job" property="userJob" />
+		<result column="phone_num" property="phoneNum" />
+		<result column="is_hidden" property="isHidden" />
+		<result column="user_position" property="userPosition" />
+		<result column="user_status" property="userStatus" />
+		<result column="create_time" property="createTime" />
+		<result column="create_manager_id" property="createManagerId" />
+		<result column="latest_revise_time" property="latestReviseTime" />
+		<result column="latest_revise_manager_id" property="latestReviseManagerId" />
+		<result column="show_order" property="showOrder" />
+		<result column="extended_field_1" property="extendedField1" />
+		<result column="extended_field_2" property="extendedField2" />
+		<result column="extended_field_3" property="extendedField3" />
+		<result column="extended_field_4" property="extendedField4" />
+	</resultMap>
+
+
+
+	<select id="queryOne" parameterType="int" resultMap="BaseResultMap" resultType="com.hmcc.contact.entity.AddresslistUser">
+		select * from addresslist_user where user_id = #{id}
+	</select>
+
+	<select id="queryOnesByDepartId" resultMap="BaseResultMap" resultType="com.hmcc.contact.entity.AddresslistUser">
+		select user_id, user_name, user_gender, user_job, phone_num from addresslist_user where group_id = #{departId}
+	</select>
+
+	<select id="searchByName" resultMap="BaseResultMap" resultType="com.hmcc.contact.entity.AddresslistUser">
+		select user_id, user_name, user_gender, user_job, phone_num from addresslist_user where user_name = #{name}
+	</select>
+
+	<select id="searchByPhoneNum" resultMap="BaseResultMap" resultType="com.hmcc.contact.entity.AddresslistUser">
+		select user_id, user_name, user_gender, user_job, phone_num from addresslist_user where phone_num = #{phoneNum}
+	</select>
+
+	<select id="loginByPhone"  resultType="java.lang.Integer">
+		select count(*) from addresslist_user where phone_num = #{phoneNum}
+	</select>
+
+
+</mapper>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hmcc.contact.mapper.ContactUserDao" >
+  <resultMap id="BaseResultMap" type="com.hmcc.contact.entity.ContactUser" >
+    <id column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="user_gender" property="userGender" jdbcType="INTEGER"/>
+    <result column="group_id" property="groupId" jdbcType="VARCHAR"/>
+    <result column="user_job" property="userJob" jdbcType="VARCHAR"/>
+    <result column="phone_num" property="phoneNum" jdbcType="BIGINT"/>
+    <result column="is_hidden" property="isHidden" jdbcType="INTEGER"/>
+    <result column="user_position" property="userPosition" jdbcType="VARCHAR"/>
+    <result column="user_status" property="userStatus" jdbcType="INTEGER"/>
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+    <result column="create_manager_id" property="createManagerId" jdbcType="VARCHAR" />
+    <result column="latest_revise_time" property="latestReviseTime" jdbcType="TIMESTAMP"/>
+    <result column="latest_revise_manager_id" property="latestReviseManagerId" jdbcType="VARCHAR" />
+    <result column="show_order" property="showOrder" jdbcType="VARCHAR"/>
+    <result column="extended_field_1" property="extendedField1" jdbcType="VARCHAR"/>
+    <result column="extended_field_2" property="extendedField2" jdbcType="VARCHAR"/>
+    <result column="extended_field_3" property="extendedField3" jdbcType="VARCHAR"/>
+    <result column="extended_field_4" property="extendedField4" jdbcType="VARCHAR"/>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    user_id, user_name, user_gender, group_id, user_job, phone_num, is_hidden, user_position, user_status,
+    create_time, create_manager_id,latest_revise_time,latest_revise_manager_id,show_order,extended_field_1,
+    extended_field_2,extended_field_3,extended_field_4
+  </sql>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from addresslist_user
+    where user_id = #{user_id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByNum" parameterType="java.lang.String" >
+    delete from addresslist_user
+    where phone_num = #{phone_num,jdbcType=INTEGER}
+  </delete>
+  <insert id="insertSelective" parameterType="com.hmcc.contact.entity.ContactUser" >
+    insert into addresslist_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="userName != null" >
+        user_name,
+      </if>
+      <if test="userGender != null" >
+        user_gender,
+      </if>
+      <if test="groupId != null" >
+        group_id,
+      </if>
+      <if test="userJob != null" >
+        user_job,
+      </if>
+      <if test="phoneNum != null" >
+        phone_num,
+      </if>
+      <if test="isHidden != null" >
+        is_hidden,
+      </if>
+      <if test="userPosition != null" >
+        user_position,
+      </if>
+      <if test="userStatus != null" >
+        user_status,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createManagerId != null" >
+        create_manager_id,
+      </if>
+      <if test="latestReviseTime != null" >
+        latest_revise_time,
+      </if>
+      <if test="latestReviseManagerId != null" >
+        latest_revise_manager_id,
+      </if>
+      <if test="showOrder != null" >
+        show_order,
+      </if>
+      <if test="extendedField1 != null" >
+        extended_field_1,
+      </if>
+      <if test="extendedField2 != null" >
+        extended_field_2,
+      </if>
+      <if test="extendedField3 != null" >
+        extended_field_3,
+      </if>
+      <if test="extendedField4 != null" >
+        extended_field_4,
+      </if>
+
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userGender != null" >
+        #{userGender,jdbcType=INTEGER},
+      </if>
+      <if test="groupId != null" >
+        #{groupId,jdbcType=VARCHAR},
+      </if>
+      <if test="userJob != null" >
+        #{userJob,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNum != null" >
+        #{phoneNum,jdbcType=BIGINT},
+      </if>
+      <if test="isHidden != null" >
+        #{isHidden,jdbcType=INTEGER},
+      </if>
+      <if test="userPosition != null" >
+        #{userPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="userStatus != null" >
+        #{userStatus,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createManagerId != null" >
+        #{createManagerId,jdbcType=VARCHAR},
+      </if>
+      <if test="latestReviseTime != null" >
+        #{latestReviseTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="latestReviseManagerId != null" >
+        #{latestReviseManagerId,jdbcType=VARCHAR},
+      </if>
+      <if test="showOrder != null" >
+        #{showOrder,jdbcType=VARCHAR},
+      </if>
+      <if test="extendedField1 != null" >
+        #{extendedField1,jdbcType=VARCHAR},
+      </if>
+      <if test="extendedField2 != null" >
+        #{extendedField2,jdbcType=VARCHAR},
+      </if>
+      <if test="extendedField3 != null" >
+        #{extendedField3,jdbcType=VARCHAR},
+      </if>
+      <if test="extendedField4 != null" >
+        #{extendedField4,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="selectAllSSims" resultMap="BaseResultMap">
+    SELECT * FROM addresslist_user WHERE 1=1
+  </select>
+</mapper>
