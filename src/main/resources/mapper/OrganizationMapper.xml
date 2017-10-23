@@ -26,7 +26,7 @@
 	</select>
 
 	<select id="getNameByGroupId" resultMap="BaseResultMap" resultType="com.hmcc.contact.entity.Organization">
-		SELECT name FROM Organization WHERE id = #{0}
+		SELECT id,name,manager_id FROM Organization WHERE id = #{0}
 	</select>
 
 

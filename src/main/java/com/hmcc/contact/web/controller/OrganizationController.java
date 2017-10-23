@@ -111,7 +111,7 @@ public class OrganizationController {
       *
       * 获取组织ID后判断长度，查询
       * */
-    @GetMapping("showIndexPage")
+    @RequestMapping("showIndexPage")
     public void showIndexPage(HttpServletResponse response, HttpServletRequest request,long phoneNumber){
 //        HttpSession session = request.getSession();
         JSONObject json = new JSONObject();
@@ -127,12 +127,13 @@ public class OrganizationController {
             System.out.println("listName        " +listName  );
             s = list.get(0).getGroupId();
             if (s.substring(0,s.length()-6).length()==0){
-                System.out.println("            a"+s.substring(0,s.length()-6));
-                List<AddresslistUser> fatherList = iAddresslistUserService.getOnesByDepart(s.substring(0,s.length()-3));
+                System.out.println("            a"+s.substring(0,s.length()-3));
+//                List<AddresslistUser> fatherList = iAddresslistUserService.getOnesByDepart(s.substring(0,s.length()-3));
 //                String fatherListName = fatherList.get(0).getGroupId();
-                List<Organization> fatherListName = iOrganizationService.getNameByGroupId(fatherList.get(0).getGroupId());
+                List<Organization> fatherListName = iOrganizationService.getNameByGroupId(s.substring(0,s.length()-3));
 
                 json.put("msg",1);//
+                json.put("userInfo",list);
                 json.put("list",listName);
                 json.put("fartherList",fatherListName);
                 json.put("grandFatherList",null);
@@ -141,16 +142,17 @@ public class OrganizationController {
                 System.out.println("            b"+s.substring(0,s.length()-6));
                 System.out.println("SSSSSSS  " +s);
                 System.out.println("S.lenth-----3  " +s.substring(0,s.length()-3));
-                List<AddresslistUser> fatherList = iAddresslistUserService.getOnesByDepart(s.substring(0,s.length()-3));
-                System.out.println("fatherList  " +fatherList);
-                System.out.println("fatherList.get(0).getGroupId()  " +fatherList.get(0).getGroupId());
+//                List<AddresslistUser> fatherList = iAddresslistUserService.getOnesByDepart(s.substring(0,s.length()-3));
+//                System.out.println("fatherList  " +fatherList);
+//                System.out.println("fatherList.get(0).getGroupId()  " +fatherList.get(0).getGroupId());
 
-                List<Organization> fatherListName = iOrganizationService.getNameByGroupId(fatherList.get(0).getGroupId());
+                List<Organization> fatherListName = iOrganizationService.getNameByGroupId(s.substring(0,s.length()-3));
                 System.out.println("fatherListName  " +fatherListName);
 
-                List<AddresslistUser> grandFatherList = iAddresslistUserService.getOnesByDepart(s.substring(0,s.length()-6));
-                List<Organization> grandFatherListName = iOrganizationService.getNameByGroupId(grandFatherList.get(0).getGroupId());
+//                List<AddresslistUser> grandFatherList = iAddresslistUserService.getOnesByDepart(s.substring(0,s.length()-6));
+                List<Organization> grandFatherListName = iOrganizationService.getNameByGroupId(s.substring(0,s.length()-6));
                 json.put("msg",1);//
+                json.put("userInfo",list);
                 json.put("list",listName);
                 json.put("fartherList",fatherListName);
                 json.put("grandFatherList",grandFatherListName);

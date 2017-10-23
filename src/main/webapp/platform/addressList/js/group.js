@@ -3,6 +3,12 @@
  */
 
 window.onload = function () {
+    //$(".unchecked-span .checked-span").removeClass("checked-span");
+    // if($(".unchecked-span .checked-span").length > 0){
+    //     console.log('AAAAAAAAAAAAAAAAAAAAAA');
+    //     $(this).removeClass("checked-span");
+    // }
+
     var depart_id = GetdecodeQueryString("depart_id");
     var depart_name = GetdecodeQueryString("depart_name");
     group(depart_id,depart_name);
@@ -39,8 +45,9 @@ function group(depart_id,depart_name){
                 return;
             }
             if(msg==1){
-                if($(".checked-span").length > 0){
-                    $(this).removeClass("checked-span");
+                if($(".unchecked-span .checked-span").length > 0){
+                        console.log('AAAAAAAAAAAAAAAAAAAAAA');
+                    $(".unchecked-span .checked-span").removeClass("checked-span");
                 }
                 var menuitem = '<a><span class="unchecked-span checked-span">'+depart_name+'</span></a>';
                 $(".tit-li").append(menuitem);
@@ -62,7 +69,6 @@ function group(depart_id,depart_name){
                     for (var i=0;i<UserValue.length;i++){
                         var userName = UserValue[i].userName;
                         var phoneNum = UserValue[i].phoneNum;
-                        var extendedField1 = UserValue[i].extendedField1;
                         var itemli = '<li><a class="name-btn">'+
                             '<span class="headimg"><textarea id="content"></textarea></span>'+
                             '<span class="name-span">'+UserValue[i].userName+'</span></a>'+
@@ -72,9 +78,10 @@ function group(depart_id,depart_name){
                         $("#content").val(UserValue[i].userName);
                         $("#content").val($("#content").toPinyin().substr(0,1));
                         $('.name-btn').click(function(){
-                            getUserinfo(userName,phoneNum,extendedField1);
+                            getUserinfo(userName,phoneNum,depart_name);
                         });
                     }
+                    $(".namelist-ul").removeClass("none");
                     $(".namelist-ul").show();
                     return;
                 }
@@ -83,9 +90,10 @@ function group(depart_id,depart_name){
                     $(".department-ul").empty();
                     for (var i=0;i<OrganizationValue.length;i++){
                         var id = OrganizationValue[i].id;
-                        var itemli = '<li><a>'+OrganizationValue[i].id+'</a></li>';
+                        depart_name = OrganizationValue[i].name;
+                        var itemli = '<li><a class="nameli">'+OrganizationValue[i].name+'</a></li>';
                         $(".department-ul").append(itemli);
-                        $('a').click(function(){
+                        $('.nameli').click(function(){
                             group(id,depart_name);
                         });
                     }

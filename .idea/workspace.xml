@@ -2,36 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="845ee5bc-1a58-4d12-a249-51433996f40e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/platform/addressList/js/jQuery.Hz2Py-min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/platform/addressList/js/jquery.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/platform/addressList/js/public.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/platform/addressList/test.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/hmcc/contact/mapper/OrganizationMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/hmcc/contact/mapper/OrganizationMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/hmcc/contact/service/IOrganizationService.java" afterPath="$PROJECT_DIR$/src/main/java/com/hmcc/contact/service/IOrganizationService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/hmcc/contact/service/impl/AddresslistUserServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/hmcc/contact/service/impl/AddresslistUserServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/hmcc/contact/service/impl/OrganizationServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/hmcc/contact/service/impl/OrganizationServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/hmcc/contact/web/controller/AddresslistUserController.java" afterPath="$PROJECT_DIR$/src/main/java/com/hmcc/contact/web/controller/AddresslistUserController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/hmcc/contact/web/controller/OrganizationController.java" afterPath="$PROJECT_DIR$/src/main/java/com/hmcc/contact/web/controller/OrganizationController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/AddresslistUserMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/AddresslistUserMapper.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/OrganizationMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/OrganizationMapper.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/SendMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/SendMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/platform/addressList/.idea/addressList.iml" afterPath="$PROJECT_DIR$/src/main/webapp/platform/addressList/.idea/addressList.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/platform/addressList/.idea/encodings.xml" afterPath="$PROJECT_DIR$/src/main/webapp/platform/addressList/.idea/encodings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/platform/addressList/.idea/misc.xml" afterPath="$PROJECT_DIR$/src/main/webapp/platform/addressList/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/platform/addressList/.idea/modules.xml" afterPath="$PROJECT_DIR$/src/main/webapp/platform/addressList/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/platform/addressList/.idea/workspace.xml" afterPath="$PROJECT_DIR$/src/main/webapp/platform/addressList/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/platform/addressList/css/group.css" afterPath="$PROJECT_DIR$/src/main/webapp/platform/addressList/css/group.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/platform/addressList/css/name_list.css" afterPath="$PROJECT_DIR$/src/main/webapp/platform/addressList/css/name_list.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/platform/addressList/group.html" afterPath="$PROJECT_DIR$/src/main/webapp/platform/addressList/group.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/platform/addressList/index.html" afterPath="$PROJECT_DIR$/src/main/webapp/platform/addressList/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/platform/addressList/js/group.js" afterPath="$PROJECT_DIR$/src/main/webapp/platform/addressList/js/group.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/platform/addressList/js/index.js" afterPath="$PROJECT_DIR$/src/main/webapp/platform/addressList/js/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/platform/addressList/js/jquery-1.11.2.min.js" afterPath="$PROJECT_DIR$/src/main/webapp/platform/addressList/js/jquery-1.11.2.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/platform/addressList/js/layer.js" afterPath="$PROJECT_DIR$/src/main/webapp/platform/addressList/js/layer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/platform/addressList/js/login.js" afterPath="$PROJECT_DIR$/src/main/webapp/platform/addressList/js/login.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/platform/addressList/js/name_list.js" afterPath="$PROJECT_DIR$/src/main/webapp/platform/addressList/js/name_list.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/platform/addressList/login.html" afterPath="$PROJECT_DIR$/src/main/webapp/platform/addressList/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/platform/addressList/name_list.html" afterPath="$PROJECT_DIR$/src/main/webapp/platform/addressList/name_list.html" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -56,89 +34,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SendController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/hmcc/contact/web/controller/SendController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2160">
-              <caret line="99" column="22" lean-forward="false" selection-start-line="99" selection-start-column="22" selection-end-line="99" selection-end-column="22" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AddresslistUserController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/hmcc/contact/web/controller/AddresslistUserController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4509">
-              <caret line="187" column="103" lean-forward="false" selection-start-line="187" selection-start-column="94" selection-end-line="187" selection-end-column="103" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SendMapper.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/SendMapper.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="14" column="4" lean-forward="false" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
-              <folding>
-                <marker date="1508726264811" expanded="true" signature="544:616" ph="select count... send" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OrganizationController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="OrganizationController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/hmcc/contact/web/controller/OrganizationController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="122" column="29" lean-forward="true" selection-start-line="122" selection-start-column="29" selection-end-line="122" selection-end-column="29" />
+            <state relative-caret-position="265">
+              <caret line="113" column="36" lean-forward="false" selection-start-line="113" selection-start-column="36" selection-end-line="113" selection-end-column="36" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IOrganizationService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/hmcc/contact/service/IOrganizationService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="17" column="54" lean-forward="false" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="54" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OrganizationServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/hmcc/contact/service/impl/OrganizationServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
-              <caret line="26" column="46" lean-forward="false" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OrganizationMapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/hmcc/contact/mapper/OrganizationMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
-              <caret line="23" column="55" lean-forward="false" selection-start-line="23" selection-start-column="55" selection-end-line="23" selection-end-column="55" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OrganizationMapper.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/OrganizationMapper.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-              <folding>
-                <marker date="1508723526690" expanded="true" signature="1124:1185" ph="SELECT * FRO... Organization" />
-                <marker date="1508723526690" expanded="true" signature="1308:1353" ph="SELECT name Organization" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -174,7 +75,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/hmcc/contact/mapper/xml/DepartmentAdministratorMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/hmcc/contact/service/IDepartmentAdministratorService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hmcc/contact/service/IAddresslistMessageSendService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hmcc/contact/mapper/AddresslistMessageSendMapper.java" />
@@ -216,15 +116,16 @@
         <option value="$PROJECT_DIR$/src/main/java/com/hmcc/contact/entity/ManagementOperationsLog.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hmcc/contact/web/controller/ManagementOperationsLogController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hmcc/contact/web/controller/SendController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hmcc/contact/web/controller/AddresslistUserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hmcc/contact/service/impl/AddresslistUserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/AddresslistUserMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/hmcc/contact/service/IOrganizationService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hmcc/contact/service/impl/OrganizationServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hmcc/contact/mapper/OrganizationMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/OrganizationMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hmcc/contact/web/controller/OrganizationController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/SendMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/OrganizationMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hmcc/contact/web/controller/AddresslistUserController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hmcc/contact/web/controller/OrganizationController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/platform/addressList/js/index.js" />
       </list>
     </option>
   </component>
@@ -417,7 +318,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -555,6 +456,84 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="contact" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="contact" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="contact" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="contact" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="contact" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="contact" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="contact" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="contact" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
@@ -563,7 +542,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ssm_excel" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../hnmccClientWap" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.1562108" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -576,11 +555,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="G:\ha.dev\ideaworkspace\HmccContact\contact\src\main\webapp\platform\addressList\.idea" />
+      <recent name="G:\ha.dev\ideaworkspace\HmccContact\contact\src\main\webapp\platform\addressList\js\need" />
+      <recent name="G:\ha.dev\ideaworkspace\HmccContact\contact\src\main\webapp\platform\addressList\js" />
       <recent name="G:\ha.dev\ideaworkspace\HmccContact\contact\src\main\webapp\platform\addressList\images" />
       <recent name="G:\ha.dev\ideaworkspace\HmccContact\contact\src\main\webapp\platform\addressList\css" />
-      <recent name="G:\ha.dev\ideaworkspace\HmccContact\contact\src\main\webapp\platform\addressList\js" />
-      <recent name="G:\ha.dev\ideaworkspace\HmccContact\contact\src\main\webapp\platform\addressList" />
+      <recent name="G:\ha.dev\ideaworkspace\HmccContact\contact\src\main\webapp\platform\addressList\admin\js" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.hmcc.contact.util" />
@@ -1150,7 +1129,7 @@
       <workItem from="1508458767604" duration="24401000" />
       <workItem from="1508560214663" duration="2095000" />
       <workItem from="1508719168985" duration="380000" />
-      <workItem from="1508719727533" duration="6198000" />
+      <workItem from="1508719727533" duration="13988000" />
     </task>
     <task id="LOCAL-00001" summary="ceshi">
       <created>1506655337950</created>
@@ -1327,11 +1306,18 @@
       <option name="project" value="LOCAL" />
       <updated>1508491588048</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="前端部分内容">
+      <created>1508726313336</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1508726313336</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="190034000" />
+    <option name="totallyTimeSpent" value="197824000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1344,11 +1330,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21412556" sideWeight="0.116136916" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23654708" sideWeight="0.116136916" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1366,10 +1351,10 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.119672135" sideWeight="0.4969743" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21412556" sideWeight="0.8838631" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23654708" sideWeight="0.8838631" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295082" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3215159" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27506113" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1406,7 +1391,8 @@
     <MESSAGE value="C" />
     <MESSAGE value="修改登录日志部分 可以记录管理员登陆日志和用户登录日志了" />
     <MESSAGE value="qianduan" />
-    <option name="LAST_COMMIT_MESSAGE" value="qianduan" />
+    <MESSAGE value="前端部分内容" />
+    <option name="LAST_COMMIT_MESSAGE" value="前端部分内容" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1427,13 +1413,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hmcc/contact/mapper/xml/SendMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/hmcc/contact/entity/NewLog.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-7">
@@ -1740,16 +1719,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2160">
           <caret line="99" column="22" lean-forward="false" selection-start-line="99" selection-start-column="22" selection-end-line="99" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hmcc/contact/web/controller/AddresslistUserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4509">
-          <caret line="187" column="103" lean-forward="false" selection-start-line="187" selection-start-column="94" selection-end-line="187" selection-end-column="103" />
           <folding />
         </state>
       </provider>
@@ -1786,25 +1755,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/OrganizationMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding>
-            <marker date="1508723526690" expanded="true" signature="1124:1185" ph="SELECT * FRO... Organization" />
-            <marker date="1508723526690" expanded="true" signature="1308:1353" ph="SELECT name Organization" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hmcc/contact/web/controller/OrganizationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="122" column="29" lean-forward="true" selection-start-line="122" selection-start-column="29" selection-end-line="122" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/AddresslistUserMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -1821,11 +1771,46 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/SendMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="14" column="4" lean-forward="false" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
+        <state relative-caret-position="81">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding>
-            <marker date="1508726264811" expanded="true" signature="544:616" ph="select count... send" />
+            <marker date="1508726316006" expanded="true" signature="544:616" ph="select count... send" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/OrganizationMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="636">
+          <caret line="27" column="24" lean-forward="false" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
+          <folding>
+            <marker date="1508730060307" expanded="true" signature="1124:1185" ph="SELECT * FRO... Organization" />
+            <marker date="1508730060307" expanded="true" signature="1308:1367" ph="SELECT id,na... Organization" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hmcc/contact/web/controller/AddresslistUserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6283">
+          <caret line="290" column="0" lean-forward="true" selection-start-line="290" selection-start-column="0" selection-end-line="290" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hmcc/contact/web/controller/OrganizationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="113" column="36" lean-forward="false" selection-start-line="113" selection-start-column="36" selection-end-line="113" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/platform/addressList/js/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="19" column="37" lean-forward="true" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -10,6 +10,7 @@ $(function(){
         data:{"str_input":keywords},
         success: function (data) {
             var user_list =data.value;
+            var groupNameList =data.groupNameList;
             var msg = data.msg;
             if(msg == 0)
             {

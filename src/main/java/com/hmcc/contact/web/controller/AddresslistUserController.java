@@ -5,8 +5,11 @@ import com.alibaba.fastjson.JSONObject;
 import com.hmcc.contact.entity.AddresslistAppLogin;
 import com.hmcc.contact.entity.AddresslistUser;
 
+import com.hmcc.contact.entity.Organization;
 import com.hmcc.contact.service.IAddresslistAppLoginService;
 import com.hmcc.contact.service.IAddresslistUserService;
+import com.hmcc.contact.service.IOrganizationService;
+import com.hmcc.contact.service.IOrganizationService;
 import com.hmcc.contact.service.ISendService;
 import com.hmcc.contact.util.DoAjax;
 import com.hmcc.contact.util.getNowTime;
@@ -64,7 +67,8 @@ public class AddresslistUserController {
     private ISendService iSendService;
     @Autowired
     private IAddresslistAppLoginService iAddresslistAppLoginService;
-
+    @Autowired
+    private IOrganizationService iOrganizationService;
 
     /*
     * 响应人员个人信息展示页面
@@ -135,7 +139,9 @@ public class AddresslistUserController {
             if (pattern.matcher(str_input).matches())
             {
                 List<AddresslistUser> res = iAddresslistUserService.searchByPhoneNum(Long.parseLong(str_input));
+                List<Organization> groupNameList = iOrganizationService.getNameByGroupId(res.get(0).getGroupId());
                 json.put("value",res);
+                json.put("groupNameList",groupNameList);
                 json.put("msg",1);//
                 DoAjax.doAjax(response, json, null);
 //            return iAddresslistUserService.searchByPhoneNum(Long.parseLong(str_input));
@@ -160,6 +166,8 @@ public class AddresslistUserController {
             {
 
                 List<AddresslistUser> res = iAddresslistUserService.searchByName(str.trim());
+                List<Organization> groupNameList = iOrganizationService.getNameByGroupId(res.get(0).getGroupId());
+                json.put("groupNameList",groupNameList);
                 json.put("value",res);
                 json.put("msg",1);//
                 DoAjax.doAjax(response, json, null);
