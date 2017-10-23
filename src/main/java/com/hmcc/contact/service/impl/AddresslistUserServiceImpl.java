@@ -38,8 +38,11 @@ public class AddresslistUserServiceImpl extends ServiceImpl<AddresslistUserMappe
         {
             return baseMapper.searchByPhoneNum(phoneNum);
         }
+
+
         public boolean loginByPhone(long phoneNum)
         {
+//            boolean a = baseMapper.loginByPhone(phoneNum);
             return baseMapper.loginByPhone(phoneNum);
         }
 }

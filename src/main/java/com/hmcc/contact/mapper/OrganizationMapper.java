@@ -19,4 +19,7 @@ public interface OrganizationMapper extends BaseMapper<Organization> {
 
     @Select("getIdByGroupId")
     List<Organization> getIdByGroupId(String id);
+
+    @Select("getNameByGroupId")
+    List<Organization> getNameByGroupId(String groupId);
 }

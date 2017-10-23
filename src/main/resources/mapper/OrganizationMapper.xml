@@ -25,5 +25,10 @@
 		SELECT * FROM Organization WHERE id like CONCAT(#{id}, '___')
 	</select>
 
+	<select id="getNameByGroupId" resultMap="BaseResultMap" resultType="com.hmcc.contact.entity.Organization">
+		SELECT name FROM Organization WHERE id = #{0}
+	</select>
+
+
 
 </mapper>

@@ -42,7 +42,7 @@
 		select user_id, user_name, user_gender, user_job, phone_num, extended_field_1, group_id from addresslist_user where phone_num = #{phoneNum}
 	</select>
 
-	<select id="loginByPhone"  resultType="java.lang.Integer">
+	<select id="loginByPhone"  resultType="java.lang.Boolean">
 		select count(*) from addresslist_user where phone_num = #{phoneNum}
 	</select>
 

@@ -15,4 +15,5 @@ import java.util.List;
  */
 public interface IOrganizationService extends IService<Organization> {
     List<Organization> getIdByGroupId(String id);
+    List<Organization> getNameByGroupId(String groupId);
 }

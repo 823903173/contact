@@ -4,7 +4,8 @@
 
 window.onload = function () {
     var depart_id = GetdecodeQueryString("depart_id");
-    group(depart_id);
+    var depart_name = GetdecodeQueryString("depart_name");
+    group(depart_id,depart_name);
     //关闭弹窗
     var pEles = document.querySelectorAll(".popup-close-btn");
     for (var t = 0; t < pEles.length; t++) {
@@ -17,17 +18,20 @@ window.onload = function () {
             event.preventDefault();
         }
     }
+    $(".popup-close-btn").click(function (){
+        $("#personalinfo").addClass("none");
+    });
 };
 
-function group(depart_id){
+function group(depart_id,depart_name){
     $.ajax({
-        url: "hmcc/organization/getIdByGroupId.do?id=" + depart_id,
+        url: "/hmcc/organization/getIdByGroupId.do",
         type:"get",
         dataType: "json",
         data:{"id":depart_id},
         success: function (data) {
             var msg = data.msg;
-            var current = data.name;
+            var isEnd = data.isEnd;
             var OrganizationValue = data.OrganizationValue;
             var UserValue = data.UserValue;
             if(msg==0){
@@ -38,28 +42,52 @@ function group(depart_id){
                 if($(".checked-span").length > 0){
                     $(this).removeClass("checked-span");
                 }
-                var menuitem = '<a><span class="unchecked-span checked-span">'+current+'</span></a>';
-                $(".menu-box").append(menuitem);
+                var menuitem = '<a><span class="unchecked-span checked-span">'+depart_name+'</span></a>';
+                $(".tit-li").append(menuitem);
+                var width=$(".tit-li").width();
+                var le=$(".unchecked-span").length;
+                var span = 0;
+                for(var i=0;i<le-1;i++){
+                    span = $(".unchecked-span").eq(i).outerWidth()+span;
+                }
+                var checkedWidth=$(".checked-span").outerWidth();
+                if(span>width)
+                {
+                    $(".unchecked-span").last().removeClass("unchecked-span");
+                    $(".unchecked-span").css("max-width", (width-checkedWidth)/(le-1)-12);
+                }
                 if(isEnd==true){
-                    $(".department-ul").style.display = "none";
+                    $(".department-ul").addClass("none");
                     $(".namelist-ul").empty();
                     for (var i=0;i<UserValue.length;i++){
-                        var itemli = '<li><a href="javascript:getUserinfo(UserValue[i].userName,UserValue[i].phoneNum,UserValue[i].extendedField1);">'+
-                            '<span class="headimg">*</span>'+
-                            '<span class="name-span">+UserValue[i].userName+</span></a>'+
-                            '<a href="javascript:getUserinfo(UserValue[i].userName,UserValue[i].phoneNum,UserValue[i].extendedField1);" class="dial-btn">'+
+                        var userName = UserValue[i].userName;
+                        var phoneNum = UserValue[i].phoneNum;
+                        var extendedField1 = UserValue[i].extendedField1;
+                        var itemli = '<li><a class="name-btn">'+
+                            '<span class="headimg"><textarea id="content"></textarea></span>'+
+                            '<span class="name-span">'+UserValue[i].userName+'</span></a>'+
+                            '<a class="name-btn dial-btn">'+
                             '<span><img src="images/dial.jpg"/></span></a></li>';
                         $(".namelist-ul").append(itemli);
+                        $("#content").val(UserValue[i].userName);
+                        $("#content").val($("#content").toPinyin().substr(0,1));
+                        $('.name-btn').click(function(){
+                            getUserinfo(userName,phoneNum,extendedField1);
+                        });
                     }
                     $(".namelist-ul").show();
                     return;
                 }
                 if(isEnd==false){
-                    $(".namelist-ul").style.display = "none";
+                    $(".namelist-ul").addClass("none");
                     $(".department-ul").empty();
                     for (var i=0;i<OrganizationValue.length;i++){
-                        var itemli = '<li><a href="javascript:group(OrganizationValue[i].id);">'+OrganizationValue[i].name+'</a></li>';
+                        var id = OrganizationValue[i].id;
+                        var itemli = '<li><a>'+OrganizationValue[i].id+'</a></li>';
                         $(".department-ul").append(itemli);
+                        $('a').click(function(){
+                            group(id,depart_name);
+                        });
                     }
                     $(".department-ul").show();
                     return;
@@ -70,9 +98,12 @@ function group(depart_id){
     });
 }
 function getUserinfo(name,phone,group){
+    $("#personalinfo").removeClass("none");
     $('.name').html(name);
     $('.group').html(group);
     $('.phone').html(phone);
+    $('#tel').attr('href','tel:'+phone+'');
+    $('#sms').attr('href','sms:'+phone+'');
     $('#personalinfo').show();
 }
 

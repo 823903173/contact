@@ -8,28 +8,30 @@
     <meta name="format-detection" content="telephone=no">
     <title>部门</title>
     <link rel="stylesheet" href="css/group.css" type="text/css">
-    <script src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jQuery.Hz2Py-min.js"></script>
+    <script src="js/group.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/public.js"></script>
 </head>
 
 <body>
-    <ul class="menu-box"><li class="tit-li"><a><span class="unchecked-span">河南移动</span></a>
-        <a><span class="unchecked-span checked-span">信息集成支撑中心</span></a></li></ul>
-    <ul class="department-ul none">
-        <li><a>综合部</a></li>
-        <li><a>财务部</a></li>
-        <li><a>财务部</a></li>
-        <li><a>财务部</a></li>
-        <li><a>财务部</a></li>
-        <li><a>财务部</a></li>
-        <li><a>财务部</a></li>
-        <li><a>财务部</a></li>
-        <li><a>财务部</a></li>
-        <li><a>财务部</a></li>
+    <ul class="menu-box"><li class="tit-li"></li></ul>
+    <ul class="department-ul">
+        <!--<li><a>综合部</a></li>-->
+        <!--<li><a>财务部</a></li>-->
+        <!--<li><a>财务部</a></li>-->
+        <!--<li><a>财务部</a></li>-->
+        <!--<li><a>财务部</a></li>-->
+        <!--<li><a>财务部</a></li>-->
+        <!--<li><a>财务部</a></li>-->
+        <!--<li><a>财务部</a></li>-->
+        <!--<li><a>财务部</a></li>-->
+        <!--<li><a>财务部</a></li>-->
     </ul>
     <ul class="namelist-ul">
-        <li><a href="javascript:person();"><span class="headimg">Z</span><span class="name-span">张三</span></a><a href="javascript:person();" class="dial-btn"><span><img src="images/dial.jpg"/></span></a></li>
-        <li><a href="javascript:person();"><span class="headimg">W</span><span class="name-span">王五</span></a><a href="javascript:person();" class="dial-btn"><span ><img src="images/dial.jpg"/></span></a></li>
-        <li><a href="javascript:person();"><span class="headimg">L</span><span class="name-span">李四</span></a><a href="javascript:person();" class="dial-btn"><span ><img src="images/dial.jpg"/></span></a></li>
+        <!--<li><a href="javascript:person();"><span class="headimg">Z</span><span class="name-span">张三</span></a><a href="javascript:person();" class="dial-btn"><span><img src="images/dial.jpg"/></span></a></li>-->
+        <!--<li><a href="javascript:person();"><span class="headimg">W</span><span class="name-span">王五</span></a><a href="javascript:person();" class="dial-btn"><span ><img src="images/dial.jpg"/></span></a></li>-->
+        <!--<li><a href="javascript:person();"><span class="headimg">L</span><span class="name-span">李四</span></a><a href="javascript:person();" class="dial-btn"><span ><img src="images/dial.jpg"/></span></a></li>-->
     </ul>
     <div class="popup-box popup-order-box" id="personalinfo">
         <div class="popup-bg"></div>
@@ -41,18 +43,16 @@
                 <div class="info-box">
                     <p class="name-p"><span class="name">张三</span></p>
                     <p><span class="group">财务部</span></p>
-                    <p><span class="position">副总经理</span></p>
                     <p class="phone-p"><span class="phone">13837379988</span></p>
                 </div>
                 <div class="popup-btn-box">
-                    <a><img src="images/tel.png"/></a>
-                    <a><img src="images/message.png"/></a>
-                    <a><img src="images/share.png"/></a>
+                    <a id="tel"><img src="images/tel.png"/></a>
+                    <a id="sms"><img src="images/message.png"/></a>
+                    <!--<a><img src="images/share.png"/></a>-->
                 </div>
             </div>
         </div>
     </div>
-    <script src="js/group.js" type="text/javascript"></script>
 
 </body>
 </html>

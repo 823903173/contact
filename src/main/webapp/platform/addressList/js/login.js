@@ -23,14 +23,15 @@ $(function(){
             return;
         }
         $.ajax({
-            url: "/send/queryPhoneNumAndVerifyCode.do?phoneNumber="+phone+"&verifyCode ="+msm,
+            url: "/hmcc/send/queryPhoneNumAndVerifyCode.do",
             type:"get",
             dataType: "json",
             data:{"phoneNumber":phone,"verifyCode":msm},
             success: function (data) {
                 var flag=data.flag;
                 if (flag == true){
-                    window.location.href = "index.html?phoneNumber=" + encodeURIComponent(phone);
+                    SaveSessionStorage("phone",JSON.stringify(phone));
+                    window.location.href = "index.html";
                 }else{
                     $('#yzm').closest('p').after('<span style="color: red;margin-top: 1rem" id="tips">登录失败</span>');
                 }
@@ -49,22 +50,22 @@ $(function(){
 
         $(".getcode-btn").css("background-color", "gray").addClass("disable");
         var phone = $('#phone').val();
-        //$.ajax({
-        //    url: "/departmentAdministrator/CheckDepartmentPhoneNumber.do?phoneNumber=" + phone,
-        //    type:"get",
-        //    dataType: "json",
-        //    data:{"phoneNumber":phone},
-        //    success: function (data) {
-        //        var flag=data.flag;
-        //        if (flag == true){
+        $.ajax({
+            url: "/hmcc/app/getOnesOfDepart.do",
+            type:"get",
+            dataType: "json",
+            data:{"phoneNumber":phone},
+            success: function (data) {
+                var flag=data.flag;
+                if (flag == true){
                     for (var i = 1; i <= 60; i++) {
                         window.setTimeout("update_p(" + i + "," + 60 + ")", i * 1000);
                     }
-        //        }else{
-        //            $('#yzm').closest('p').after('<span style="color: red" id="tips">获取验证码失败</span>');
-        //        }
-        //    }
-        //});
+                }else{
+                    $('#yzm').closest('p').after('<span style="color: red" id="tips">无法获取验证码</span>');
+                }
+            }
+        });
     });
 });
 
@@ -90,18 +91,17 @@ function getVersion() {
     //        }
     //    }
     //});
-    //if(version < 2){
-    //    //询问框
-    //    layer.open({
-    //        content: '检测到新版本，是否升级？'
-    //        , btn: ['升级版本', '暂不升级']
-    //        , yes: function (index) {
-    //            window.location.href = 'http://localhost:8082/hmcc/app/search.do';
-    //            layer.close(index);
-    //        }
-    //    });
-    //}
-
+    if(version < 2){
+       //询问框
+       layer.open({
+           content: '检测到新版本，是否升级？'
+           , btn: ['升级版本', '暂不升级']
+           , yes: function (index) {
+               window.location.href = 'http://localhost:8082/hmcc/app/search.do';
+               layer.close(index);
+           }
+       });
+    }
 
 }
 

@@ -23,4 +23,12 @@ public class OrganizationServiceImpl extends ServiceImpl<OrganizationMapper, Org
 //	    id = id + ;
         return baseMapper.getIdByGroupId(id);
     }
+
+    public List<Organization> getNameByGroupId(String groupId){
+//        System.out.println("aaaaaaaaaaaaa"+groupId);
+//	    id = id + ;
+        return baseMapper.getNameByGroupId(groupId);
+    }
+
+
 }

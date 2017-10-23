@@ -2,66 +2,71 @@
  * Created by Administrator on 2017/10/10.
  */
 $(function(){
-    var phone = GetdecodeQueryString("phoneNumber");;
+    // var phone = GetdecodeQueryString("phoneNumber");
     var name;
-    var company;
-    var organization;
-    var department;
-    $.ajax({
-        url: "getOneAll.do?phone=" + phone,
-        type:"get",
-        dataType: "json",
-        data:{"phone":phone},
-        success: function (data) {
-            var value = data.value;
-            var msg = data.msg;
-            name = value.name;
-            company = value.company;
-            organization = value.organization;
-            department = value.department;
-            if(msg == 0)
-            {
-                window.location.href = "login.html";
-                return;
-            }
-            if(msg == 1)
-            {
-                $("#name").html(name);
-                if(company!=null){
-                    var item = '<div class="content-box1 content-box">'+
-                        '<ul>'+
-                        '<li class="content-bigger"><span id="company">'+company+'</span></li>'+
-                        '</ul>'+
-                        '<img src="images/1.png"></div>'
-                    $('.content-box1').click(function(){
-                        window.location.href = "group.html?depart_id=" + encodeURIComponent(company);
-                    });
-                    $(".content").append(item);
-                }
-                if(organization!=null){
-                    var item = '<div class="content-box2 content-box">'+
-                        '<ul>'+
-                        '<li class="content-bigger"><span id="company">'+organization+'</span></li>'+
-                        '</ul>'+
-                        '<img src="images/2.png"></div>'
-                    $('.content-box2').click(function(){
-                        window.location.href = "group.html?depart_id=" + encodeURIComponent(organization);
-                    });
-                    $(".content").append(item);
-                }
-                var item = '<div class="content-box3 content-box">'+
-                    '<ul>'+
-                    '<li class="content-bigger"><span id="company">'+department+'</span></li>'+
-                    '</ul>'+
-                    '<img src="images/3.png"></div>'
-                $('.content-box3').click(function(){
-                    window.location.href = "group.html?depart_id=" + encodeURIComponent(department);
-                });
-                $(".content").append(item);
-            }
-        }
 
-    });
+    if(!GetSessionStorage("phone")){
+        window.location.href = "login.html";
+
+    }else {
+        var phone=JSON.parse(GetSessionStorage("phone"));
+        $.ajax({
+            url: "/hmcc/organization/showIndexPage.do",
+            type:"get",
+            dataType: "json",
+            data:{"phoneNumber":phone},
+            success: function (data) {
+                var msg = data.msg;
+                var list = data.list;
+                var fartherList = data.fartherList;
+                var grandFatherList = data.grandFatherList;
+                if(msg == 0)
+                {
+                    window.location.href = "login.html";
+                    return;
+                }
+                if(msg == 1)
+                {
+                    name = list[0].userName;
+                    $("#name").html(name);
+                    if(grandFatherList!=""){
+                        var item = '<div class="content-box1 content-box">'+
+                            '<ul>'+
+                            '<li class="content-bigger"><span id="company">'+grandFatherList[0].extendedField1+'</span></li>'+
+                            '</ul>'+
+                            '<img src="images/1.png"></div>'
+                        $('.content-box1').click(function(){
+                            window.location.href = "group.html?depart_id=" + encodeURIComponent(grandFatherList[0].groupId);
+                        });
+                        $(".content").append(item);
+                    }
+                    if(fartherList!=""){
+                        var item = '<div class="content-box2 content-box">'+
+                            '<ul>'+
+                            '<li class="content-bigger"><span id="company">'+fartherList[0].extendedField1+'</span></li>'+
+                            '</ul>'+
+                            '<img src="images/2.png"></div>'
+                        $('.content-box2').click(function(){
+                            window.location.href = "group.html?depart_id=" + encodeURIComponent(fartherList[0].groupId);
+                        });
+                        $(".content").append(item);
+                    }
+                    var item = '<div class="content-box3 content-box">'+
+                        '<ul>'+
+                        '<li class="content-bigger"><span id="company">'+list[0].extendedField1+'</span></li>'+
+                        '</ul>'+
+                        '<img src="images/3.png"></div>'
+
+                    $(".content").append(item);
+                    $('.content-box3').click(function(){
+                        window.location.href = "group.html?depart_id=" + encodeURIComponent(list[0].groupId) +"&depart_name=" + encodeURIComponent(list[0].extendedField1);
+                    });
+                }
+            }
+
+        });
+    }
+
 
     $('#search-btn').click(function(){
         search();
