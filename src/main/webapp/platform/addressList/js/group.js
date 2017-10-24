@@ -29,7 +29,7 @@ window.onload = function () {
     });
 };
 
-
+//加载部门组织
 function group(depart_id,depart_name){
     $.ajax({
         url: "/hmcc/organization/getIdByGroupId.do",
@@ -46,23 +46,27 @@ function group(depart_id,depart_name){
                 return;
             }
             if(msg==1){
-                if($(".unchecked-span .checked-span").length > 0){
-                        console.log('AAAAAAAAAAAAAAAAAAAAAA');
-                    $(".unchecked-span .checked-span").removeClass("checked-span");
+                if($(".checked-span").length > 0){
+                    $(".checked-span").removeClass("checked-span");
                 }
                 var menuitem = '<a><span class="unchecked-span checked-span">'+depart_name+'</span></a>';
                 $(".tit-li").append(menuitem);
                 var width=$(".tit-li").width();
+                //console.log("屏幕总长："+width);
                 var le=$(".unchecked-span").length;
+                //console.log("标签总数："+le);
                 var span = 0;
-                for(var i=0;i<le-1;i++){
+                for(var i=0;i<le;i++){
                     span = $(".unchecked-span").eq(i).outerWidth()+span;
                 }
+                //console.log("实际总长："+span);
                 var checkedWidth=$(".checked-span").outerWidth();
+                //console.log("最后选中标签长："+checkedWidth);
                 if(span>width)
                 {
                     $(".unchecked-span").last().removeClass("unchecked-span");
                     $(".unchecked-span").css("max-width", (width-checkedWidth)/(le-1)-12);
+                    $(".checked-span").last().addClass("unchecked-span");
                 }
                 if(isEnd==true){
                     $(".department-ul").addClass("none");
@@ -106,6 +110,8 @@ function group(depart_id,depart_name){
         }
     });
 }
+
+//加载个人信息页面
 function getUserinfo(name,phone,group){
     $("#personalinfo").removeClass("none");
     $('.name').html(name);

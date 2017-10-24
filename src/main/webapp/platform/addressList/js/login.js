@@ -51,10 +51,10 @@ $(function(){
         $(".getcode-btn").css("background-color", "gray").addClass("disable");
         var phone = $('#phone').val();
         $.ajax({
-            url: "/hmcc/app/getOnesOfDepart.do",
+            url: "/hmcc/app/loginByPhone.do",
             type:"post",
             dataType: "json",
-            data:{"phoneNumber":phone},
+            data:{"phone_num":phone},
             success: function (data) {
                 var flag=data.flag;
                 if (flag == true){
@@ -71,37 +71,37 @@ $(function(){
 
 function getVersion() {
     version = 1;
-    //$.ajax({
-    //    url: "/hmcc/addresslistAppLogin/checkBetaNumber.do?betaNumber="+version,
-    //    type:"get",
-    //    dataType: "json",
-    //    data:{"betaNumber":version},
-    //    success: function (data) {
-    //        var flag=data.flag;
-    //        if (flag == true){
-    //            //询问框
-    //            layer.open({
-    //                content: '检测到新版本，是否升级？'
-    //                , btn: ['升级版本', '暂不升级']
-    //                , yes: function (index) {
-    //                    window.location.href = 'http://localhost:8082/hmcc/app/search.do';
-    //                    layer.close(index);
-    //                }
-    //            });
-    //        }
-    //    }
-    //});
-    if(version < 2){
-       //询问框
-       layer.open({
-           content: '检测到新版本，是否升级？'
-           , btn: ['升级版本', '暂不升级']
-           , yes: function (index) {
-               window.location.href = 'http://localhost:8082/hmcc/app/search.do';
-               layer.close(index);
+    $.ajax({
+       url: "/hmcc/addresslistAppLogin/checkBetaNumber.do",
+       type:"post",
+       dataType: "json",
+       data:{"betaNumber":version},
+       success: function (data) {
+           var flag = data.flag;
+           if (flag == true){
+               //询问框
+               layer.open({
+                   content: '检测到新版本，是否升级？'
+                   , btn: ['升级版本', '暂不升级']
+                   , yes: function (index) {
+                       window.location.href = 'http://localhost:8082/hmcc/file/down.do';
+                       layer.close(index);
+                   }
+               });
            }
-       });
-    }
+       }
+    });
+    // if(version < 2){
+    //    //询问框
+    //    layer.open({
+    //        content: '检测到新版本，是否升级？'
+    //        , btn: ['升级版本', '暂不升级']
+    //        , yes: function (index) {
+    //            window.location.href = 'http://localhost:8082/hmcc/app/search.do';
+    //            layer.close(index);
+    //        }
+    //    });
+    // }
 
 }
 

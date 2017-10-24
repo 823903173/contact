@@ -80,6 +80,15 @@ public class OrganizationController {
             if (res.size()==0 || res.isEmpty()){
                 System.out.println("res shi kong");
                 List<AddresslistUser> resOfUser = iAddresslistUserService.getOnesByDepart(id);
+                /*强制转换隐藏手机号为110*/
+                System.out.println(resOfUser.size()+"      size");
+                for (int i=0;i<resOfUser.size();i++){
+                    System.out.println(resOfUser.get(i).getIsHidden()+"             hiden");
+                    if (resOfUser.get(i).getIsHidden() ==(long)1){
+                        resOfUser.get(i).setPhoneNum((long) 110);
+                    }
+                }
+
                 json.put("msg",1);//
                 json.put("isEnd",true);
                 json.put("OrganizationValue",null);

@@ -61,11 +61,11 @@ public class ContactOrgServiceImpl implements ContactOrgService{
             if(ob.get(10)!=null){
                 contactOrg.setName(String.valueOf(ob.get(10)));
             }
-            if(ob.get(11)!=null){
-                contactOrg.setLevel(Integer.valueOf(ob.get(11).toString()));
+            if(1==1){
+//                contactOrg.setLevel(Integer.valueOf(ob.get(11).toString()));
             }
-            if(ob.get(12)!=null){
-                contactOrg.setStatus(Integer.valueOf(ob.get(12).toString()));
+            if(1==1){
+//                contactOrg.setStatus(Integer.valueOf(ob.get(12).toString()));
             }
             if(1==1){
                 Date date = new Date();

@@ -24,7 +24,7 @@ public class ContactAdminServiceImpl implements ContactAdminService{
     @Autowired
     private ContactAdminDao contactAdminDao;
 
-    public List<ContactAdmin> DeleteExcelInfo(InputStream in, MultipartFile file,String contactAdminOrgId,Integer contactAdminNum)
+    public List<ContactAdmin> DeleteExcelInfo(InputStream in, MultipartFile file,String contactAdminOrgId,Integer contactAdminNum ,Long contactNumber)
             throws Exception {
         List<List<Object>> listob = ExcelUtilContact.getDeleteInfo(in,file.getOriginalFilename());
         //for (int i = 1; i < listob.size()-1; i++) {
@@ -40,10 +40,11 @@ public class ContactAdminServiceImpl implements ContactAdminService{
         List<ContactAdmin> contactAdmins = contactAdminDao.selectAllAdmins();
         return contactAdmins;
     }
-    public List<ContactAdmin> importExcelInfo(InputStream in, MultipartFile file,String contactAdminOrgId,Integer contactAdminNum)
+    public List<ContactAdmin> importExcelInfo(InputStream in, MultipartFile file,String contactAdminOrgId,Integer contactAdminNum ,Long contactNumber)
             throws Exception {
         List<List<Object>> listob = ExcelUtilContact.getBankListByExcel(in,file.getOriginalFilename());
         List<ContactAdmin> contactAdmins = new ArrayList<>();
+        ContactAdmin contactAdminnow = contactAdminDao.getAdmin(Long.valueOf(contactAdminNum));
         //for (int i = 1; i < listob.size()-1; i++) {
         for (int i = 0; i < listob.size(); i++) {
             //List<Object> ob = listob.get(i+1);
@@ -61,8 +62,8 @@ public class ContactAdminServiceImpl implements ContactAdminService{
             if(ob.get(2)!=null){
                 contactAdmin.setContactNumber(Long.valueOf(ob.get(2).toString()));
             }
-            if(ob.get(3)!=null){
-                contactAdmin.setState(Integer.valueOf(ob.get(3).toString()));
+            if(1==1){
+//                contactAdmin.setState(contactAdminnow.getState()+1);
             }
             if(1==1){
                 Date date = new Date();
@@ -73,10 +74,12 @@ public class ContactAdminServiceImpl implements ContactAdminService{
                 contactAdmin.setCreateAdminId(contactAdminNum);
             }
             if(1==1){
-
+                Date date = new Date();
+                Timestamp timestamp = new Timestamp(date.getTime());
+                contactAdmin.setLastModifiyTime(timestamp);
             }
             if(ob.get(5)!=null){
-                contactAdmin.setLastModifiyAdminId(Integer.valueOf(ob.get(7).toString()));
+                contactAdmin.setLastModifiyAdminId(contactAdminNum);
             }
             if(ob.get(6)!=null){
                 contactAdmin.setExtend1(ob.get(6).toString());

@@ -44,8 +44,10 @@
 </center>
 <br>
 <br>
+
 <center>
-    <a href="/hmcc/ContactUserlogin/toImportExcel.do" >返回首页</a></center>
+    <a href="/hmcc/ContactUserlogin/toImportExcel.do?phoneNum=${contactNumber}" >返回首页</a></center>
 </center>
+
 </body>
 </html>

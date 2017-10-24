@@ -14,8 +14,8 @@ import java.util.List;
  */
 @Service
 public interface ContactAdminService {
-    List<ContactAdmin> importExcelInfo(InputStream in, MultipartFile file,String contactAdminOrgId,Integer contactAdminNum)  throws Exception;
-    List<ContactAdmin> DeleteExcelInfo(InputStream in, MultipartFile file,String contactAdminOrgId,Integer contactAdminNum)  throws Exception;
+    List<ContactAdmin> importExcelInfo(InputStream in, MultipartFile file,String contactAdminOrgId,Integer contactAdminNum ,Long contactNumber)  throws Exception;
+    List<ContactAdmin> DeleteExcelInfo(InputStream in, MultipartFile file,String contactAdminOrgId,Integer contactAdminNum ,Long contactNumber)  throws Exception;
     ContactAdmin getAdmin(Long phoneNum)throws Exception;
 
 }

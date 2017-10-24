@@ -18,13 +18,17 @@ $(function(){
                 return;
             }
             if(msg == 1){
+                var groupName;
+                for(var i=0;i<groupNameList.length;i++) {
+                    groupName = groupNameList[i].name;
+                }
                 for (var i=0;i<user_list.length;i++){
-                    var userName = user_list[i].userName;
                     var phoneNum = user_list[i].phoneNum;
                     var extendedField1 = user_list[i].extendedField1;
+                    var userName = user_list[i].userName;
                     var item_li = '<li>' +'<a class="name-btn">'
                         +'<span class="headimg"><textarea id="content"></textarea></span>' +'<span class="name-span">'+user_list[i].userName+'</span>'
-                        +'<span class="group-span">'+user_list[i].extendedField1+'</span></a>'
+                        +'<span class="group-span">'+groupName+'</span></a>'
                         + '<a class="dial-btn">' +
                         '<span><img src="images/dial.jpg"/></span>' +
                         '</a></li>'
@@ -32,7 +36,7 @@ $(function(){
                     $("#content").val(user_list[i].userName);
                     $("#content").val($("#content").toPinyin().substr(0,1));
                     $('.name-btn').click(function(){
-                        getUserinfo(userName,phoneNum,extendedField1);
+                        getUserinfo(userName,phoneNum,groupName);
                     });
                 }
             }

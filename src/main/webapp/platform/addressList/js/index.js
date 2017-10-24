@@ -64,13 +64,15 @@ $(function(){
                     });
                 }
             }
-
         });
     }
 
 
     $('#search-btn').click(function(){
         search();
+    });
+    $('.header-leave').click(function(){
+        loginOut();
     });
 
 
@@ -93,6 +95,34 @@ function search(){
         return;
     }
     window.location.href = "name_list.html?keywords=" + encodeURIComponent(search);
+}
+
+//退出登录
+function loginOut(){
+    $.ajax({
+        url: "/hmcc/app/logOut.do",
+        type:"post",
+        dataType: "json",
+        data:{},
+        success: function (data) {
+            var msg = data.msg;
+            if(msg == 1){
+                if(GetSessionStorage("phone")){
+                    DelSessionStorage("phone");
+                }
+                window.location.href="login.html";
+            }else{
+                layer.open({
+                    type: 4,
+                    time:3,
+                    shade:true,
+                    area : ['250px' , 'auto'],
+                    content: '退出失败，请重试！'
+                });
+                return;
+            }
+        }
+    });
 }
 
 function GetdecodeQueryString(name)

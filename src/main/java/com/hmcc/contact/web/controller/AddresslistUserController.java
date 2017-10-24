@@ -86,6 +86,9 @@ public class AddresslistUserController {
                 System.out.println("qingdenglu");
             }else {
             AddresslistUser res =  iAddresslistUserService.getOneInfo(Integer.parseInt(id));
+            if (res.getIsHidden()==(long)1){
+                res.setPhoneNum((long) 110);
+            }
             json.put("value",res);
             json.put("msg",1);//
             DoAjax.doAjax(response, json, null);
@@ -112,6 +115,12 @@ public class AddresslistUserController {
             System.out.println("qingdenglu");
         }else {
             List<AddresslistUser> res =  iAddresslistUserService.getOnesByDepart(depart_id.trim());
+            /*强制转换隐藏手机号为110*/
+            for (int i=0;i<res.size();i++){
+                if (res.get(i).getIsHidden() ==(long)1){
+                    res.get(i).setPhoneNum((long) 110);
+                }
+            }
             json.put("value",res);
             json.put("msg",1);//
             DoAjax.doAjax(response, json, null);
@@ -140,6 +149,12 @@ public class AddresslistUserController {
             {
                 List<AddresslistUser> res = iAddresslistUserService.searchByPhoneNum(Long.parseLong(str_input));
                 List<Organization> groupNameList = iOrganizationService.getNameByGroupId(res.get(0).getGroupId());
+                /*强制转换隐藏手机号为110*/
+                for (int i=0;i<res.size();i++){
+                    if (res.get(i).getIsHidden() ==(long)1){
+                        res.get(i).setPhoneNum((long) 110);
+                    }
+                }
                 json.put("value",res);
                 json.put("groupNameList",groupNameList);
                 json.put("msg",1);//
@@ -167,6 +182,17 @@ public class AddresslistUserController {
 
                 List<AddresslistUser> res = iAddresslistUserService.searchByName(str.trim());
                 List<Organization> groupNameList = iOrganizationService.getNameByGroupId(res.get(0).getGroupId());
+                /*强制转换隐藏手机号为110*/
+//                int a = 1;
+//                long b = 1;
+////                a =  (int) b;
+//                b = (long) a
+
+                for (int i=0;i<res.size();i++){
+                    if ( res.get(i).getIsHidden() == (long) 1){
+                        res.get(i).setPhoneNum((long) 110);
+                    }
+                }
                 json.put("groupNameList",groupNameList);
                 json.put("value",res);
                 json.put("msg",1);//
@@ -280,4 +306,20 @@ public class AddresslistUserController {
         return true;
 
     }
+
+    @RequestMapping("logOut")
+    public void logOut(HttpServletResponse response, HttpServletRequest request,String depart_id)
+    {
+        JSONObject json = new JSONObject();
+        HttpSession session = request.getSession();
+        session.invalidate();
+        json.put("msg",1);//
+        DoAjax.doAjax(response, json, null);
+        System.out.println("logout");
+//        return  users;
+    }
+
+
+
+
 }

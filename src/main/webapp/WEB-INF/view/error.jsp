@@ -9,7 +9,12 @@
 </head>
 <body>
 <div align="center">
-<h1>Excel导入失败啊！</h1>
+<h1>Excel导入失败</h1>
 </div>
+<br>
+<br>
+<center>
+    <a href="/hmcc/ContactUserlogin/toImportExcel.do?phoneNum=${contactAdmins.contactNumber}" >返回首页</a></center>
+</center>
 </body>
 </html>

@@ -74,8 +74,9 @@ ul li{list-style-type: none;}
 }
 
 .header-box .header-input img{
-    width: .65rem;
+    width: .7rem;
     vertical-align: middle;
+    padding-bottom: .25rem;
 }
 
 .header-box .header-input input{
@@ -88,7 +89,7 @@ ul li{list-style-type: none;}
     border: none;
     outline: none;
     margin-left: .25rem;
-    float: right;
+    float: left;
 }
 
 .content-box{

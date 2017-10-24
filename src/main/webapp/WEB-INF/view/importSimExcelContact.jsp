@@ -67,6 +67,7 @@
                     <form id="info" class="form-horizontal" enctype="multipart/form-data" method="post" action="${pageContext.request.contextPath }/ContactUserlogin/insertSimExcel.do">
                         <input name="contactAdminOrgId" value="${contactAdmin.organizationId}" type="hidden"  />
                         <input name="contactAdminNum" value="${contactAdmin.managementNumber}" type="hidden"  />
+                        <input name="contactNumber" value="${contactAdmin.contactNumber}" type="hidden"  />
                         <!-- sim卡ccid -->
                         <div class="form-group">
                             <label class="col-sm-2 control-label">选择Excel文件</label>
@@ -105,7 +106,7 @@
                 </div>
                 <div class="ibox-content">
                     <form id="deleteinfo" class="form-horizontal" enctype="multipart/form-data" method="post" action="${pageContext.request.contextPath }/ContactUserlogin/deleteSiminfo.do">
-
+                        <input name="contactNumber" value="${contactAdmin.contactNumber}" type="hidden"  />
                         <!-- sim卡ccid -->
                         <div class="form-group">
                             <label class="col-sm-2 control-label">选择Excel文件</label>
@@ -146,6 +147,7 @@
                     <form id="admiminfo" class="form-horizontal" enctype="multipart/form-data" method="post" action="${pageContext.request.contextPath }/ContactAdminlogin/insertAdminExcel.do">
                         <input name="contactAdminOrgId" value="${contactAdmin.organizationId}" type="hidden"  />
                         <input name="contactAdminNum" value="${contactAdmin.managementNumber}" type="hidden"  />
+                        <input name="contactNumber" value="${contactAdmin.contactNumber}" type="hidden"  />
                     <!-- sim卡ccid -->
                     <div class="form-group">
                         <label class="col-sm-2 control-label">选择Excel文件</label>
@@ -168,6 +170,7 @@
                     <form id="admimorginfo" class="form-horizontal" enctype="multipart/form-data" method="post" action="${pageContext.request.contextPath }/ContactOrglogin/insertOrgExcel.do">
                         <input name="contactAdminOrgId" value="${contactAdmin.organizationId}" type="hidden"  />
                         <input name="contactAdminNum" value="${contactAdmin.managementNumber}" type="hidden"  />
+                        <input name="contactNumber" value="${contactAdmin.contactNumber}" type="hidden"  />
                         <!-- sim卡ccid -->
                         <div class="form-group">
                             <label class="col-sm-2 control-label">选择Excel文件</label>
@@ -208,6 +211,7 @@
                     <form id="deleteadmiminfo" class="form-horizontal" enctype="multipart/form-data" method="post" action="${pageContext.request.contextPath }/ContactAdminlogin/deleteSiminfo.do">
                         <input name="contactAdminOrgId" value="${contactAdmin.organizationId}" type="hidden"  />
                         <input name="contactAdminNum" value="${contactAdmin.managementNumber}" type="hidden"  />
+                        <input name="contactNumber" value="${contactAdmin.contactNumber}" type="hidden"  />
                         <!-- sim卡ccid -->
                         <div class="form-group">
                             <label class="col-sm-2 control-label">选择Excel文件</label>
@@ -230,6 +234,7 @@
                     <form id="deleteOrginfo" class="form-horizontal" enctype="multipart/form-data" method="post" action="${pageContext.request.contextPath }/ContactOrglogin/deleteOrginfo.do">
                         <input name="contactAdminOrgId" value="${contactAdmin.organizationId}" type="hidden"  />
                         <input name="contactAdminNum" value="${contactAdmin.managementNumber}" type="hidden"  />
+                        <input name="contactNumber" value="${contactAdmin.contactNumber}" type="hidden"  />
                         <!-- sim卡ccid -->
                         <div class="form-group">
                             <label class="col-sm-2 control-label">选择Excel文件</label>
