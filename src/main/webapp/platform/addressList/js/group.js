@@ -32,7 +32,7 @@ window.onload = function () {
 function group(depart_id,depart_name){
     $.ajax({
         url: "/hmcc/organization/getIdByGroupId.do",
-        type:"get",
+        type:"post",
         dataType: "json",
         data:{"id":depart_id},
         success: function (data) {

@@ -68,7 +68,7 @@ public class SendController {
     *
     * url:/send/queryPhoneNumAndVerifyCode.do?phoneNumber = xxx & verifyCode = xxx
     * */
-    @GetMapping("queryPhoneNumAndVerifyCode")
+    @RequestMapping("queryPhoneNumAndVerifyCode")
     public void queryPhoneNumAndVerifyCode( HttpServletResponse response, HttpServletRequest request,String phoneNumber,String verifyCode){
 
 //        HttpSession session = request.getSession(true);

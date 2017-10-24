@@ -72,7 +72,7 @@ public class ManagementOperationsLogController extends AbstractController {
       （估计前台并没有页面展示，所以并没用。。。。。）
       url:/platform/queryByAdminId.do?admin_id = xxx
      */
-    @GetMapping("queryByAdminId")
+    @RequestMapping("queryByAdminId")
     public List<ManagementOperationsLog> queryByAdminId(int admin_id){
         List<ManagementOperationsLog> managementOperationsLogEntityWrapper = iManagementOperationsLogService.queryByAdminId(admin_id);
         return managementOperationsLogEntityWrapper;
@@ -86,7 +86,7 @@ public class ManagementOperationsLogController extends AbstractController {
       ######################################
       正在考虑是否使参数标准化。例如使用json
      */
-    @GetMapping("insertOneLog")
+    @RequestMapping("insertOneLog")
     public void insertOneLog(Long admin_id, String operations_log , Integer operations_result, String operations_ip){
 //        创建一个对象
         ManagementOperationsLog managementOperationsLog = new ManagementOperationsLog();

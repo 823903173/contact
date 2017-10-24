@@ -63,7 +63,7 @@ public class OrganizationController {
     * （点击本级组织，获得下级组织所有ID等deng信息）
     *
     * */
-    @GetMapping("getIdByGroupId")
+    @RequestMapping("getIdByGroupId")
     public void getIdByGroupId(HttpServletResponse response, HttpServletRequest request,String id){
 //        JSONObject json = new JSONObject();
         JSONObject json = new JSONObject();

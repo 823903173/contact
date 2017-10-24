@@ -76,7 +76,7 @@ public class AddresslistUserController {
     * url= getOneAll.do?id = xxx
     *
     * */
-    @GetMapping("getOneAll")
+    @RequestMapping("getOneAll")
     public void getOneAll(HttpServletResponse response, HttpServletRequest request,String id)
     {
         JSONObject json = new JSONObject();
@@ -102,7 +102,7 @@ public class AddresslistUserController {
    根据机构id返回其所有人员列表
    url:getOnesOfDepart.do?depart_id = xxx
    */
-    @GetMapping("getOnesOfDepart")
+    @RequestMapping("getOnesOfDepart")
     public void getOnesOfDepart(HttpServletResponse response, HttpServletRequest request,String depart_id)
     {
         JSONObject json = new JSONObject();
@@ -124,7 +124,7 @@ public class AddresslistUserController {
      响应搜索功能，判断输入为姓名或手机号进行查询，返回人员列表
 
      */
-    @GetMapping("search")
+    @RequestMapping("search")
     public List<AddresslistUser> searchByNameOrNum (HttpServletResponse response, HttpServletRequest request,String str_input)
     {
 
@@ -192,7 +192,7 @@ public class AddresslistUserController {
     false则表示不存在
 
     */
-    @GetMapping("loginByPhone")
+    @RequestMapping("loginByPhone")
     public void loginByPhone (HttpServletResponse response, HttpServletRequest request,String phone_num)
     {
         JSONObject json = new JSONObject();
@@ -213,7 +213,7 @@ public class AddresslistUserController {
     /*
    响应登录，再短信验证
    */
-    @GetMapping("loginByMsg")
+    @RequestMapping("loginByMsg")
     public void loginByMsg (HttpServletResponse response, HttpServletRequest request, String phoneNumber,String verifyCode)
     {
         response.setCharacterEncoding("UTF-8");

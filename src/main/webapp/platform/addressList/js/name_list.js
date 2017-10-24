@@ -5,7 +5,7 @@ $(function(){
     var keywords = GetdecodeQueryString("keywords");
     $.ajax({
         url: "/hmcc/app/search.do",
-        type:"get",
+        type:"post",
         dataType: "json",
         data:{"str_input":keywords},
         success: function (data) {

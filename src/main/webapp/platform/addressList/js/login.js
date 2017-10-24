@@ -24,7 +24,7 @@ $(function(){
         }
         $.ajax({
             url: "/hmcc/send/queryPhoneNumAndVerifyCode.do",
-            type:"get",
+            type:"post",
             dataType: "json",
             data:{"phoneNumber":phone,"verifyCode":msm},
             success: function (data) {
@@ -52,7 +52,7 @@ $(function(){
         var phone = $('#phone').val();
         $.ajax({
             url: "/hmcc/app/getOnesOfDepart.do",
-            type:"get",
+            type:"post",
             dataType: "json",
             data:{"phoneNumber":phone},
             success: function (data) {

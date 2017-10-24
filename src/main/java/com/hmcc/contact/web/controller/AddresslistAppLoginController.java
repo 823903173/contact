@@ -63,7 +63,7 @@ public class AddresslistAppLoginController {
     * url:/addresslistAppLogin/CheckUserPhoneNumber.do?phoneNumber = xxx & phoneImei = xxx
     *
     * */
-    @GetMapping("CheckUserPhoneNumber")
+    @RequestMapping("CheckUserPhoneNumber")
     public boolean CheckUserPhoneNumber(long phoneNumber,String phoneImei) {
         boolean loginWithoutVerify;
         loginWithoutVerify = iAddresslistAppLoginService.CheckUserPhoneNumber(phoneNumber,phoneImei);
@@ -96,7 +96,7 @@ public class AddresslistAppLoginController {
     * 不用其他三层的操作。。。
     * 所以。。。挺好用的
     * */
-    @GetMapping("checkBetaNumber")
+    @RequestMapping("checkBetaNumber")
     public void checkBetaNumber(HttpServletResponse response, HttpServletRequest request, int betaNumber){
         //系统当前版本号
         int systemBetaNumber = 2;

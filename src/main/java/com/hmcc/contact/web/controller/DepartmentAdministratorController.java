@@ -75,7 +75,7 @@ public class DepartmentAdministratorController {
     //        for programmer
     //        此方法不是一个通用方法
     //        由于查询的数据库不同。仅提供给管理员使用
-    @GetMapping("CheckDepartmentPhoneNumber")
+    @RequestMapping("CheckDepartmentPhoneNumber")
     public void CheckDepartmentPhoneNumber(HttpServletResponse response, HttpServletRequest request, long phoneNumber){
         boolean CheckPhoneNum;
         CheckPhoneNum = iDepartmentAdministratorService.CheckDepartmentPhoneNumber(phoneNumber);
