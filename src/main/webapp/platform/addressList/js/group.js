@@ -29,6 +29,7 @@ window.onload = function () {
     });
 };
 
+
 function group(depart_id,depart_name){
     $.ajax({
         url: "/hmcc/organization/getIdByGroupId.do",
