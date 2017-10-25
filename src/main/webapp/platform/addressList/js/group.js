@@ -1,7 +1,7 @@
 /**
  * Created by Administrator on 2017/10/10.
  */
-
+var depart_name
 window.onload = function () {
     //$(".unchecked-span .checked-span").removeClass("checked-span");
     // if($(".unchecked-span .checked-span").length > 0){
@@ -10,8 +10,9 @@ window.onload = function () {
     // }
 
     var depart_id = GetdecodeQueryString("depart_id");
-    var depart_name = GetdecodeQueryString("depart_name");
-    group(depart_id,depart_name);
+    var id;
+    depart_name = GetdecodeQueryString("depart_name");
+    group(depart_id);
     //关闭弹窗
     var pEles = document.querySelectorAll(".popup-close-btn");
     for (var t = 0; t < pEles.length; t++) {
@@ -30,7 +31,8 @@ window.onload = function () {
 };
 
 //加载部门组织
-function group(depart_id,depart_name){
+function group(depart_id){
+    console.log(depart_id);
     $.ajax({
         url: "/hmcc/organization/getIdByGroupId.do",
         type:"post",
@@ -95,13 +97,27 @@ function group(depart_id,depart_name){
                     $(".department-ul").empty();
                     for (var i=0;i<OrganizationValue.length;i++){
                         var id = OrganizationValue[i].id;
-                        depart_name = OrganizationValue[i].name;
-                        var itemli = '<li><a class="nameli">'+OrganizationValue[i].name+'</a></li>';
+                        var depart_name1 = OrganizationValue[i].name;
+                        var itemli = '<li class="nameli"><a >'+OrganizationValue[i].name+'</a></li>';
+                        // $('.nameli').last().click(function(){
+                        //     group(id,depart_name);
+                        // });
                         $(".department-ul").append(itemli);
-                        $('.nameli').click(function(){
-                            group(id,depart_name);
+                        $('.nameli').eq($('.nameli').length-1).find('a').attr("id",id);
+                        $('.nameli').eq($('.nameli').length-1).find('a').click(function(){
+                            group($(this).attr('id'));
+
                         });
+
+                        // $('.nameli').eq($('.nameli').length-1).find('a').click(function(){
+                        //     console.log($(".nameli").last().attr("id"));
+                        //     group($(".nameli").last().attr("id"));
+                        //     //console.log(alert("aaaa  "+id ))
+                        // });
+
+
                     }
+                    $(".department-ul").removeClass("none");
                     $(".department-ul").show();
                     return;
                 }
