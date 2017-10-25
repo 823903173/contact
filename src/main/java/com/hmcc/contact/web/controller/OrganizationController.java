@@ -88,7 +88,7 @@ public class OrganizationController {
                         resOfUser.get(i).setPhoneNum((long) 110);
                     }
                 }
-                
+
 
                 json.put("msg",1);//
                 json.put("isEnd",true);

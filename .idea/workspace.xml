@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="845ee5bc-1a58-4d12-a249-51433996f40e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/hmcc/contact/util/TestIO.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/hmcc/contact/util/getNowTime.java" afterPath="$PROJECT_DIR$/src/main/java/com/hmcc/contact/util/getNowTime.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/hmcc/contact/util/randomMessageNumber.java" afterPath="$PROJECT_DIR$/src/main/java/com/hmcc/contact/util/randomMessageNumber.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/hmcc/contact/web/controller/OrganizationController.java" afterPath="$PROJECT_DIR$/src/main/java/com/hmcc/contact/web/controller/OrganizationController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/platform/addressList/js/group.js" afterPath="$PROJECT_DIR$/src/main/webapp/platform/addressList/js/group.js" />
     </list>
@@ -35,8 +32,8 @@
       <file leaf-file-name="OrganizationController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/hmcc/contact/web/controller/OrganizationController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="90" column="16" lean-forward="false" selection-start-line="90" selection-start-column="16" selection-end-line="90" selection-end-column="16" />
+            <state relative-caret-position="243">
+              <caret line="97" column="19" lean-forward="true" selection-start-line="97" selection-start-column="19" selection-end-line="97" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -204,9 +201,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -503,6 +498,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -520,12 +517,12 @@
     <property name="Repository.Attach.Sources" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="G:\ha.dev\ideaworkspace\HmccContact\contact\src\main\resources\mapper" />
-      <recent name="G:\ha.dev\ideaworkspace\HmccContact\contact\src\main\java\com\hmcc\contact\util" />
-      <recent name="E:\chinamobileproject\contact\src\main\webapp" />
-      <recent name="E:\chinamobileproject\contact\src\main\webapp\WEB-INF" />
-      <recent name="E:\chinamobileproject\contact\src\main\java\com\hmcc\contact\mapper\xml" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\ha.dev\ideaworkspace\HmccContact\contact\src\main\webapp\platform\addressList" />
+      <recent name="G:\ha.dev\ideaworkspace\HmccContact\contact\src\main\webapp\platform\addressList\js" />
+      <recent name="G:\ha.dev\ideaworkspace\HmccContact\contact\src\main\webapp\platform\addressList\css" />
+      <recent name="G:\ha.dev\ideaworkspace\HmccContact\contact\src\main\webapp\platform\addressList\.idea" />
+      <recent name="G:\ha.dev\ideaworkspace\HmccContact\contact\src\main\webapp\platform\addressList\js\need" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.hmcc.contact.util" />
@@ -534,12 +531,12 @@
       <recent name="com.hmcc.contact.service" />
       <recent name="com.hmcc.contact.web.controller" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="G:\ha.dev\ideaworkspace\HmccContact\contact\src\main\webapp\platform\addressList\.idea" />
-      <recent name="G:\ha.dev\ideaworkspace\HmccContact\contact\src\main\webapp\platform\addressList\css" />
-      <recent name="G:\ha.dev\ideaworkspace\HmccContact\contact\src\main\webapp\platform\addressList\js\need" />
-      <recent name="G:\ha.dev\ideaworkspace\HmccContact\contact\src\main\webapp\platform\addressList\js" />
-      <recent name="G:\ha.dev\ideaworkspace\HmccContact\contact\src\main\webapp\platform\addressList" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\ha.dev\ideaworkspace\HmccContact\contact\src\main\resources\mapper" />
+      <recent name="G:\ha.dev\ideaworkspace\HmccContact\contact\src\main\java\com\hmcc\contact\util" />
+      <recent name="E:\chinamobileproject\contact\src\main\webapp" />
+      <recent name="E:\chinamobileproject\contact\src\main\webapp\WEB-INF" />
+      <recent name="E:\chinamobileproject\contact\src\main\java\com\hmcc\contact\mapper\xml" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -1120,7 +1117,8 @@
       <workItem from="1508719727533" duration="14042000" />
       <workItem from="1508804419367" duration="23557000" />
       <workItem from="1508847689723" duration="1244000" />
-      <workItem from="1508892260268" duration="151000" />
+      <workItem from="1508892260268" duration="1168000" />
+      <workItem from="1508900200885" duration="1287000" />
     </task>
     <task id="LOCAL-00001" summary="ceshi">
       <created>1506655337950</created>
@@ -1332,11 +1330,18 @@
       <option name="project" value="LOCAL" />
       <updated>1508833527418</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="bug">
+      <created>1508892456897</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1508892456897</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="222830000" />
+    <option name="totallyTimeSpent" value="225134000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1348,12 +1353,12 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
+    <frame x="-8" y="-8" width="1696" height="1026" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11883408" sideWeight="0.13272922" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23430493" sideWeight="0.13691932" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1371,10 +1376,10 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3172646" sideWeight="0.49205378" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.11930586" sideWeight="0.86727077" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23430493" sideWeight="0.8630807" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295082" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21026894" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21271394" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1797,8 +1802,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/hmcc/contact/web/controller/OrganizationController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="90" column="16" lean-forward="false" selection-start-line="90" selection-start-column="16" selection-end-line="90" selection-end-column="16" />
+        <state relative-caret-position="243">
+          <caret line="97" column="19" lean-forward="true" selection-start-line="97" selection-start-column="19" selection-end-line="97" selection-end-column="19" />
           <folding />
         </state>
       </provider>
