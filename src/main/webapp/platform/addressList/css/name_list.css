@@ -26,7 +26,6 @@ img{
 a{
     text-decoration: none;
     border: none;
-    color: #ffffff;
 }
 ul li{list-style-type: none;}
 textarea{
@@ -44,10 +43,24 @@ textarea{
 
 .none{display: none !important;}
 
+.return{
+    padding: .25rem .25rem 0 .75rem;
+    font-size: 1.5rem;
+    color: #4e6acf;
+    height: 2rem;
+    vertical-align: middle;
+    border-bottom: 1px solid #e5e1e1;
+}
+
 .namelist-ul li {
     border-bottom: 1px solid #e5e1e1;
     padding: .5rem .85rem;
     font-weight: 500;
+}
+
+.namelist-ul .name-btn{
+    display: inline-block;
+    width: 100%;
 }
 
 .namelist-ul .headimg{
@@ -65,16 +78,18 @@ textarea{
     text-align: center;
     padding: .25rem 0 0 0;
 }
+
 .namelist-ul .name-span{
     color: #333333;
     font-size: .9rem;
 }
+
 .namelist-ul .group-span{
     color: #b3b3b3;
     font-size: .7rem;
     margin-left: 1.25rem;
-    padding-right: 15%;
 }
+
 .namelist-ul .dial-btn img{
     width: 2rem;
 }

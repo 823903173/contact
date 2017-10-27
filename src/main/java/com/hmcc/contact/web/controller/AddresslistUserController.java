@@ -2,17 +2,13 @@ package com.hmcc.contact.web.controller;
 
 
 import com.alibaba.fastjson.JSONObject;
-import com.hmcc.contact.entity.AddresslistAppLogin;
-import com.hmcc.contact.entity.AddresslistUser;
+import com.hmcc.contact.entity.*;
 
-import com.hmcc.contact.entity.Organization;
-import com.hmcc.contact.service.IAddresslistAppLoginService;
-import com.hmcc.contact.service.IAddresslistUserService;
+import com.hmcc.contact.service.*;
 import com.hmcc.contact.service.IOrganizationService;
-import com.hmcc.contact.service.IOrganizationService;
-import com.hmcc.contact.service.ISendService;
 import com.hmcc.contact.util.DoAjax;
 import com.hmcc.contact.util.getNowTime;
+import com.hmcc.contact.util.randomMessageNumber;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -69,6 +65,8 @@ public class AddresslistUserController {
     private IAddresslistAppLoginService iAddresslistAppLoginService;
     @Autowired
     private IOrganizationService iOrganizationService;
+    @Autowired
+    private IAddresslistMessageSendService iAssresslistMessageSendService;
 
     /*
     * 响应人员个人信息展示页面
@@ -228,9 +226,56 @@ public class AddresslistUserController {
 //            System.out.println("qingdenglu");
 //        }else {
             boolean res = iAddresslistUserService.loginByPhone(Long.parseLong(phone_num.trim()));
+            /*有相应的手机号*/
+            if(res){
+            /*
+            * 如果可以在
+            * department_administrator
+            * 查询到数据 则证明此人是管理员
+            * 可以产生随机码
+            * 返回ture
+            * */
+            String suijima = randomMessageNumber.getIntRandomNumber()+"";//
+            String suijimaTime = getNowTime.getNowTimeByJava();//
+            /*产生两张表
+            * 一张是已存在的用户信息表，具备其他信息
+            * 一张是暴漏的业支的表，只有用户说几号和随机码，10分钟删除一次
+            *
+            * 同时把这些信息写进两张表中
+            *
+            * 在MessageSendController中写判断是否可以登录
+            *
+            * 判断其中的信息，手机号 和  验证码
+            * */
+            /*写进短信下发表中*/
+            AddresslistMessageSend addresslistMessageSend = new AddresslistMessageSend();
+            addresslistMessageSend.setPhoneNum(Long.parseLong(phone_num.trim()));
+            addresslistMessageSend.setSendTime(suijimaTime);
+            addresslistMessageSend.setSendText(suijima);
+            addresslistMessageSend.setSendStatus(1);
+            iAssresslistMessageSendService.insert(addresslistMessageSend);
+
+            /*写进 给业支的send 表中*/
+            Send send = new Send();
+            send.setPhoneNumber(Long.parseLong(phone_num.trim()));
+            String hehe = "【打死也不要告诉任何人你的验证码！】尊敬的用户您好，您本次登录验证码为："+suijima+"。此验证码有效期为十分钟。";
+            send.setText(hehe);
+            send.setVerifyCode(suijima);
+            System.out.println(send+"send!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            iSendService.insert(send);
+
             json.put("flag",res);
 //            json.put("msg",1);//
             DoAjax.doAjax(response, json, null);
+
+            }else {
+                /*没有相应的手机号*/
+                json.put("flag",res);
+//            json.put("msg",1);//
+                DoAjax.doAjax(response, json, null);
+
+            }
+
 //        }
 
 //         return res;
@@ -252,11 +297,13 @@ public class AddresslistUserController {
         String sessionId = session.getId();
         //判断session是不是新创建的
         if (session.isNew()) {
-            System.out.println("session创建成功，session的id是："+sessionId);
+            System.out.println("session创建成功，(zhetamakexueme ?)session的id是："+sessionId);
             JSONObject json = new JSONObject();
             long phoneNumberLong = Long.parseLong(phoneNumber);
+//            System.out.println("zheli!0000000000000000");
             boolean res = iSendService.queryPhoneNumAndVerifyCode(phoneNumberLong,verifyCode);
 
+//            System.out.println("zheli!111111111111111111");
             /*插入app登录日志表*/
             AddresslistAppLogin addresslistAppLogin = new AddresslistAppLogin();
             addresslistAppLogin.setPhoneNum(phoneNumberLong);
@@ -267,12 +314,15 @@ public class AddresslistUserController {
             }else {
                  a = 0;
             }
+//            System.out.println("zheli!22222222222222222222");
             addresslistAppLogin.setLoginResult(a);
             addresslistAppLogin.setPhoneType("我怎么知道?");
             addresslistAppLogin.setPhoneImei("buzhidao");
-            System.out.println(addresslistAppLogin.toString());
+//            System.out.println("!!!!!!!!!!!!!!!!!!!   "+addresslistAppLogin.toString()+" !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+
             iAddresslistAppLoginService.insert(addresslistAppLogin);
 
+//            System.out.println("zheli!333333333333333333333");
 
             json.put("flag",res);
             DoAjax.doAjax(response, json, null);

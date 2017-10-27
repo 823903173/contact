@@ -28,10 +28,7 @@ $(function(){
                     var userName = user_list[i].userName;
                     var item_li = '<li>' +'<a class="name-btn">'
                         +'<span class="headimg"><textarea id="content"></textarea></span>' +'<span class="name-span">'+user_list[i].userName+'</span>'
-                        +'<span class="group-span">'+groupName+'</span></a>'
-                        + '<a class="dial-btn">' +
-                        '<span><img src="images/dial.jpg"/></span>' +
-                        '</a></li>'
+                        +'<span class="group-span">'+groupName+'</span></a></li>'
                     $(".namelist-ul").append(item_li);
                     $("#content").val(user_list[i].userName);
                     $("#content").val($("#content").toPinyin().substr(0,1));

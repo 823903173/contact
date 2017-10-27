@@ -26,6 +26,9 @@ window.onload = function () {
     $(".popup-close-btn").click(function (){
         $("#personalinfo").addClass("none");
     });
+    $(".re-btn").click(function (){
+        window.location.href = "index.html";
+    });
 };
 
 //加载部门组织
@@ -82,18 +85,13 @@ function group(depart_id,depart_name){
                         var phoneNum = UserValue[i].phoneNum;
                         var itemli = '<li class="name-li"><a class="name-btn">'+
                             '<span class="headimg"><textarea class="content"></textarea></span>'+
-                            '<span class="name-span">'+UserValue[i].userName+'</span></a>'+
-                            '<a class="name-btn dial-btn">'+
-                            '<span><img src="images/dial.jpg"/></span></a></li>';
+                            '<span class="name-span">'+UserValue[i].userName+'</span></a></li>';
                         $(".namelist-ul").append(itemli);
                         $('.name-li').eq($('.name-li').length-1).find('a').attr("id",userName);
                         $('.name-li').eq($('.name-li').length-1).find('a').attr("data",phoneNum);
                         $(".content").eq($('.content').length-1).val(userName);
                         $(".content").eq($('.content').length-1).val($(".content").eq($('.content').length-1).toPinyin().substr(0,1));
                         $('.name-btn').eq($('.name-btn').length-1).click(function(){
-                            getUserinfo($(this).attr('id'),$(this).attr('data'),depart_name);
-                        });
-                        $('.name-btn').eq($('.name-btn').length-2).click(function(){
                             getUserinfo($(this).attr('id'),$(this).attr('data'),depart_name);
                         });
                     }

@@ -1,7 +1,6 @@
 /**
  * Created by Administrator on 2017/10/18.
  */
-var version ;
 $(function(){
     getVersion();
     $('#phone').bind("input", function () {
@@ -23,7 +22,7 @@ $(function(){
             return;
         }
         $.ajax({
-            url: "/hmcc/send/queryPhoneNumAndVerifyCode.do",
+            url: "/hmcc/app/loginByMsg.do",
             type:"post",
             dataType: "json",
             data:{"phoneNumber":phone,"verifyCode":msm},
@@ -38,6 +37,7 @@ $(function(){
             }
         });
     });
+
 
     $('.getcode-btn').click(function () {
         console.log("111111");
@@ -70,39 +70,37 @@ $(function(){
 });
 
 function getVersion() {
-    version = 1;
-    $.ajax({
-       url: "/hmcc/addresslistAppLogin/checkBetaNumber.do",
-       type:"post",
-       dataType: "json",
-       data:{"betaNumber":version},
-       success: function (data) {
-           var flag = data.flag;
-           if (flag == true){
-               //询问框
-               layer.open({
-                   content: '检测到新版本，是否升级？'
-                   , btn: ['升级版本', '暂不升级']
-                   , yes: function (index) {
-                       window.location.href = 'http://localhost:8082/hmcc/file/down.do';
-                       layer.close(index);
-                   }
-               });
-           }
-       }
-    });
-    // if(version < 2){
-    //    //询问框
-    //    layer.open({
-    //        content: '检测到新版本，是否升级？'
-    //        , btn: ['升级版本', '暂不升级']
-    //        , yes: function (index) {
-    //            window.location.href = 'http://localhost:8082/hmcc/app/search.do';
-    //            layer.close(index);
-    //        }
-    //    });
-    // }
-
+    var version;
+    document.addEventListener( "plusready", onPlusReady, false );
+    // 扩展API加载完毕，现在可以正常调用扩展API
+    function onPlusReady() {
+        // 获取apk/ipa版本号
+        version = plus.runtime.version;
+        // alert(version+"aaaaaaaaa");
+        if(version!=null){
+            $.ajax({
+                url: "/hmcc/addresslistAppLogin/checkBetaNumber.do",
+                type:"post",
+                dataType: "json",
+                async: false,
+                data:{"betaNumber":version},
+                success: function (data) {
+                    var flag = data.flag;
+                    if (flag == true){
+                        //询问框
+                        layer.open({
+                            content: '检测到新版本，是否升级？'
+                            , btn: ['升级版本', '暂不升级']
+                            , yes: function (index) {
+                                window.location.href = '/hmcc/file/down.do';
+                                layer.close(index);
+                            }
+                        });
+                    }
+                }
+            });
+        }
+    }
 }
 
 function validPhone() {
@@ -113,7 +111,7 @@ function validPhone() {
         return false;
     }
     else if (!pattern.test($('#phone').val())) {
-        $('#phone').closest('p').after('<span style="color: red" id="tips">请输入正确的河南移动手机号码！</span>');
+        $('#phone').closest('p').after('<span style="color: red" id="tips">请输入正确的手机号码！</span>');
         return false;
     } else {
         return true;

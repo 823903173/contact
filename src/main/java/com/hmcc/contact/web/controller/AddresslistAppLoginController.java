@@ -97,11 +97,14 @@ public class AddresslistAppLoginController {
     * 所以。。。挺好用的
     * */
     @RequestMapping("checkBetaNumber")
-    public void checkBetaNumber(HttpServletResponse response, HttpServletRequest request, int betaNumber){
+    public void checkBetaNumber(HttpServletResponse response, HttpServletRequest request, String betaNumber){
+        System.out.println(betaNumber+"   1111111111111111111111betaNumber");
+         int abb = Integer.parseInt(betaNumber);
         //系统当前版本号
         int systemBetaNumber = 2;
+        System.out.println(betaNumber+"   1111111111111111111111betaNumber");
         JSONObject json = new JSONObject();
-        boolean res  =  (systemBetaNumber>=betaNumber);
+        boolean res  =  (systemBetaNumber>=abb);
         json.put("flag",res);
         DoAjax.doAjax(response, json, null);
     }
