@@ -12,7 +12,7 @@ $(function(){
     $('.login-btn').click(function () {
         if (!validPhone()) {
             return;
-            
+
         }
         var phone = $('#phone').val();
         var msm = $('#yzm').val();

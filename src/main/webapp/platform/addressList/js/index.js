@@ -3,8 +3,15 @@
  */
 $(function(){
     // var phone = GetdecodeQueryString("phoneNumber");
+    // mui.back=function () {
+    //     var btnArray = ['是', '否'];
+    //     mui.confirm('是否退出应用', '', btnArray, function(e) {
+    //         if (e.index == 0) {
+    //             plus.runtime.quit()
+    //         }
+    //     })
+    // }
     var name;
-
     if(!GetSessionStorage("phone")){
         window.location.href = "login.html";
 

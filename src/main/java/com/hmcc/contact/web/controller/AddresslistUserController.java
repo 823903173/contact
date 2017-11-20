@@ -116,7 +116,7 @@ public class AddresslistUserController {
             /*强制转换隐藏手机号为110*/
             for (int i=0;i<res.size();i++){
                 if (res.get(i).getIsHidden() ==(long)1){
-                    res.get(i).setPhoneNum((long) 110);
+                    res.get(i).setPhoneNum((long) 0000);
                 }
             }
             json.put("value",res);
@@ -150,7 +150,7 @@ public class AddresslistUserController {
                 /*强制转换隐藏手机号为110*/
                 for (int i=0;i<res.size();i++){
                     if (res.get(i).getIsHidden() ==(long)1){
-                        res.get(i).setPhoneNum((long) 110);
+                        res.get(i).setPhoneNum((long) 0000);
                     }
                 }
                 json.put("value",res);
@@ -188,7 +188,7 @@ public class AddresslistUserController {
 
                 for (int i=0;i<res.size();i++){
                     if ( res.get(i).getIsHidden() == (long) 1){
-                        res.get(i).setPhoneNum((long) 110);
+                        res.get(i).setPhoneNum((long) 0000);
                     }
                 }
                 json.put("groupNameList",groupNameList);
@@ -291,45 +291,88 @@ public class AddresslistUserController {
         response.setContentType("text/html;charset=UTF-8");
         //使用request对象的getSession()获取session，如果session不存在则创建一个
         HttpSession session = request.getSession();
-        //将数据存储到session中
-        session.setAttribute("data", phoneNumber);
-        //获取session的Id
-        String sessionId = session.getId();
+//        System.out.println("111"+"  session  "+ session.getId());
+//        //将数据存储到session中
+//        session.setAttribute("data", phoneNumber);
+
         //判断session是不是新创建的
-        if (session.isNew()) {
-            System.out.println("session创建成功，(zhetamakexueme ?)session的id是："+sessionId);
-            JSONObject json = new JSONObject();
+
+
+        String sessionhao = "";
+        if (session.getAttribute("data")!=null){
+             sessionhao = session.getAttribute("data").toString();
+        }else {
+             sessionhao="q";
+        }
+
+        System.out.println(sessionhao+"      sessionhao");
+        String dianhua = phoneNumber;
+        System.out.println(dianhua+"      dianhua");
+
+//        !sessionhao.equals(dianhua)
+//        dianhua!=sessionhao
+        if (dianhua!=sessionhao) {
+            System.out.println("weishabuxingdeng");
+
             long phoneNumberLong = Long.parseLong(phoneNumber);
 //            System.out.println("zheli!0000000000000000");
-            boolean res = iSendService.queryPhoneNumAndVerifyCode(phoneNumberLong,verifyCode);
-
+            boolean res1 = iSendService.queryPhoneNumAndVerifyCode(phoneNumberLong,verifyCode);
+            /*登录成功*/
+            if(res1){
+                //将数据存储到session中
+                session.setAttribute("data", phoneNumber);
+                //获取session的Id
+                String sessionId = session.getId();
+                System.out.println("session创建成功，(zhetamakexueme ?)session的id是："+sessionId);
+                JSONObject json = new JSONObject();
 //            System.out.println("zheli!111111111111111111");
             /*插入app登录日志表*/
-            AddresslistAppLogin addresslistAppLogin = new AddresslistAppLogin();
-            addresslistAppLogin.setPhoneNum(phoneNumberLong);
-            addresslistAppLogin.setLoginTime(getNowTime.getNowTimeByJava());
-            int a = 3;
-            if(res){
-                 a = 1;
-            }else {
-                 a = 0;
-            }
+                AddresslistAppLogin addresslistAppLogin = new AddresslistAppLogin();
+                addresslistAppLogin.setPhoneNum(phoneNumberLong);
+                addresslistAppLogin.setLoginTime(getNowTime.getNowTimeByJava());
+//                int a = 3;
+//                if(res){
+//                    a = 1;
+//                }else {
+//                    a = 0;
+//                }
 //            System.out.println("zheli!22222222222222222222");
-            addresslistAppLogin.setLoginResult(a);
-            addresslistAppLogin.setPhoneType("我怎么知道?");
-            addresslistAppLogin.setPhoneImei("buzhidao");
+                addresslistAppLogin.setLoginResult(1);
+                addresslistAppLogin.setPhoneType("我怎么知道?");
+                addresslistAppLogin.setPhoneImei("buzhidao");
 //            System.out.println("!!!!!!!!!!!!!!!!!!!   "+addresslistAppLogin.toString()+" !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-
-            iAddresslistAppLoginService.insert(addresslistAppLogin);
-
+                iAddresslistAppLoginService.insert(addresslistAppLogin);
 //            System.out.println("zheli!333333333333333333333");
+                boolean res = true;
+                json.put("flag",res);
+                DoAjax.doAjax(response, json, null);
+            }else{
+                /*登录失败*/
 
-            json.put("flag",res);
-            DoAjax.doAjax(response, json, null);
+//                System.out.println("session创建shibai，(zhetamakexueme ?)session的id是："+session.getId());
+                JSONObject json = new JSONObject();
+            /*插入app登录日志表*/
+                AddresslistAppLogin addresslistAppLogin = new AddresslistAppLogin();
+                addresslistAppLogin.setPhoneNum(phoneNumberLong);
+                addresslistAppLogin.setLoginTime(getNowTime.getNowTimeByJava());
+                addresslistAppLogin.setLoginResult(0);
+                addresslistAppLogin.setPhoneType("我怎么知道?");
+                addresslistAppLogin.setPhoneImei("buzhidao");
+//            System.out.println("!!!!!!!!!!!!!!!!!!!   "+addresslistAppLogin.toString()+" !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                iAddresslistAppLoginService.insert(addresslistAppLogin);
+//            System.out.println("zheli!333333333333333333333");
+                boolean res = false;
+                json.put("flag",res);
+                DoAjax.doAjax(response, json, null);
+            }
+
         }else {
+            //获取session的Id
+            String sessionId = session.getId();
             System.out.println("服务器已经存在该session了，session的id是："+sessionId);
             boolean res = true;
             JSONObject json = new JSONObject();
+            json.put("phoneNumber",phoneNumber);
             json.put("flag",res);
             DoAjax.doAjax(response, json, null);
         }

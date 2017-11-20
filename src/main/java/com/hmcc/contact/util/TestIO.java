@@ -47,7 +47,7 @@ public class TestIO {
     static long Count = 0;
 
     public static void main(String[] args) throws IOException {
-        Trvs(new File("G:/ha.dev/ideaworkspace/HmccContact"));
+        Trvs(new File("G:/ha.dev/ideaworkspace/HmccContact/contact/src"));
         System.out.print(Count);
     }
 

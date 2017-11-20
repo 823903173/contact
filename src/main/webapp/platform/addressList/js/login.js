@@ -30,6 +30,9 @@ $(function(){
                 var flag=data.flag;
                 if (flag == true){
                     SaveSessionStorage("phone",JSON.stringify(phone));
+                    // mui.openWindow({
+                    //     url: 'index.html',
+                    // });
                     window.location.href = "index.html";
                 }else{
                     $('#yzm').closest('p').after('<span style="color: red;margin-top: 1rem" id="tips">登录失败</span>');
@@ -37,7 +40,6 @@ $(function(){
             }
         });
     });
-
 
     $('.getcode-btn').click(function () {
         console.log("111111");
@@ -100,6 +102,19 @@ function getVersion() {
                 }
             });
         }
+
+        var webview = plus.webview.currentWebview();
+        plus.key.addEventListener('backbutton', function() {
+            //alert("backbutton！！！！！");
+            webview.canBack(function(e) {
+                if(e.canBack) {
+                    webview.back();
+                } else {
+                    webview.close(); //hide,quit
+                    //plus.runtime.quit();
+                }
+            })
+        });
     }
 }
 

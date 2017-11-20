@@ -55,16 +55,16 @@ function group(depart_id,depart_name){
                 var menuitem = '<a class="menu-btn"><span class="unchecked-span checked-span">'+depart_name+'</span></a>';
                 $(".tit-li").append(menuitem);
                 var width=$(".tit-li").width();
-                //console.log("屏幕总长："+width);
+                console.log("屏幕总长："+width);
                 var le=$(".unchecked-span").length;
-                //console.log("标签总数："+le);
+                console.log("标签总数："+le);
                 var span = 0;
                 for(var i=0;i<le;i++){
                     span = $(".unchecked-span").eq(i).outerWidth()+span;
                 }
-                //console.log("实际总长："+span);
+                console.log("实际总长："+span);
                 var checkedWidth=$(".checked-span").outerWidth();
-                //console.log("最后选中标签长："+checkedWidth);
+                console.log("最后选中标签长："+checkedWidth);
                 if(span>width)
                 {
                     $(".unchecked-span").last().removeClass("unchecked-span");

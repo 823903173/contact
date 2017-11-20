@@ -101,10 +101,11 @@ public class AddresslistAppLoginController {
         System.out.println(betaNumber+"   1111111111111111111111betaNumber");
          int abb = Integer.parseInt(betaNumber);
         //系统当前版本号
+        //系统当前版本号
         int systemBetaNumber = 2;
         System.out.println(betaNumber+"   1111111111111111111111betaNumber");
         JSONObject json = new JSONObject();
-        boolean res  =  (systemBetaNumber>=abb);
+        boolean res  =  (systemBetaNumber>abb);
         json.put("flag",res);
         DoAjax.doAjax(response, json, null);
     }

@@ -75,6 +75,7 @@ public class OrganizationController {
             List<Organization> res = iOrganizationService.getIdByGroupId(id);
         /*查询组织下所有组织
         *
+        *
         * 如果是空
         * 查询该组织ID下所有人员信息列表*/
             if (res.size()==0 || res.isEmpty()){
@@ -85,9 +86,11 @@ public class OrganizationController {
                 for (int i=0;i<resOfUser.size();i++){
                     System.out.println(resOfUser.get(i).getIsHidden()+"             hiden");
                     if (resOfUser.get(i).getIsHidden() ==(long)1){
-                        resOfUser.get(i).setPhoneNum((long) 110);
+                        resOfUser.get(i).setPhoneNum((long) 0000);
                     }
                 }
+
+
 
 
                 json.put("msg",1);//

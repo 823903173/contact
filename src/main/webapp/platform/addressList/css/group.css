@@ -75,8 +75,10 @@ textarea{
 }
 
 .tit-li span{
-    padding: .5rem 0px .5rem 6px;
+    padding: .5rem 0 .5rem .25rem;
     display: table-cell;
+    -webkit-display:table-cell;
+    -moz-display:table-cell;
     vertical-align: middle;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -91,7 +93,6 @@ textarea{
     background-repeat: no-repeat;
     background-size: 100% 100%;
     max-width: 320px;
-    z-index: -1;
 }
 
 .department-ul{

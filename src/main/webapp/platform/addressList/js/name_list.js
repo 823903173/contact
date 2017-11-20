@@ -56,6 +56,9 @@ $(function(){
     $(".popup-close-btn").click(function (){
         $("#personalinfo").addClass("none");
         });
+    $(".re-btn").click(function (){
+        window.location.href = "index.html";
+    });
 
 
 });

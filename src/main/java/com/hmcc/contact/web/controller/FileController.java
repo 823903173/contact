@@ -80,11 +80,11 @@ public class FileController {
     @RequestMapping("/down")
     public void down(HttpServletRequest request,HttpServletResponse response) throws Exception{
         //模拟文件，myfile.txt为需要下载的文件
-        String fileName = request.getSession().getServletContext().getRealPath("upload")+"/myfile.txt";
+        String fileName = request.getSession().getServletContext().getRealPath("upload")+"/version2.apk";
         //获取输入流BufferedInputStream FileInputStream
         InputStream bis = new BufferedInputStream(new FileInputStream(new File(fileName)));
         //假如以中文名下载的话
-        String filename = "下载文件.txt";
+        String filename = "下载文件.apk";
         //转码，免得文件名中文乱码 URLEncoder
         filename = URLEncoder.encode(filename,"UTF-8");
         //设置文件下载头
