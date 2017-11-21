@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.net.URLDecoder;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -179,14 +180,20 @@ public class AddresslistUserController {
             {
 
                 List<AddresslistUser> res = iAddresslistUserService.searchByName(str.trim());
-                List<Organization> groupNameList = iOrganizationService.getNameByGroupId(res.get(0).getGroupId());
-                /*强制转换隐藏手机号为110*/
-//                int a = 1;
-//                long b = 1;
-////                a =  (int) b;
-//                b = (long) a
+                List groupNameList = new ArrayList<Organization>();
+//                for (int i = 0; i<res.size();i++){
 
+//                }
+//                List<Organization> groupNameList = iOrganizationService.getNameByGroupId(res.get(0).getGroupId());
+                /*强制转换隐藏手机号为110*/
                 for (int i=0;i<res.size();i++){
+                    /*通过组织ID查询组织名称  并且add
+                    *
+                    * 适用于重名
+                    * */
+                    iOrganizationService.getNameByGroupId(res.get(i).getGroupId());
+                    groupNameList.add(iOrganizationService.getNameByGroupId(res.get(i).getGroupId()));
+                    /*强制转换 隐藏手机号为0000*/
                     if ( res.get(i).getIsHidden() == (long) 1){
                         res.get(i).setPhoneNum((long) 0000);
                     }
