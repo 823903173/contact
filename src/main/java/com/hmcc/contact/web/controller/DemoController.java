@@ -31,7 +31,7 @@ public class DemoController extends AbstractController{
     @Autowired
     private IDemoService iDemoService;
 
-    @GetMapping("lista")
+    @RequestMapping("lista")
     public List<Demo> list() {
         EntityWrapper<Demo> demoEntityWrapper = new EntityWrapper<>();
         return iDemoService.selectList(demoEntityWrapper);

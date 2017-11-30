@@ -180,25 +180,50 @@ public class AddresslistUserController {
             {
 
                 List<AddresslistUser> res = iAddresslistUserService.searchByName(str.trim());
-                List groupNameList = new ArrayList<Organization>();
+//                List groupNameList = new ArrayList<Organization>();
+                List<Organization> groupNameList = new ArrayList<Organization>();
+                List<Organization> groupNameList3 = new ArrayList<Organization>();
+                List<Organization> groupNameList6 = new ArrayList<Organization>();
 //                for (int i = 0; i<res.size();i++){
-
 //                }
 //                List<Organization> groupNameList = iOrganizationService.getNameByGroupId(res.get(0).getGroupId());
+//                Organization a = new Organization();
+
                 /*强制转换隐藏手机号为110*/
+//                System.out.println(res.size()+"aaaaaaaaaaaaaaares.size");
+//                System.out.println(res.get(0).getGroupId()+"   res.get(0).getGroupId()");
+//                System.out.println(iOrganizationService.getNameByGroupId(res.get(0).getGroupId()).get(0)+"     aaaa");
+//                groupNameList.add(iOrganizationService.getNameByGroupId(res.get(0).getGroupId()).get(0));
+//                System.out.println((res.get(0).getGroupId())+"   res.get(0).getGroupId()");
+
+
                 for (int i=0;i<res.size();i++){
+//                    System.out.println(res.size()+"aaaaaaaaaaaaaaares.size");
+//                    System.out.println(res.get(i).getGroupId()+"   res.get(0).getGroupId()");
+//                    System.out.println(iOrganizationService.getNameByGroupId(res.get(i).getGroupId()).get(0)+"     aaaa");
                     /*通过组织ID查询组织名称  并且add
                     *
                     * 适用于重名
                     * */
-                    iOrganizationService.getNameByGroupId(res.get(i).getGroupId());
-                    groupNameList.add(iOrganizationService.getNameByGroupId(res.get(i).getGroupId()));
+//                    iOrganizationService.getNameByGroupId(res.get(i).getGroupId());
+//                    groupNameList.add(iOrganizationService.getNameByGroupId(res.get(i).getGroupId()));
+
+//                    if (res.get(i).getGroupId().length()==9){
+//
+//                    }else{
+//
+//                    }
+                    groupNameList.add(iOrganizationService.getNameByGroupId(res.get(i).getGroupId()).get(0));
+                    groupNameList3.add(iOrganizationService.getNameByGroupId(res.get(i).getGroupId().substring(0,res.get(i).getGroupId().length()-3)).get(0));
+                    groupNameList6.add(iOrganizationService.getNameByGroupId(res.get(i).getGroupId().substring(0,res.get(i).getGroupId().length()-6)).get(0));
                     /*强制转换 隐藏手机号为0000*/
                     if ( res.get(i).getIsHidden() == (long) 1){
                         res.get(i).setPhoneNum((long) 0000);
                     }
                 }
                 json.put("groupNameList",groupNameList);
+                json.put("groupNameList3",groupNameList3);
+                json.put("groupNameList6",groupNameList6);
                 json.put("value",res);
                 json.put("msg",1);//
                 DoAjax.doAjax(response, json, null);

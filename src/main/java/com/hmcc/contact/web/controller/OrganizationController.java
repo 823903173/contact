@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.hmcc.contact.service.IAddresslistAppLoginService;
 import com.hmcc.contact.entity.*;
 import com.hmcc.contact.service.IAddresslistUserService;
+import com.hmcc.contact.service.IDemoService;
 import com.hmcc.contact.service.IOrganizationService;
 import com.hmcc.contact.util.DoAjax;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,6 +58,8 @@ public class OrganizationController {
     private IOrganizationService iOrganizationService;
     @Autowired
     private IAddresslistUserService iAddresslistUserService;
+    @Autowired
+    private IDemoService iDemoService;
 
 
     /*根据组织ID展示下级组织信息
@@ -81,23 +84,44 @@ public class OrganizationController {
             if (res.size()==0 || res.isEmpty()){
                 System.out.println("res shi kong");
                 List<AddresslistUser> resOfUser = iAddresslistUserService.getOnesByDepart(id);
-                /*强制转换隐藏手机号为110*/
-                System.out.println(resOfUser.size()+"      size");
-                for (int i=0;i<resOfUser.size();i++){
-                    System.out.println(resOfUser.get(i).getIsHidden()+"             hiden");
-                    if (resOfUser.get(i).getIsHidden() ==(long)1){
-                        resOfUser.get(i).setPhoneNum((long) 0000);
+                System.out.println(resOfUser+ "    resOfUser");
+                if(resOfUser==null){
+                    json.put("msg",1);//
+                    json.put("isEnd",true);
+                    json.put("OrganizationValue",null);
+                    json.put("UserValue",resOfUser);
+                    DoAjax.doAjax(response, json, null);
+                }else{
+                     /*强制转换隐藏手机号为110*/
+                    System.out.println(resOfUser.size()+"      size");
+                    for (int i=0;i<resOfUser.size();i++){
+                        System.out.println(resOfUser.get(i).getIsHidden()+"             hiden");
+                        if (resOfUser.get(i).getIsHidden() ==(long)1){
+                            resOfUser.get(i).setPhoneNum((long) 0000);
+                        }
                     }
+                    json.put("msg",1);//
+                    json.put("isEnd",true);
+                    json.put("OrganizationValue",null);
+                    json.put("UserValue",resOfUser);
+                    DoAjax.doAjax(response, json, null);
                 }
 
+//                /*强制转换隐藏手机号为110*/
+//                System.out.println(resOfUser.size()+"      size");
+//                for (int i=0;i<resOfUser.size();i++){
+//                    System.out.println(resOfUser.get(i).getIsHidden()+"             hiden");
+//                    if (resOfUser.get(i).getIsHidden() ==(long)1){
+//                        resOfUser.get(i).setPhoneNum((long) 0000);
+//                    }
+//                }
+//                json.put("msg",1);//
+//                json.put("isEnd",true);
+//                json.put("OrganizationValue",null);
+//                json.put("UserValue",resOfUser);
+//                DoAjax.doAjax(response, json, null);
 
 
-
-                json.put("msg",1);//
-                json.put("isEnd",true);
-                json.put("OrganizationValue",null);
-                json.put("UserValue",resOfUser);
-                DoAjax.doAjax(response, json, null);
             }else {
 //          * 如果是不空
 //          * 返回下级所有组织结构
@@ -139,38 +163,71 @@ public class OrganizationController {
             List<Organization> listName = iOrganizationService.getNameByGroupId(list.get(0).getGroupId());
             System.out.println("listName        " +listName  );
             s = list.get(0).getGroupId();
-            if (s.substring(0,s.length()-6).length()==0){
-                System.out.println("            a"+s.substring(0,s.length()-3));
+                /*第一级
+                * 返回第一级
+                *
+                *在这里判断
+                *
+                * */
+                List<Demo> firstListName = iDemoService.getModelNumber();
+                String firstListString = firstListName.get(0).getState().toString();
+                if(firstListString.equals("1")){
+                    /*等于1的时候
+                    *
+                    * 状态
+                    *
+                    * 返回首级
+                    *
+                    * 注意！！！！grandFatherList就是首级！！！
+                    * 减少前台判断 用同一字段*/
+                    List<Organization> fatherListName = iOrganizationService.getNameByGroupId(s.substring(0,s.length()-3));
+                    List<Organization> grandFatherListName = iOrganizationService.getNameByGroupId(s.substring(0,3));
+                    json.put("msg",1);//
+                    json.put("userInfo",list);
+                    json.put("list",listName);
+                    json.put("fartherList",fatherListName);
+                    json.put("grandFatherList",grandFatherListName);
+                    DoAjax.doAjax(response, json, null);
+                }else{
+                    /*不不不！！！等于1的时候
+                    *
+                    * 状态
+                    *
+                    * 返回前3级*/
+                    if (s.substring(0,s.length()-6).length()==0){
+                        System.out.println("            a"+s.substring(0,s.length()-3));
 //                List<AddresslistUser> fatherList = iAddresslistUserService.getOnesByDepart(s.substring(0,s.length()-3));
 //                String fatherListName = fatherList.get(0).getGroupId();
-                List<Organization> fatherListName = iOrganizationService.getNameByGroupId(s.substring(0,s.length()-3));
-
-                json.put("msg",1);//
-                json.put("userInfo",list);
-                json.put("list",listName);
-                json.put("fartherList",fatherListName);
-                json.put("grandFatherList",null);
-                DoAjax.doAjax(response, json, null);
-            }else {
-                System.out.println("            b"+s.substring(0,s.length()-6));
-                System.out.println("SSSSSSS  " +s);
-                System.out.println("S.lenth-----3  " +s.substring(0,s.length()-3));
+                        List<Organization> fatherListName = iOrganizationService.getNameByGroupId(s.substring(0,s.length()-3));
+//                List<Organization> firstListName = iOrganizationService.getNameByGroupId(s.substring(0,3));
+                        json.put("msg",1);//
+                        json.put("userInfo",list);
+                        json.put("list",listName);
+                        json.put("fartherList",fatherListName);
+                        json.put("grandFatherList",null);
+                        DoAjax.doAjax(response, json, null);
+                    }else {
+//                        System.out.println("            b"+s.substring(0,s.length()-6));
+//                        System.out.println("SSSSSSS  " +s);
+//                        System.out.println("S.lenth-----3  " +s.substring(0,s.length()-3));
 //                List<AddresslistUser> fatherList = iAddresslistUserService.getOnesByDepart(s.substring(0,s.length()-3));
 //                System.out.println("fatherList  " +fatherList);
 //                System.out.println("fatherList.get(0).getGroupId()  " +fatherList.get(0).getGroupId());
 
-                List<Organization> fatherListName = iOrganizationService.getNameByGroupId(s.substring(0,s.length()-3));
-                System.out.println("fatherListName  " +fatherListName);
+                        List<Organization> fatherListName = iOrganizationService.getNameByGroupId(s.substring(0,s.length()-3));
+//                        System.out.println("fatherListName  " +fatherListName);
 
 //                List<AddresslistUser> grandFatherList = iAddresslistUserService.getOnesByDepart(s.substring(0,s.length()-6));
-                List<Organization> grandFatherListName = iOrganizationService.getNameByGroupId(s.substring(0,s.length()-6));
-                json.put("msg",1);//
-                json.put("userInfo",list);
-                json.put("list",listName);
-                json.put("fartherList",fatherListName);
-                json.put("grandFatherList",grandFatherListName);
-                DoAjax.doAjax(response, json, null);
-            }
+                        List<Organization> grandFatherListName = iOrganizationService.getNameByGroupId(s.substring(0,s.length()-6));
+                        json.put("msg",1);//
+                        json.put("userInfo",list);
+                        json.put("list",listName);
+                        json.put("fartherList",fatherListName);
+                        json.put("grandFatherList",grandFatherListName);
+                        DoAjax.doAjax(response, json, null);
+                    }
+
+                }
         }
     }
 

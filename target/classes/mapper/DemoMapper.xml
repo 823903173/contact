@@ -17,4 +17,8 @@
     <select id="list" resultMap="BaseResultMap">
        select * from tv_demo
     </select>
+
+    <select id="getModelNumber" resultMap="BaseResultMap">
+        select state from tv_demo where Id = 1;
+    </select>
 </mapper>

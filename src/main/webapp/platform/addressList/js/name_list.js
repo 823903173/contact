@@ -18,23 +18,29 @@ $(function(){
                 return;
             }
             if(msg == 1){
-                var groupName;
-                for(var i=0;i<groupNameList.length;i++) {
-                    groupName = groupNameList[i].name;
-                }
+                // var groupName;
+                // for(var i=0;i<groupNameList.length;i++) {
+                //     groupName = groupNameList[i].name;
+                // }
                 for (var i=0;i<user_list.length;i++){
                     var phoneNum = user_list[i].phoneNum;
-                    var extendedField1 = user_list[i].extendedField1;
                     var userName = user_list[i].userName;
-                    var item_li = '<li>' +'<a class="name-btn">'
-                        +'<span class="headimg"><textarea id="content"></textarea></span>' +'<span class="name-span">'+user_list[i].userName+'</span>'
+                    var groupName = groupNameList[i].name;
+                    console.log(groupNameList[i].name);
+                    var item_li = '<li class="name-li">' +'<a class="name-btn">'
+                        +'<span class="headimg"><textarea class="content"></textarea></span>' +'<span class="name-span">'+user_list[i].userName+'</span>'
                         +'<span class="group-span">'+groupName+'</span></a></li>'
                     $(".namelist-ul").append(item_li);
-                    $("#content").val(user_list[i].userName);
-                    $("#content").val($("#content").toPinyin().substr(0,1));
-                    $('.name-btn').click(function(){
-                        getUserinfo(userName,phoneNum,groupName);
+                    $('.name-li').eq($('.name-li').length-1).find('a').attr("id",userName);
+                    $('.name-li').eq($('.name-li').length-1).find('a').attr("data",phoneNum);
+                    $('.name-li').eq($('.name-li').length-1).find('a').attr("data-id",groupName);
+
+                    $(".content").eq($('.content').length-1).val(userName);
+                    $(".content").eq($('.content').length-1).val($(".content").eq($('.content').length-1).toPinyin().substr(0,1));
+                    $('.name-btn').eq($('.name-btn').length-1).click(function(){
+                        getUserinfo($(this).attr('id'),$(this).attr('data'),$(this).attr('data-id'));
                     });
+
                 }
             }
 
@@ -59,8 +65,6 @@ $(function(){
     $(".re-btn").click(function (){
         window.location.href = "index.html";
     });
-
-
 });
 
 function GetdecodeQueryString(name)

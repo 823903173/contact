@@ -31,10 +31,13 @@ $(function(){
                     if (flag == true) {
                         layer.open({
                             type: 4,
-                            time:3,
+                            time:2,
                             shade:true,
                             area : ['250px' , 'auto'],
-                            content: '提交成功！'
+                            content: '提交成功！',
+                            end: function () {
+                                window.location.href = "index.html";
+                            }
                         });
                     } else {
                         $('.confirm-btn').closest('dd').after('<span style="color: red;margin-top: 1rem" id="tips">提交失败</span>');

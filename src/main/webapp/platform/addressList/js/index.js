@@ -81,6 +81,9 @@ $(function(){
     $('.header-leave').click(function(){
         loginOut();
     });
+    $('.question').click(function(){
+        window.location.href = "question.html";
+    });
 
 
 });

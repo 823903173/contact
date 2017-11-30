@@ -33,7 +33,6 @@ window.onload = function () {
 
 //加载部门组织
 function group(depart_id,depart_name){
-    console.log(depart_id);
     $.ajax({
         url: "/hmcc/organization/getIdByGroupId.do",
         type:"post",
@@ -55,16 +54,16 @@ function group(depart_id,depart_name){
                 var menuitem = '<a class="menu-btn"><span class="unchecked-span checked-span">'+depart_name+'</span></a>';
                 $(".tit-li").append(menuitem);
                 var width=$(".tit-li").width();
-                console.log("屏幕总长："+width);
+                //console.log("屏幕总长："+width);
                 var le=$(".unchecked-span").length;
-                console.log("标签总数："+le);
+                //console.log("标签总数："+le);
                 var span = 0;
                 for(var i=0;i<le;i++){
                     span = $(".unchecked-span").eq(i).outerWidth()+span;
                 }
-                console.log("实际总长："+span);
+                //console.log("实际总长："+span);
                 var checkedWidth=$(".checked-span").outerWidth();
-                console.log("最后选中标签长："+checkedWidth);
+                //console.log("最后选中标签长："+checkedWidth);
                 if(span>width)
                 {
                     $(".unchecked-span").last().removeClass("unchecked-span");
@@ -142,6 +141,24 @@ function getMenulist(depart_id,that){
     for(var i=index;i<num;i++){
         $('.menu-btn').eq(i).empty();
     }
+    $(".unchecked-span").css("max-width", "320px");
+    var width=$(".tit-li").width();
+    //console.log("屏幕总长："+width);
+    var le=$(".unchecked-span").length;
+    //console.log("标签总数："+le);
+    var span = 0;
+    for(var i=0;i<le;i++){
+        span = $(".unchecked-span").eq(i).outerWidth()+span;
+    }
+    //console.log("实际总长："+span);
+    var checkedWidth=$(".checked-span").outerWidth();
+    //console.log("最后选中标签长："+checkedWidth);
+    if(span>width)
+    {
+        $(".unchecked-span").last().removeClass("unchecked-span");
+        $(".unchecked-span").css("max-width", (width-checkedWidth)/(le-1)-12);
+        $(".checked-span").last().addClass("unchecked-span");
+    }
     $.ajax({
         url: "/hmcc/organization/getIdByGroupId.do",
         type:"post",
@@ -168,9 +185,7 @@ function getMenulist(depart_id,that){
                         var phoneNum = UserValue[i].phoneNum;
                         var itemli = '<li class="name-li"><a class="name-btn">'+
                             '<span class="headimg"><textarea class="content"></textarea></span>'+
-                            '<span class="name-span">'+UserValue[i].userName+'</span></a>'+
-                            '<a class="name-btn dial-btn">'+
-                            '<span><img src="images/dial.jpg"/></span></a></li>';
+                            '<span class="name-span">'+UserValue[i].userName+'</span></a></li>';
                         $(".namelist-ul").append(itemli);
                         $('.name-li').eq($('.name-li').length-1).find('a').attr("id",userName);
                         $('.name-li').eq($('.name-li').length-1).find('a').attr("data",phoneNum);

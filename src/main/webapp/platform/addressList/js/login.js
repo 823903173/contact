@@ -120,7 +120,8 @@ function getVersion() {
 
 function validPhone() {
     $("#tips").remove();
-    var pattern = /^1(3[4-9]|5[012789]|8[23478]|4[7]|7[8])\d{8}$/;
+    //var pattern = /^1(3[4-9]|5[012789]|8[23478]|4[7]|7[8])\d{8}$/;
+    var pattern = /^[1][3,4,5,7,8][0-9]{9}$/;
     if (!$('#phone').val()) {
         $('#phone').closest('p').after('<span style="color: red" id="tips">请输入11位手机号！</span>');
         return false;
